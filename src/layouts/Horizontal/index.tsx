@@ -53,10 +53,11 @@ const HorizontalLayout = ({ children }: HorizontalLayoutProps) => {
   }));
 
   useEffect(() => {
-    if (width < 1140) {
+    console.log(width);
+    if (width < 800) {
       dispatch(changeLayout(LayoutTypes.LAYOUT_VERTICAL));
       dispatch(changeSidebarType(SideBarTypes.LEFT_SIDEBAR_TYPE_FULL));
-    } else if (width >= 1140) {
+    } else if (width >= 800) {
       dispatch(changeLayout(LayoutTypes.LAYOUT_HORIZONTAL));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -118,9 +119,9 @@ const HorizontalLayout = ({ children }: HorizontalLayoutProps) => {
         </Suspense>
 
         <div className="content-page">
-          <Suspense fallback={loading()}>
+          {/* <Suspense fallback={loading()}>
             <Topbar openLeftMenuCallBack={openMenu} topbarDark={false} />
-          </Suspense>
+          </Suspense> */}
 
           <div className="content">
             <Container fluid>

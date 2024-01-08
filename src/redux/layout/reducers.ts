@@ -25,7 +25,7 @@ const INIT_STATE = {
   twoColumnTheme: TwoColumnTheme.TWOCOLUMN_LIGHT,
   layoutMode: LayoutMode.LAYOUT_DEFAULT,
   sidenavUser: false,
-  layoutType: LayoutTypes.LAYOUT_VERTICAL,
+  layoutType: LayoutTypes.LAYOUT_HORIZONTAL,
   layoutColor: LayoutColor.LAYOUT_COLOR_LIGHT,
   layoutWidth: LayoutWidth.LAYOUT_WIDTH_FLUID,
   menuPosition: MenuPositions.MENU_POSITION_FIXED,
