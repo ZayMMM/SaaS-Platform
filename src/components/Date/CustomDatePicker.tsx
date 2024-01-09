@@ -2,6 +2,7 @@ import React, { forwardRef } from "react";
 import DatePicker from "react-datepicker";
 import classNames from "classnames";
 import "react-datepicker/dist/react-datepicker.css";
+import { format } from "date-fns";
 
 interface DatepickerInputProps {
   onClick?: () => void;
@@ -35,16 +36,17 @@ const DatepickerInputWithAddon = forwardRef<
   DatepickerInputProps
 >((props, ref) => (
   <div className="input-group input-group-sm" ref={ref}>
+    <span className="input-group-text ">
+      <i className="mdi mdi-calendar-range"></i>
+    </span>
     <input
       type="text"
       className={classNames("form-control", props.inputClass)}
       onClick={props.onClick}
       value={props.value}
+      style={{ maxWidth: "130px" }}
       readOnly
     />
-    <span className="input-group-text bg-blue border-blue text-white">
-      <i className="mdi mdi-calendar-range"></i>
-    </span>
   </div>
 ));
 
@@ -66,19 +68,21 @@ interface HyperDatepickerProps {
   showYearPicker?: boolean;
 }
 
-const HyperDatepicker = (props: HyperDatepickerProps) => {
+const CustomDatePicker = (props: HyperDatepickerProps) => {
   // handle custom input
   // ;
+
+  const formattedValue = format(props.value, props.dateFormat || "MM/dd/yyyy");
+
+  console.log(formattedValue);
+
   const input =
     (props.hideAddon || false) === true ? (
-      <DatepickerInput
-        inputClass={props.inputClass!}
-        value={props.value?.toDateString()}
-      />
+      <DatepickerInput inputClass={props.inputClass!} value={formattedValue} />
     ) : (
       <DatepickerInputWithAddon
         inputClass={props.inputClass!}
-        value={props.value?.toDateString()}
+        value={formattedValue}
       />
     );
 
@@ -89,7 +93,6 @@ const HyperDatepicker = (props: HyperDatepickerProps) => {
         customInput={input}
         timeIntervals={props.tI}
         selected={props.value}
-        value={props.value.toDateString()}
         onChange={(date) => props.onChange(date)}
         showTimeSelect={props.showTimeSelect}
         timeFormat={props.timeFormat}
@@ -107,4 +110,4 @@ const HyperDatepicker = (props: HyperDatepickerProps) => {
   );
 };
 
-export default HyperDatepicker;
+export default CustomDatePicker;
