@@ -36,7 +36,7 @@ const MarketShareLineChart = () => {
     },
     stroke: {
       width: [2, 2],
-      curve: "smooth",
+      curve: "straight",
     },
     title: {
       text: "Average High & Low Temperature",
