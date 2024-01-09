@@ -15,6 +15,8 @@ import { splitArray } from "../../utils/";
 
 // custom hook
 import { useViewport } from "../../hooks/useViewPort";
+import HeaderSearch from "./HeaderSearch";
+import Logout from "./Logout";
 
 interface MenuItems {
   item: MenuItemTypes;
@@ -192,6 +194,8 @@ const MenuItemLink = ({ item, className }: MenuItems) => {
             <FeatherIcon icon={item.icon} className="hori-icon me-1" />
           </span>
         )}
+
+        {item.logo && <img src={item.logo} />}
         <span className="menu-text"> {item.label} </span>
       </Link>
     </li>
@@ -257,8 +261,14 @@ const AppMenu = ({ menuItems }: AppMenuProps) => {
     if (div) {
       let items: any = div.getElementsByTagName("a");
       for (let i: number = 0; i < items.length; ++i) {
-        let trimmedURL = location?.pathname?.replaceAll(process.env.PUBLIC_URL, "");
-        if (trimmedURL === items[i]?.pathname?.replaceAll(process.env.PUBLIC_URL, "")) {
+        let trimmedURL = location?.pathname?.replaceAll(
+          process.env.PUBLIC_URL,
+          ""
+        );
+        if (
+          trimmedURL ===
+          items[i]?.pathname?.replaceAll(process.env.PUBLIC_URL, "")
+        ) {
           matchingMenuItem = items[i];
           break;
         }
@@ -312,6 +322,8 @@ const AppMenu = ({ menuItems }: AppMenuProps) => {
             </React.Fragment>
           );
         })}
+        <HeaderSearch />
+        <Logout />
       </ul>
     </>
   );

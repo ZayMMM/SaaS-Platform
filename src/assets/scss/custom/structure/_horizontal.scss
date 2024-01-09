@@ -64,6 +64,7 @@ html[data-layout="horizontal"] {
       min-width: 100%;
       max-width: 100%;
       padding: 0 $spacer;
+      align-items: center;
 
       > .menu-item {
         > .menu-link {
@@ -253,4 +254,22 @@ html[data-layout="horizontal"] {
       }
     }
   }
+}
+
+.menu-search {
+  width: 450px !important;
+}
+
+.menu-search .menuSearchInput {
+  height: 32px !important;
+  border-radius: 40px;
+  border-right: 0px !important;
+  background: #f3f7f9;
+  color: #8f8787;
+}
+
+.menu-search .input-group-text {
+  height: 32px !important;
+  border-radius: 40px;
+  background: #f3f7f9;
 }

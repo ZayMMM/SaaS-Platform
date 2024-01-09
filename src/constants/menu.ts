@@ -1,3 +1,5 @@
+import Logo from "../assets/images/trade-logo.png";
+
 export interface MenuItemTypes {
   key: string;
   label: string;
@@ -11,6 +13,7 @@ export interface MenuItemTypes {
   parentKey?: string;
   target?: string;
   children?: MenuItemTypes[];
+  logo?: string;
 }
 
 const MENU_ITEMS: MenuItemTypes[] = [
@@ -403,32 +406,27 @@ const MENU_ITEMS: MenuItemTypes[] = [
 const HORIZONTAL_MENU_ITEMS: MenuItemTypes[] = [
   {
     key: "dashboard",
-    icon: "home",
-    label: "Dashboard",
+    icon: "",
+    label: "",
     isTitle: true,
+    logo: `${Logo}`,
   },
   {
     key: "apps",
-    icon: "grid",
-    label: "Apps",
+    icon: "home",
+    label: "Home",
     isTitle: true,
   },
   {
     key: "base-ui",
-    icon: "briefcase",
-    label: "UI Elements",
+    icon: "home",
+    label: "Individual Data",
     isTitle: true,
   },
   {
     key: "components",
-    icon: "package",
-    label: "Components",
-    isTitle: true,
-  },
-  {
-    key: "pages",
-    icon: "file-text",
-    label: "Pages",
+    icon: "aperture",
+    label: "Support",
     isTitle: true,
   },
 ];
