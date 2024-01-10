@@ -1,7 +1,7 @@
 import { Card } from "react-bootstrap";
 import CustomDatePicker from "../Date/CustomDatePicker";
 import ExportButton from "../Button/ExportButton";
-import { defaults as ChartjsDefaults, Line } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
 interface LineChartProps {
   chartTitle: string;
