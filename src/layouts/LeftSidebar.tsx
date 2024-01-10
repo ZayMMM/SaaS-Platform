@@ -21,6 +21,7 @@ import logoDark from "../assets/images/logo-dark.png";
 import logoDark2 from "../assets/images/logo-dark-2.png";
 import logoLight from "../assets/images/logo-light.png";
 import logoLight2 from "../assets/images/logo-light-2.png";
+import TradeLogo from "../assets/images/trade-logo.png";
 
 /* user box */
 const UserBox = () => {
@@ -158,15 +159,7 @@ const LeftSidebar = ({ isCondensed, hideLogo }: LeftSidebarProps) => {
                 <img src={logoSm} alt="" height="22" />
               </span>
               <span className="logo-lg">
-                <img
-                  src={
-                    layoutType === LayoutTypes.LAYOUT_TWO_COLUMN
-                      ? logoDark2
-                      : logoDark
-                  }
-                  alt=""
-                  height="20"
-                />
+                <img src={TradeLogo} alt="" height="20" />
               </span>
             </Link>
             <Link to="/" className="logo logo-light text-center">
@@ -174,15 +167,7 @@ const LeftSidebar = ({ isCondensed, hideLogo }: LeftSidebarProps) => {
                 <img src={logoSm} alt="" height="22" />
               </span>
               <span className="logo-lg">
-                <img
-                  src={
-                    layoutType === LayoutTypes.LAYOUT_TWO_COLUMN
-                      ? logoLight2
-                      : logoLight
-                  }
-                  alt=""
-                  height="20"
-                />
+                <img src={TradeLogo} alt="" height="20" />
               </span>
             </Link>
           </div>

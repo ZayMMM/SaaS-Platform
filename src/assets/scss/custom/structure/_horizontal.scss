@@ -273,3 +273,14 @@ html[data-layout="horizontal"] {
   border-radius: 40px;
   background: #f3f7f9;
 }
+
+.apexcharts-title-text,
+.apexcharts-subtitle-text {
+  // display: none !important;
+}
+
+@media (max-width: 1024px) {
+  .menu-search {
+    width: 200px !important;
+  }
+}

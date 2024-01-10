@@ -35,23 +35,50 @@ const DatepickerInputWithAddon = forwardRef<
   HTMLInputElement,
   DatepickerInputProps
 >((props, ref) => (
-  <div className="input-group input-group-sm" ref={ref}>
-    <span className="input-group-text ">
-      <i className="mdi mdi-calendar-range"></i>
-    </span>
-    <input
-      type="text"
-      className={classNames("form-control", props.inputClass)}
-      onClick={props.onClick}
-      value={props.value}
-      style={{ maxWidth: "130px" }}
-      readOnly
-    />
-  </div>
+  // <div
+  //   className="input-group input-group-sm"
+  //   ref={ref}
+  //   style={{ maxWidth: "120px" }}
+  // >
+  //   <span className="input-group-text " style={{ backgroundColor: "#fff" }}>
+  //     <i className="mdi mdi-calendar-range" style={{ fontSize: "16px" }}></i>
+  //   </span>
+  //   <input
+  //     type="text"
+  //     className={classNames("form-control", props.inputClass)}
+  //     onClick={props.onClick}
+  //     value={props.value}
+  //     style={{ height: "40px", borderLeft: "0px", fontSize: "14px" }}
+  //     readOnly
+  //   />
+  // </div>
+  <button
+    onClick={props.onClick}
+    style={{
+      height: "40px",
+      width: "125px",
+      display: "flex",
+      alignItems: "center",
+      gap: "10px",
+      border: "1px solid #C5C5C5",
+      backgroundColor: "#fff",
+      borderRadius: "5px",
+    }}
+  >
+    <i
+      className="mdi mdi-calendar-range"
+      style={{ fontSize: "16px", paddingTop: "2px" }}
+    ></i>
+    <span style={{ fontSize: "14px" }}> {props.value}</span>
+    <i
+      className="fas fa-caret-down"
+      style={{ fontSize: "16px", marginLeft: "20px" }}
+    ></i>
+  </button>
 ));
 
 interface HyperDatepickerProps {
-  value: Date;
+  value: any;
   onChange: (date: any) => void;
   hideAddon?: boolean;
   inputClass?: string;

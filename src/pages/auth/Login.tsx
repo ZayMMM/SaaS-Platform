@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Button, Alert, Row, Col } from "react-bootstrap";
-import { Navigate, Link, useLocation } from "react-router-dom";
+import { Navigate, Link, useLocation, useNavigate } from "react-router-dom";
+
 import { useSelector, useDispatch } from "react-redux";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -124,6 +125,7 @@ const Login = () => {
   /*
   handle form submission
   */
+
   const onSubmit = (formData: UserData) => {
     dispatch(loginUser(formData["username"], formData["password"]));
   };
@@ -131,12 +133,10 @@ const Login = () => {
   const location = useLocation();
   //
   // const redirectUrl = location.state && location.state.from ? location.state.from.pathname : '/';
-  const redirectUrl = location?.search?.slice(6) || "/";
+  const redirectUrl = "/home";
 
   return (
     <>
-      {(userLoggedIn || user) && <Navigate to={redirectUrl}></Navigate>}
-
       <AuthLayout bottomLinks={<BottomLink />}>
         {error && (
           <Alert variant="danger" className="my-2">
@@ -165,14 +165,16 @@ const Login = () => {
           ></FormInput>
 
           <div className="text-center d-grid">
-            <Button
-              variant="primary"
-              type="submit"
-              disabled={loading}
-              style={{ height: "50px" }}
-            >
-              {t("Log In")}
-            </Button>
+            <Link to={"/home"}>
+              <Button
+                variant="primary"
+                type="submit"
+                disabled={loading}
+                style={{ height: "50px", width: "100%" }}
+              >
+                {t("Log In")}
+              </Button>
+            </Link>
           </div>
         </VerticalForm>
 

@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LogoutImage from "../../assets/images/logout.png";
 
 const Logout = () => {
@@ -6,7 +6,7 @@ const Logout = () => {
     <>
       <li className="menu-item">
         <Link
-          to={""}
+          to={"/"}
           target={""}
           className="menu-link"
           data-menu-key={"logout"}

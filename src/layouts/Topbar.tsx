@@ -31,6 +31,7 @@ import logoDark2 from "../assets/images/logo-dark-2.png";
 import logoLight from "../assets/images/logo-light.png";
 import logoLight2 from "../assets/images/logo-light-2.png";
 import { useViewport } from "../hooks/useViewPort";
+import TradeLogo from "../assets/images/trade-logo.png";
 
 export interface NotificationItem {
   id: number;
@@ -226,30 +227,29 @@ const Topbar = ({
     leftSideBarType: state.Layout.leftSideBarType,
   }));
 
-
   /**
    * Toggle the leftmenu when having mobile screen
    */
   const handleLeftMenuCallBack = () => {
     if (width < 1140) {
-      if (leftSideBarType === 'full') {
+      if (leftSideBarType === "full") {
         showLeftSideBarBackdrop();
-        document.getElementsByTagName("html")[0].classList.add("sidebar-enable");
-      }
-      else {
+        document
+          .getElementsByTagName("html")[0]
+          .classList.add("sidebar-enable");
+      } else {
         dispatch(changeSidebarType(SideBarTypes.LEFT_SIDEBAR_TYPE_FULL));
       }
     } else if (leftSideBarType === "condensed") {
       dispatch(changeSidebarType(SideBarTypes.LEFT_SIDEBAR_TYPE_DEFAULT));
-    } else if (leftSideBarType === 'full') {
+    } else if (leftSideBarType === "full") {
       showLeftSideBarBackdrop();
       document.getElementsByTagName("html")[0].classList.add("sidebar-enable");
-    } else if (leftSideBarType === 'fullscreen') {
+    } else if (leftSideBarType === "fullscreen") {
       dispatch(changeSidebarType(SideBarTypes.LEFT_SIDEBAR_TYPE_DEFAULT));
       // showLeftSideBarBackdrop();
       document.getElementsByTagName("html")[0].classList.add("sidebar-enable");
-    }
-    else {
+    } else {
       dispatch(changeSidebarType(SideBarTypes.LEFT_SIDEBAR_TYPE_CONDENSED));
     }
   };
@@ -272,7 +272,9 @@ const Topbar = ({
     }
 
     backdrop.addEventListener("click", function (e) {
-      document.getElementsByTagName("html")[0].classList.remove("sidebar-enable");
+      document
+        .getElementsByTagName("html")[0]
+        .classList.remove("sidebar-enable");
       dispatch(changeSidebarType(SideBarTypes.LEFT_SIDEBAR_TYPE_FULL));
       hideLeftSideBarBackdrop();
     });
@@ -311,34 +313,18 @@ const Topbar = ({
               <div className="logo-box">
                 <Link to="/" className="logo logo-dark text-center">
                   <span className="logo-sm">
-                    <img src={logoSm} alt="" height="22" />
+                    <img src={TradeLogo} alt="" height="40" />
                   </span>
                   <span className="logo-lg">
-                    <img
-                      src={
-                        layoutType === LayoutTypes.LAYOUT_TWO_COLUMN
-                          ? logoDark2
-                          : logoDark
-                      }
-                      alt=""
-                      height="20"
-                    />
+                    <img src={TradeLogo} alt="" height="40" />
                   </span>
                 </Link>
                 <Link to="/" className="logo logo-light text-center">
                   <span className="logo-sm">
-                    <img src={logoSm} alt="" height="22" />
+                    <img src={TradeLogo} alt="" height="22" />
                   </span>
                   <span className="logo-lg">
-                    <img
-                      src={
-                        layoutType === LayoutTypes.LAYOUT_TWO_COLUMN
-                          ? logoLight2
-                          : logoLight
-                      }
-                      alt=""
-                      height="20"
-                    />
+                    <img src={TradeLogo} alt="" height="20" />
                   </span>
                 </Link>
               </div>
@@ -359,43 +345,6 @@ const Topbar = ({
               <MegaMenu subMenus={MegaMenuOptions} />
             </div>
           </div>
-
-          <ul className="topbar-menu d-flex align-items-center">
-            <li className="app-search dropdown d-none d-lg-block">
-              <TopbarSearch items={SearchResults} />
-            </li>
-            {/* <li className="dropdown d-inline-block d-lg-none">
-              <SearchDropdown />
-            </li> */}
-            <li className="dropdown d-none d-lg-inline-block">
-              <MaximizeScreen />
-            </li>
-            <li className="dropdown d-none d-lg-inline-block topbar-dropdown">
-              <AppsDropdown />
-            </li>
-            <li className="dropdown d-none d-lg-inline-block topbar-dropdown">
-              <LanguageDropdown />
-            </li>
-            <li className="dropdown notification-list">
-              <NotificationDropdown notifications={Notifications} />
-            </li>
-            <li className="dropdown">
-              <ProfileDropdown
-                profilePic={profilePic}
-                menuItems={ProfileMenus}
-                username={"Geneva"}
-                userTitle={"Founder"}
-              />
-            </li>
-            <li>
-              <button
-                className="nav-link dropdown-toggle right-bar-toggle waves-effect waves-light btn btn-link shadow-none"
-                onClick={handleRightSideBar}
-              >
-                <i className="fe-settings noti-icon font-22"></i>
-              </button>
-            </li>
-          </ul>
         </div>
       </div>
     </React.Fragment>
