@@ -1,110 +1,76 @@
 import { Card } from "react-bootstrap";
-import Chart from "react-apexcharts";
-import { ApexOptions } from "apexcharts";
 import CustomDatePicker from "../Date/CustomDatePicker";
 import ExportButton from "../Button/ExportButton";
+import { defaults as ChartjsDefaults, Line } from "react-chartjs-2";
 
 interface LineChartProps {
   chartTitle: string;
   subTitle?: string;
-  xaxisCategories: string[];
-  dataset: { name: string; data: number[] }[];
+  labels: string[];
+  datasets: any;
   colors?: string[];
   showYearPicker?: boolean;
+  showExport?: boolean;
   selectedDate?: Date;
   onDateChange: (date: any) => void;
 }
 
 const LineChart: React.FC<LineChartProps> = ({
-  chartTitle,
+  chartTitle = "Chart",
   subTitle,
-  xaxisCategories,
-  dataset,
-  colors,
+  labels = [],
+  datasets,
   selectedDate,
   onDateChange,
-  showYearPicker,
+  showYearPicker = true,
+  showExport = true,
 }) => {
-  // default options
-  const apexLineChartWithLables: ApexOptions = {
-    chart: {
-      height: "400px",
-      type: "line",
-      zoom: {
-        enabled: false,
+  // chart options
+  const lineChartOpts = {
+    responsive: true,
+    maintainAspectRatio: true,
+    tooltips: {
+      intersect: true,
+    },
+    hover: {
+      intersect: true,
+    },
+    plugins: {
+      filler: {
+        propagate: false,
       },
-      toolbar: {
-        show: false,
-      },
-    },
-    colors: colors ? colors : ["#870182", "#FF2E2E", "#6DC8EC", "#C0FF71"],
-    dataLabels: {
-      enabled: true,
-    },
-    stroke: {
-      width: [2, 2],
-      curve: "straight",
-    },
-    title: {
-      text: "Items",
-      align: "left",
-      style: {
-        fontSize: "14px",
-      },
-    },
-    grid: {
-      row: {
-        colors: ["transparent", "transparent"], // takes an array which will be repeated on columns
-        opacity: 0.2,
-      },
-      borderColor: "#f1f3fa",
-    },
-    markers: {
-      size: 6,
-    },
-    xaxis: {
-      categories: { xaxisCategories },
-      title: {
-        text: "test",
-      },
-    },
-    yaxis: {
-      title: {
-        text: "Temperature",
-      },
-      min: 0,
-    },
-    legend: {
-      position: "top",
-      horizontalAlign: "right",
-      floating: true,
-      offsetY: -25,
-      offsetX: -5,
-    },
-    responsive: [
-      {
-        breakpoint: 600,
-        options: {
-          chart: {
-            height: 200, // Adjust the height for smaller screens
-            toolbar: {
-              show: false,
-            },
-          },
-          legend: {
-            show: false,
-          },
+      legend: {
+        position: "top" as const,
+        align: "end" as const,
+        display: true,
+        labels: {
+          usePointStyle: true,
+          fontSize: 12,
         },
       },
-      {
-        breakpoint: 1200, // Adjust the breakpoint for larger screens
-        options: {
-          chart: {
-            height: 400, // Adjust the height for larger screens
-          },
+    },
+    scales: {
+      x: {
+        grid: {
+          color: "rgba(0,0,0,0.05)",
         },
       },
-    ],
+      y: {
+        ticks: {
+          stepSize: 100,
+        },
+        display: true,
+        borderDash: [5, 5],
+        grid: {
+          color: "rgba(0,0,0,0.1)",
+        },
+      },
+    },
+  };
+
+  const lineChartData = {
+    labels: labels,
+    datasets: datasets,
   };
 
   return (
@@ -129,19 +95,19 @@ const LineChart: React.FC<LineChartProps> = ({
                 }}
               />
             )}
-            <ExportButton />
+            {showExport && <ExportButton />}
           </div>
         </div>
 
         {subTitle && (
           <p style={{ fontSize: "12px", color: "#8C8C8C" }}>{subTitle}</p>
         )}
-        <Chart
-          options={apexLineChartWithLables}
-          series={dataset}
-          type="line"
-          className="apex-charts"
-        />
+        <div
+          style={{ minHeight: "320px", maxWidth: "100%" }}
+          className="mt-3 chartjs-chart"
+        >
+          <Line data={lineChartData} options={lineChartOpts} />
+        </div>
       </Card.Body>
     </Card>
   );

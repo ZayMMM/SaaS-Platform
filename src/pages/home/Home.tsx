@@ -1,8 +1,6 @@
 import { Row, Col } from "react-bootstrap";
-import UsersBalances from "./UsersBalances";
 import RevenueHistory from "./RevenueHistory";
-
-import { balances, revenueHistory } from "./data";
+import { revenueHistory } from "./data";
 import LineChart from "../../components/LineChart/LineChart";
 import { useState } from "react";
 import BarChart from "../../components/BarChart/BarChart";
@@ -19,62 +17,50 @@ const Home = () => {
     }
   };
 
-  const marketShareData = {
-    chartTitle: "Market Share",
-    subTitle: "Top 15 Products In Market",
-    xaxisCategories: ["2021-01", "2021-02", "2021-03", "2021-04", "2021-05"],
-    colors: ["#870182", "#FF2E2E", "#6DC8EC", "#C0FF71"],
+  // chart data
+  const lineChartData = {
     selectedDate: selectedDate,
     onDateChange: onDateChange,
     showYearPicker: true,
-    dataset: [
+    chartTitle: "Top Sale By Brand",
+    subTitle: "Top 15 Products In Market",
+    labels: ["2021-01", "2021-02", "2021-03", "2021-04", "2021-05"],
+    datasets: [
       {
-        name: "Item 1",
-        data: [100, 200, 300, 500, 200],
+        label: "Item 1",
+        backgroundColor: "#1fa083",
+        borderColor: "#1fa083",
+        data: [100, 300, 200, 500, 700, 800],
       },
       {
-        name: "Item 2",
-        data: [200, 100, 500, 600, 700],
+        label: "Item 2",
+        backgroundColor: "#5AD8A6",
+        borderColor: "#5AD8A6",
+        data: [200, 500, 100, 800, 700, 300],
       },
       {
-        name: "Item 3",
-        data: [400, 100, 500, 800, 700],
+        label: "Item 3",
+        backgroundColor: "#E8684A",
+        borderColor: "#E8684A",
+        data: [500, 300, 600, 300, 800, 200],
       },
       {
-        name: "Item 4",
-        data: [600, 100, 300, 400, 800],
+        label: "Item 4",
+        backgroundColor: "#870182",
+        borderColor: "#870182",
+        data: [100, 400, 200, 600, 800, 500],
       },
       {
-        name: "Item 5",
-        data: [400, 200, 100, 600, 700],
+        label: "Item 5",
+        backgroundColor: "#F6BD16",
+        borderColor: "#F6BD16",
+        data: [300, 600, 500, 400, 800, 700],
       },
       {
-        name: "Item 6",
-        data: [300, 100, 400, 600, 200],
-      },
-      {
-        name: "Item 7",
-        data: [300, 100, 200, 400, 800],
-      },
-      {
-        name: "Item 8",
-        data: [300, 100, 200, 400, 800],
-      },
-      {
-        name: "Item 9",
-        data: [400, 500, 200, 700, 800],
-      },
-      {
-        name: "Item 10",
-        data: [0, 100, 500, 200, 800],
-      },
-      {
-        name: "Item 11",
-        data: [300, 100, 200, 400, 800],
-      },
-      {
-        name: "Item 12",
-        data: [300, 100, 200, 400, 800],
+        label: "Item 6",
+        backgroundColor: "#C78F8F",
+        borderColor: "#C78F8F",
+        data: [400, 200, 100, 700, 400, 100],
       },
     ],
   };
@@ -123,7 +109,7 @@ const Home = () => {
     <>
       <Row className="mt-4">
         <Col lg={12}>
-          <LineChart {...marketShareData} />
+          <LineChart {...lineChartData} />
         </Col>
       </Row>
 
