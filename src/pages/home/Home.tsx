@@ -62,6 +62,42 @@ const Home = () => {
         borderColor: "#C78F8F",
         data: [400, 200, 100, 700, 400, 100],
       },
+      {
+        label: "Item 7",
+        backgroundColor: "#1fa083",
+        borderColor: "#1fa083",
+        data: [300, 500, 100, 800, 700, 800],
+      },
+      {
+        label: "Item 8",
+        backgroundColor: "#5AD8A6",
+        borderColor: "#5AD8A6",
+        data: [200, 500, 100, 800, 700, 300],
+      },
+      {
+        label: "Item 9",
+        backgroundColor: "#E8684A",
+        borderColor: "#E8684A",
+        data: [1000, 900, 600, 100, 400, 200],
+      },
+      {
+        label: "Item 10",
+        backgroundColor: "#870182",
+        borderColor: "#870182",
+        data: [800, 700, 600, 600, 800, 500],
+      },
+      {
+        label: "Item 11",
+        backgroundColor: "#D235CC",
+        borderColor: "#F6BD16",
+        data: [500, 600, 900, 400, 300, 100],
+      },
+      {
+        label: "Item 12",
+        backgroundColor: "#C78F8F",
+        borderColor: "#C78F8F",
+        data: [400, 200, 100, 700, 400, 100],
+      },
     ],
   };
 
