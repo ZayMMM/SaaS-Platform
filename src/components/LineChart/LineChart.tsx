@@ -4,7 +4,7 @@ import ExportButton from "../Button/ExportButton";
 import { defaults as ChartjsDefaults, Line } from "react-chartjs-2";
 
 interface LineChartProps {
-  chartTitle: string;
+  chartTitle?: string;
   subTitle?: string;
   labels: string[];
   datasets: any;
@@ -77,11 +77,7 @@ const LineChart: React.FC<LineChartProps> = ({
     <Card>
       <Card.Body>
         <div className="d-flex align-items-center justify-content-between w-100">
-          <p
-            style={{ fontSize: "18px", fontWeight: "600", marginBottom: "0px" }}
-          >
-            {chartTitle}
-          </p>
+          <p className="chartTitle mb-0">{chartTitle}</p>
           <div className="d-flex gap-2 align-items-center">
             {showYearPicker && (
               <CustomDatePicker
@@ -99,13 +95,8 @@ const LineChart: React.FC<LineChartProps> = ({
           </div>
         </div>
 
-        {subTitle && (
-          <p style={{ fontSize: "12px", color: "#8C8C8C" }}>{subTitle}</p>
-        )}
-        <div
-          style={{ minHeight: "320px", maxWidth: "100%" }}
-          className="mt-3 chartjs-chart"
-        >
+        {subTitle && <p className="chartSubTitle">{subTitle}</p>}
+        <div className="mt-3 chartjs-chart line-chart-min-320">
           <Line data={lineChartData} options={lineChartOpts} />
         </div>
       </Card.Body>

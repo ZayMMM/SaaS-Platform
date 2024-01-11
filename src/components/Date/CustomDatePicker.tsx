@@ -52,28 +52,10 @@ const DatepickerInputWithAddon = forwardRef<
   //     readOnly
   //   />
   // </div>
-  <button
-    onClick={props.onClick}
-    style={{
-      height: "40px",
-      width: "125px",
-      display: "flex",
-      alignItems: "center",
-      gap: "10px",
-      border: "1px solid #C5C5C5",
-      backgroundColor: "#fff",
-      borderRadius: "5px",
-    }}
-  >
-    <i
-      className="mdi mdi-calendar-range"
-      style={{ fontSize: "16px", paddingTop: "2px" }}
-    ></i>
+  <button onClick={props.onClick} className="year-picker-btn">
+    <i className="mdi mdi-calendar-range fs-16 pt-2px"></i>
     <span style={{ fontSize: "14px" }}> {props.value}</span>
-    <i
-      className="fas fa-caret-down"
-      style={{ fontSize: "16px", marginLeft: "20px" }}
-    ></i>
+    <i className="fas fa-caret-down fs-16 ml-20px"></i>
   </button>
 ));
 

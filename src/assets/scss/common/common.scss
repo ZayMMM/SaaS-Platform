@@ -1,0 +1,48 @@
+.line-chart-min-320 {
+  min-height: 320px;
+  max-width: 100%;
+}
+
+.chartTitle {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.chartSubTitle {
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+.export-btn {
+  height: 40px;
+  width: 125px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #c5c5c5;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.year-picker-btn {
+  height: 40px;
+  width: 125px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #c5c5c5;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.fs-16 {
+  font-size: 16px;
+}
+
+.pt-2px {
+  padding-top: 2px;
+}
+
+.ml-20px {
+  margin-left: 20px;
+}
