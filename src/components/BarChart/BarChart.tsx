@@ -1,15 +1,14 @@
 import React from "react";
-import Chart from "react-apexcharts";
+import { Bar, defaults as ChartjsDefaults } from "react-chartjs-2";
 import { Card } from "react-bootstrap";
-import { ApexOptions } from "apexcharts";
 import CustomDatePicker from "../Date/CustomDatePicker";
 import ExportButton from "../Button/ExportButton";
 
 interface BarChartProps {
   chartTitle: string;
   subTitle?: string;
-  xaxisCategories: string[];
-  dataset: { name: string; data: number[] }[];
+  labels?: string[];
+  datasets: any;
   colors?: string[];
   showYearPicker?: boolean;
   selectedDate?: Date;
@@ -20,71 +19,51 @@ interface BarChartProps {
 const BarChart: React.FC<BarChartProps> = ({
   chartTitle,
   subTitle,
-  xaxisCategories,
-  dataset,
+  labels,
+  datasets,
   colors,
   selectedDate,
   onDateChange,
   showYearPicker,
 }) => {
-  // default options
-  const apexBarChartOpts: ApexOptions = {
-    chart: {
-      height: 380,
-      type: "bar",
-      toolbar: {
-        show: false,
+  // options
+  const barChartOpts = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: true,
+        position: "bottom" as const,
       },
-    },
-    plotOptions: {
-      bar: {
-        horizontal: false,
-        dataLabels: {
-          position: "top",
-        },
-      },
-    },
-    dataLabels: {
-      enabled: true,
-      offsetX: -6,
-      style: {
-        fontSize: "12px",
-        colors: ["#fff"],
-      },
-    },
-    colors: colors
-      ? colors
-      : [
-          "#5B8FF9",
-          "#5AD8A6",
-          "#F6BD16",
-          "#6DC8EC",
-          "#5D7092",
-          "#D235CC",
-          "#FF2E2E",
-        ],
-    stroke: {
-      show: true,
-      width: 1,
-      colors: ["#fff"],
-    },
 
-    xaxis: {
-      categories: xaxisCategories,
+      tooltip: {
+        backgroundColor: "#727cf5",
+        titleFontColor: "#fff",
+        bodyFontColor: "#fff",
+        bodyFontSize: 14,
+        displayColors: false,
+      },
     },
-    legend: {
-      offsetY: -10,
-    },
-    states: {
-      hover: {
-        filter: {
-          type: "none",
+    scales: {
+      y: {
+        grid: {
+          display: false,
+          color: "rgba(0,0,0,0.05)",
+        },
+        stacked: false,
+      },
+      x: {
+        stacked: false,
+        grid: {
+          color: "rgba(0,0,0,0.05)",
         },
       },
     },
-    grid: {
-      borderColor: "#f1f3fa",
-    },
+  };
+
+  const barChartData = {
+    labels: labels,
+    datasets: datasets,
   };
 
   return (
@@ -112,12 +91,9 @@ const BarChart: React.FC<BarChartProps> = ({
             <ExportButton />
           </div>
         </div>
-        <Chart
-          options={apexBarChartOpts}
-          series={dataset}
-          type="bar"
-          className="apex-charts"
-        />
+        <div style={{ height: "320px" }} className="chartjs-chart">
+          <Bar data={barChartData} options={barChartOpts} />
+        </div>
       </Card.Body>
     </Card>
   );

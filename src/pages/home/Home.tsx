@@ -101,42 +101,104 @@ const Home = () => {
     ],
   };
 
-  const saleBrandData = {
-    chartTitle: "Top Sale By Brand",
-    subTitle: "Top 15 Products In Market",
-    xaxisCategories: ["Brand 1", "Brand 2", "Brand 3", "Brand 4", "Brand 5"],
-    colors: [
-      "#5B8FF9",
-      "#5AD8A6",
-      "#F6BD16",
-      "#6DC8EC",
-      "#5D7092",
-      "#D235CC",
-      "#FF2E2E",
-    ],
+  const emptyLabels = Array(1).fill("");
+
+  // chart data
+  const barChartData = {
     selectedDate: selectedDate,
     onDateChange: onDateChange,
     showYearPicker: true,
-    dataset: [
+    chartTitle: "Top Sale By Brand",
+    subTitle: "",
+    labels: emptyLabels,
+    datasets: [
       {
-        name: "Item 1",
-        data: [11000, 2000, 5000, 6000, 10000],
+        label: "Item 1",
+        backgroundColor: "#5B8FF9",
+        borderColor: "#5B8FF9",
+        data: [22000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
       },
       {
-        name: "Item 2",
-        data: [30000, 50000, 70000, 10000, 30000],
+        label: "Item 2",
+        backgroundColor: "#5AD8A6",
+        borderColor: "#5AD8A6",
+        data: [16000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
       },
       {
-        name: "Item 3",
-        data: [40000, 20000, 60000, 80000, 30000],
+        label: "Item 3",
+        backgroundColor: "#F6BD16",
+        borderColor: "#F6BD16",
+        data: [16000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
       },
       {
-        name: "Item 4",
-        data: [60000, 10000, 40000, 80000, 10000],
+        label: "Item 4",
+        backgroundColor: "#E8684A",
+        borderColor: "#E8684A",
+        data: [16000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
       },
       {
-        name: "Item 5",
-        data: [12000, 40000, 50000, 20000, 70000],
+        label: "Item 5",
+        backgroundColor: "#6DC8EC",
+        borderColor: "#6DC8EC",
+        data: [12000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
+      },
+      {
+        label: "Item 6",
+        backgroundColor: "#5D7092",
+        borderColor: "#5D7092",
+        data: [10000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
+      },
+      {
+        label: "Item 7",
+        backgroundColor: "#D235CC",
+        borderColor: "#D235CC",
+        data: [8000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
+      },
+      {
+        label: "Item 8",
+        backgroundColor: "#FF2E2E",
+        borderColor: "#FF2E2E",
+        data: [8000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
+      },
+      {
+        label: "Item 9",
+        backgroundColor: "#F6BD16",
+        borderColor: "#F6BD16",
+        data: [6000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
+      },
+      {
+        label: "Item 9",
+        backgroundColor: "#F6BD16",
+        borderColor: "#F6BD16",
+        data: [6000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
+      },
+      {
+        label: "Item 10",
+        backgroundColor: "#6DC8EC",
+        borderColor: "#6DC8EC",
+        data: [2000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
       },
     ],
   };
@@ -151,7 +213,7 @@ const Home = () => {
 
       <Row>
         <Col xl={6}>
-          <BarChart {...saleBrandData} />
+          <BarChart {...barChartData} />
         </Col>
         <Col xl={6}>
           <RevenueHistory revenueHistory={revenueHistory} />
