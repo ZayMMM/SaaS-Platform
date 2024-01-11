@@ -1,8 +1,12 @@
 import React from "react";
-import { Bar, defaults as ChartjsDefaults } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import { Card } from "react-bootstrap";
 import CustomDatePicker from "../Date/CustomDatePicker";
 import ExportButton from "../Button/ExportButton";
+import ChartDataLabels from "chartjs-plugin-datalabels";
+import { Chart as ChartJs } from "chart.js";
+
+ChartJs.register(ChartDataLabels);
 
 interface BarChartProps {
   chartTitle: string;
@@ -43,6 +47,20 @@ const BarChart: React.FC<BarChartProps> = ({
         bodyFontSize: 14,
         displayColors: false,
       },
+      datalabels: {
+        display: true,
+        color: "black" as const,
+        anchor: "end" as const,
+        align: "end" as const,
+        formatter: (value: string | number) => {
+          const numericValue = Number(value);
+          if (numericValue >= 1000) {
+            return `$${(numericValue / 1000).toLocaleString()}k`;
+          } else {
+            return `$${numericValue.toLocaleString()}`;
+          }
+        },
+      },
     },
     scales: {
       y: {
@@ -51,6 +69,14 @@ const BarChart: React.FC<BarChartProps> = ({
           color: "rgba(0,0,0,0.05)",
         },
         stacked: false,
+        ticks: {
+          beginAtZero: true,
+          callback: (value: string | number) => {
+            const numericValue =
+              typeof value === "string" ? parseFloat(value) : value;
+            return `$${numericValue / 1000}k`;
+          },
+        },
       },
       x: {
         stacked: false,

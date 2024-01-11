@@ -48,6 +48,7 @@ const LineChart: React.FC<LineChartProps> = ({
           fontSize: 12,
         },
       },
+      datalabels: { display: false },
     },
     scales: {
       x: {
