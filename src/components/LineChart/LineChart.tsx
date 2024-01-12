@@ -2,6 +2,7 @@ import { Card } from "react-bootstrap";
 import CustomDatePicker from "../Date/CustomDatePicker";
 import ExportButton from "../Button/ExportButton";
 import { Line } from "react-chartjs-2";
+import { useEffect } from "react";
 
 interface LineChartProps {
   chartTitle?: string;
@@ -72,6 +73,12 @@ const LineChart: React.FC<LineChartProps> = ({
   const lineChartData = {
     labels: labels,
     datasets: datasets,
+  };
+
+  const onDateChangeHandler = (date: Date) => {
+    if (onDateChange) {
+      onDateChange(date); // Call the onDateChange prop if it exists
+    }
   };
 
   return (

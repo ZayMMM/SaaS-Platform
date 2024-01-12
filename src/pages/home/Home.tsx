@@ -1,21 +1,32 @@
 import { Row, Col } from "react-bootstrap";
 import RevenueHistory from "./RevenueHistory";
-import { revenueHistory } from "./data";
+import { revenueHistory, topSaleProductList } from "./data";
 import LineChart from "../../components/LineChart/LineChart";
 import { useState } from "react";
 import BarChart from "../../components/BarChart/BarChart";
+import TopSaleProduct from "./TopSaleProduct";
 
 const Home = () => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const [brandChartDate, setBrandChartDate] = useState<Date>(new Date());
 
   /*
    * handle date change
    */
   const onDateChange = (date: Date) => {
     if (date) {
+      console.log(date);
       setSelectedDate(date);
     }
   };
+
+  const brandChartDateChange = (date: Date) => {
+    if (date) {
+      setBrandChartDate(date);
+    }
+  };
+
+  const exportChange = () => {};
 
   // chart data
   const lineChartData = {
@@ -105,8 +116,8 @@ const Home = () => {
 
   // chart data
   const barChartData = {
-    selectedDate: selectedDate,
-    onDateChange: onDateChange,
+    selectedDate: brandChartDate,
+    onDateChange: brandChartDateChange,
     showYearPicker: true,
     chartTitle: "Top Sale By Brand",
     subTitle: "",
@@ -176,24 +187,9 @@ const Home = () => {
         barPercentage: 0.8,
         categoryPercentage: 0.8,
       },
+
       {
-        label: "Item 9",
-        backgroundColor: "#F6BD16",
-        borderColor: "#F6BD16",
-        data: [6000],
-        barPercentage: 0.8,
-        categoryPercentage: 0.8,
-      },
-      {
-        label: "Item 9",
-        backgroundColor: "#F6BD16",
-        borderColor: "#F6BD16",
-        data: [6000],
-        barPercentage: 0.8,
-        categoryPercentage: 0.8,
-      },
-      {
-        label: "Item 10",
+        label: "Item 8",
         backgroundColor: "#6DC8EC",
         borderColor: "#6DC8EC",
         data: [2000],
@@ -216,7 +212,7 @@ const Home = () => {
           <BarChart {...barChartData} />
         </Col>
         <Col xl={6}>
-          <RevenueHistory revenueHistory={revenueHistory} />
+          <TopSaleProduct topSaleProductList={topSaleProductList} />
         </Col>
       </Row>
     </>

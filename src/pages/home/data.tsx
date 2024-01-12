@@ -92,4 +92,43 @@ const revenueHistory = [
   },
 ];
 
-export { balances, revenueHistory };
+const topSaleProductList = [
+  {
+    id: 1,
+    product: "Text",
+    brand: "Text",
+    ecommerceSite: "Text",
+    image: "",
+    saleUsd: "Text",
+    priceUsd: "Text",
+  },
+  {
+    id: 2,
+    product: "Text",
+    brand: "Text",
+    ecommerceSite: "Text",
+    image: "",
+    saleUsd: "Text",
+    priceUsd: "Text",
+  },
+  {
+    id: 3,
+    product: "Text",
+    brand: "Text",
+    ecommerceSite: "Text",
+    image: "",
+    saleUsd: "Text",
+    priceUsd: "Text",
+  },
+  {
+    id: 4,
+    product: "Text",
+    brand: "Text",
+    ecommerceSite: "Text",
+    image: "",
+    saleUsd: "Text",
+    priceUsd: "Text",
+  },
+];
+
+export { balances, revenueHistory, topSaleProductList };

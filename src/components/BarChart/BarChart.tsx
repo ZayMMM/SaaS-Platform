@@ -117,7 +117,7 @@ const BarChart: React.FC<BarChartProps> = ({
             <ExportButton />
           </div>
         </div>
-        <div style={{ height: "320px" }} className="chartjs-chart">
+        <div className="chartjs-chart line-chart-min-320">
           <Bar data={barChartData} options={barChartOpts} />
         </div>
       </Card.Body>
