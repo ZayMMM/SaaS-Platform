@@ -28,6 +28,9 @@ const LockScreen2 = React.lazy(() => import("../pages/auth2/LockScreen2"));
 const SignInSignUp2 = React.lazy(() => import("../pages/auth2/SignInSignUp2"));
 
 const Home = React.lazy(() => import("../pages/home/Home"));
+const IndividualData = React.lazy(
+  () => import("../pages/individual/IndividualData")
+);
 
 export interface RoutesProps {
   path: RouteProps["path"];
@@ -62,6 +65,12 @@ const dashboardRoutes: RoutesProps = {
       element: <Home />,
       route: PrivateRoute,
     },
+    {
+      path: "/individual",
+      name: "Individual",
+      element: <IndividualData />,
+      route: PrivateRoute,
+    },
   ],
 };
 
@@ -71,12 +80,6 @@ const authRoutes: RoutesProps[] = [
     path: "",
     name: "Login",
     element: <Login />,
-    route: Route,
-  },
-  {
-    path: "/auth/register",
-    name: "Register",
-    element: <Register />,
     route: Route,
   },
 ];

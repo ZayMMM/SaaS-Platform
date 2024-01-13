@@ -64,7 +64,7 @@ const HORIZONTAL_MENU_ITEMS: MenuItemTypes[] = [
     icon: "bar-chart",
     label: "Individual Data",
     isTitle: true,
-    url: "/home",
+    url: "/individual",
   },
   {
     key: "components",
