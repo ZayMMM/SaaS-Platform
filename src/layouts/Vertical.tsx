@@ -5,7 +5,7 @@ import { Container } from "react-bootstrap";
 // redux
 import { RootState, AppDispatch } from "../redux/store";
 import { LayoutTypes, SideBarTypes } from "../constants/layout";
-import { changeSidebarType } from "../redux/actions";
+import { changeLayout, changeSidebarType } from "../redux/actions";
 
 // constants
 // import { LayoutTypes, SideBarTypes } from '../constants';
@@ -62,14 +62,12 @@ const VerticalLayout = ({ children }: VerticalLayoutProps) => {
   */
 
   useEffect(() => {
-    if (width < 1140) {
+    console.log(width);
+    if (width < 800) {
+      dispatch(changeLayout(LayoutTypes.LAYOUT_VERTICAL));
       dispatch(changeSidebarType(SideBarTypes.LEFT_SIDEBAR_TYPE_FULL));
-      // document.getElementsByTagName('html')[0].classList.add('sidebar-enable')
-    } else if (width >= 1140) {
-      dispatch(changeSidebarType(SideBarTypes.LEFT_SIDEBAR_TYPE_DEFAULT));
-      document
-        .getElementsByTagName("html")[0]
-        .classList.remove("sidebar-enable");
+    } else if (width >= 800) {
+      dispatch(changeLayout(LayoutTypes.LAYOUT_HORIZONTAL));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width]);

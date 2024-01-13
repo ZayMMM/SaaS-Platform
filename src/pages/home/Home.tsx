@@ -219,7 +219,13 @@ const Home = () => {
           <BarChart {...barChartData} />
         </Col>
         <Col xl={6}>
-          <TopSaleProduct topSaleProductList={topSaleProductList} />
+          <TopSaleProduct
+            topSaleProductList={topSaleProductList}
+            showExport={true}
+            selectedDate={selectedDate}
+            showYearPicker={true}
+            onDateChange={onDateChange}
+          />
         </Col>
       </Row>
     </>

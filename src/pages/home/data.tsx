@@ -3,6 +3,7 @@ import avatar2 from "../../assets/images/users/user-3.jpg";
 import avatar3 from "../../assets/images/users/user-4.jpg";
 import avatar4 from "../../assets/images/users/user-5.jpg";
 import avatar5 from "../../assets/images/users/user-6.jpg";
+import CellImage from "../../assets/images/Cell.png";
 
 const balances = [
   {
@@ -98,7 +99,7 @@ const topSaleProductList = [
     product: "Text",
     brand: "Text",
     ecommerceSite: "Text",
-    image: "",
+    image: CellImage,
     saleUsd: "Text",
     priceUsd: "Text",
   },
@@ -107,7 +108,7 @@ const topSaleProductList = [
     product: "Text",
     brand: "Text",
     ecommerceSite: "Text",
-    image: "",
+    image: CellImage,
     saleUsd: "Text",
     priceUsd: "Text",
   },
@@ -116,7 +117,7 @@ const topSaleProductList = [
     product: "Text",
     brand: "Text",
     ecommerceSite: "Text",
-    image: "",
+    image: CellImage,
     saleUsd: "Text",
     priceUsd: "Text",
   },
@@ -125,7 +126,34 @@ const topSaleProductList = [
     product: "Text",
     brand: "Text",
     ecommerceSite: "Text",
-    image: "",
+    image: CellImage,
+    saleUsd: "Text",
+    priceUsd: "Text",
+  },
+  {
+    id: 5,
+    product: "Text",
+    brand: "Text",
+    ecommerceSite: "Text",
+    image: CellImage,
+    saleUsd: "Text",
+    priceUsd: "Text",
+  },
+  {
+    id: 6,
+    product: "Text",
+    brand: "Text",
+    ecommerceSite: "Text",
+    image: CellImage,
+    saleUsd: "Text",
+    priceUsd: "Text",
+  },
+  {
+    id: 7,
+    product: "Text",
+    brand: "Text",
+    ecommerceSite: "Text",
+    image: CellImage,
     saleUsd: "Text",
     priceUsd: "Text",
   },

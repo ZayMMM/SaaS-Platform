@@ -2,7 +2,6 @@ import { Card } from "react-bootstrap";
 import CustomDatePicker from "../Date/CustomDatePicker";
 import ExportButton from "../Button/ExportButton";
 import { Line } from "react-chartjs-2";
-import { useEffect } from "react";
 
 interface LineChartProps {
   chartTitle?: string;
@@ -13,7 +12,7 @@ interface LineChartProps {
   showYearPicker?: boolean;
   showExport?: boolean;
   selectedDate?: Date;
-  onDateChange: (date: any) => void;
+  onDateChange?: (date: any) => void;
 }
 
 const LineChart: React.FC<LineChartProps> = ({
@@ -95,7 +94,9 @@ const LineChart: React.FC<LineChartProps> = ({
                 value={selectedDate}
                 showYearPicker={true}
                 onChange={(date) => {
-                  onDateChange(date);
+                  if (onDateChange) {
+                    onDateChange(date);
+                  }
                 }}
               />
             )}
