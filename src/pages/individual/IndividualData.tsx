@@ -1,5 +1,6 @@
 import { Col, Row } from "react-bootstrap";
 import MainTab from "./MainTab";
+import "../../assets/scss/IndividualData.scss";
 
 const IndividualData = () => {
   return (

@@ -1,4 +1,7 @@
 import { Col, Nav, Row, Tab } from "react-bootstrap";
+import Category from "./Category";
+import Brand from "./Brand";
+import Product from "./Product";
 
 interface TabContentType {
   id: number;
@@ -21,6 +24,33 @@ const MainTab = () => {
     },
   ];
 
+  const categoryOptions = [
+    { value: "-1", label: "Select One" },
+    { value: "1", label: "Category 1" },
+    { value: "2", label: "Category 2" },
+    { value: "3", label: "Category 3" },
+  ];
+
+  const subCategoryOptions = [
+    { value: "-1", label: "Select One" },
+    { value: "1", label: "Sub Category 1" },
+    { value: "2", label: "Sub Category 2" },
+    { value: "3", label: "Sub Category 3" },
+  ];
+
+  const brandOptions = [
+    { value: "-1", label: "Select One" },
+    { value: "1", label: "Brand 1" },
+    { value: "2", label: "Brand 2" },
+    { value: "3", label: "Brand 3" },
+  ];
+
+  const productOptions = [
+    { value: "-1", label: "Select One" },
+    { value: "1", label: "Product 1" },
+    { value: "2", label: "Product 2" },
+    { value: "3", label: "Product 3" },
+  ];
   return (
     <>
       <Tab.Container defaultActiveKey="Category">
@@ -45,17 +75,29 @@ const MainTab = () => {
           })}
         </Nav>
         <Tab.Content>
-          {(tabContents || []).map((tab, index) => {
-            return (
-              <Tab.Pane eventKey={tab.title} id={String(tab.id)} key={index}>
-                <Row>
-                  <Col sm="12">
-                    <p className="mt-3">{tab.title}</p>
-                  </Col>
-                </Row>
-              </Tab.Pane>
-            );
-          })}
+          <Tab.Pane eventKey="Category" id="1" key="1">
+            <Category
+              categoryOptions={categoryOptions}
+              subCategoryOptions={subCategoryOptions}
+            />
+          </Tab.Pane>
+          <Tab.Pane eventKey="Brand" id="2" key="2">
+            <Brand
+              categoryOptions={categoryOptions}
+              subCategoryOptions={subCategoryOptions}
+              brandOptions={brandOptions}
+            />
+          </Tab.Pane>
+          <Tab.Pane eventKey="Product" id="3" key="3">
+            <Row>
+              <Product
+                categoryOptions={categoryOptions}
+                subCategoryOptions={subCategoryOptions}
+                brandOptions={brandOptions}
+                productOptions={productOptions}
+              />
+            </Row>
+          </Tab.Pane>
         </Tab.Content>
       </Tab.Container>
     </>
