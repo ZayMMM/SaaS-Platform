@@ -1,15 +1,20 @@
 import React from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import Select from "react-select";
+import LineChart from "../../components/LineChart/LineChart";
 
 interface CategoryProps {
   categoryOptions: { value: string; label: string }[];
   subCategoryOptions: { value: string; label: string }[];
+  marketShareData?: any;
+  saleTrendData?: any;
 }
 
 const Category: React.FC<CategoryProps> = ({
   categoryOptions,
   subCategoryOptions,
+  marketShareData,
+  saleTrendData,
 }) => {
   return (
     <>
@@ -38,6 +43,16 @@ const Category: React.FC<CategoryProps> = ({
             />
           </Form.Group>
         </Col>
+        {marketShareData && (
+          <Col md={6}>
+            <LineChart {...marketShareData} />
+          </Col>
+        )}
+        {saleTrendData && (
+          <Col md={6}>
+            <LineChart {...saleTrendData} />
+          </Col>
+        )}
       </Row>
     </>
   );

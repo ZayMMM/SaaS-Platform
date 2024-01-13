@@ -81,7 +81,7 @@ const LineChart: React.FC<LineChartProps> = ({
   };
 
   return (
-    <Card>
+    <Card className="dashboard-card">
       <Card.Body>
         <div className="d-flex align-items-center justify-content-between w-100">
           <p className="chartTitle mb-0">{chartTitle}</p>
