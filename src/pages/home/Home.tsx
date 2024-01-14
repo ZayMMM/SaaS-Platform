@@ -209,16 +209,16 @@ const Home = () => {
   return (
     <>
       <Row className="mt-4">
-        <Col lg={12}>
+        <Col lg={12} className="mb-3">
           <LineChart {...lineChartData} />
         </Col>
       </Row>
 
       <Row>
-        <Col xl={6}>
+        <Col xl={6} className="mb-3">
           <BarChart {...barChartData} />
         </Col>
-        <Col xl={6}>
+        <Col xl={6} className="mb-3">
           <TopSaleProduct
             topSaleProductList={topSaleProductList}
             showExport={true}

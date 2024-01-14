@@ -27,7 +27,7 @@ const TopSaleProduct = ({
 }: TopSaleProductProps) => {
   return (
     <>
-      <Card>
+      <Card className="dashboard-card h-100">
         <Card.Body>
           <div className="d-flex align-items-center justify-content-between w-100">
             <h4 className="header-title fw-600">Top Sales By Product</h4>
