@@ -8,6 +8,8 @@ interface CategoryProps {
   subCategoryOptions: { value: string; label: string }[];
   marketShareData?: any;
   saleTrendData?: any;
+  topSaleBrandData?: any;
+  saleTrendByBrandData?: any;
 }
 
 const Category: React.FC<CategoryProps> = ({
@@ -15,6 +17,8 @@ const Category: React.FC<CategoryProps> = ({
   subCategoryOptions,
   marketShareData,
   saleTrendData,
+  topSaleBrandData,
+  saleTrendByBrandData,
 }) => {
   return (
     <>
@@ -44,13 +48,23 @@ const Category: React.FC<CategoryProps> = ({
           </Form.Group>
         </Col>
         {marketShareData && (
-          <Col md={6}>
+          <Col md={6} className="mb-3">
             <LineChart {...marketShareData} />
           </Col>
         )}
         {saleTrendData && (
-          <Col md={6}>
+          <Col md={6} className="mb-3">
             <LineChart {...saleTrendData} />
+          </Col>
+        )}
+        {topSaleBrandData && (
+          <Col md={6} className="mb-3">
+            <LineChart {...topSaleBrandData} />
+          </Col>
+        )}
+        {saleTrendByBrandData && (
+          <Col md={6} className="mb-3">
+            <LineChart {...saleTrendByBrandData} />
           </Col>
         )}
       </Row>
