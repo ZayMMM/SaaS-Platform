@@ -14,6 +14,12 @@ const MainTab = () => {
     new Date()
   );
   const [topSaleBrandDate, setTopSaleBrandDate] = useState(new Date());
+  const [numberOfSkuByBrandDate, setNumberOfSkuByBrandDate] = useState(
+    new Date()
+  );
+  const [totalSaleByEachBrandDate, setTotalSaleByEachBrandDate] = useState(
+    new Date()
+  );
 
   const marketShareDateChange = (date: Date) => {
     if (date) {
@@ -24,6 +30,18 @@ const MainTab = () => {
   const topSaleBrandDateChange = (date: Date) => {
     if (date) {
       setTopSaleBrandDate(date);
+    }
+  };
+
+  const numberOfSkuByBrandDateChange = (date: Date) => {
+    if (date) {
+      setNumberOfSkuByBrandDate(date);
+    }
+  };
+
+  const totalSaleByEachBrandDateChange = (date: Date) => {
+    if (date) {
+      setTotalSaleByEachBrandDate(date);
     }
   };
 
@@ -278,6 +296,141 @@ const MainTab = () => {
     ],
   };
 
+  // chart data
+  const numberOfSkuByBrandData = {
+    selectedDate: numberOfSkuByBrandDate,
+    onDateChange: numberOfSkuByBrandDateChange,
+    showYearPicker: true,
+    chartTitle: "Number of SKU By Brand",
+    subTitle: "",
+    labels: Array(1).fill(""),
+    datasets: [
+      {
+        label: "Beauty Buffet Shop",
+        backgroundColor: "#5B8FF9",
+        borderColor: "#5B8FF9",
+        data: [22000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
+      },
+      {
+        label: "SHISEIDO",
+        backgroundColor: "#5AD8A6",
+        borderColor: "#5AD8A6",
+        data: [16000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
+      },
+      {
+        label: "MISTINE",
+        backgroundColor: "#F6BD16",
+        borderColor: "#F6BD16",
+        data: [16000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
+      },
+      {
+        label: "SRICHAND",
+        backgroundColor: "#E8684A",
+        borderColor: "#E8684A",
+        data: [16000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
+      },
+      {
+        label: "Clarins",
+        backgroundColor: "#6DC8EC",
+        borderColor: "#6DC8EC",
+        data: [12000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
+      },
+      {
+        label: "Item 6",
+        backgroundColor: "#5D7092",
+        borderColor: "#5D7092",
+        data: [10000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
+      },
+      {
+        label: "Estee Lauder",
+        backgroundColor: "#D235CC",
+        borderColor: "#D235CC",
+        data: [8000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
+      },
+    ],
+  };
+
+  const totalSaleByEachBrandData = {
+    selectedDate: totalSaleByEachBrandDate,
+    onDateChange: totalSaleByEachBrandDateChange,
+    showYearPicker: true,
+    chartTitle: "Total Sales by each Brand",
+    subTitle: "",
+    labels: Array(1).fill(""),
+    datasets: [
+      {
+        label: "Beauty Buffet Shop",
+        backgroundColor: "#5B8FF9",
+        borderColor: "#5B8FF9",
+        data: [22000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
+      },
+      {
+        label: "SHISEIDO",
+        backgroundColor: "#5AD8A6",
+        borderColor: "#5AD8A6",
+        data: [16000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
+      },
+      {
+        label: "MISTINE",
+        backgroundColor: "#F6BD16",
+        borderColor: "#F6BD16",
+        data: [16000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
+      },
+      {
+        label: "SRICHAND",
+        backgroundColor: "#E8684A",
+        borderColor: "#E8684A",
+        data: [16000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
+      },
+      {
+        label: "Clarins",
+        backgroundColor: "#6DC8EC",
+        borderColor: "#6DC8EC",
+        data: [12000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
+      },
+      {
+        label: "Item 6",
+        backgroundColor: "#5D7092",
+        borderColor: "#5D7092",
+        data: [10000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
+      },
+      {
+        label: "Estee Lauder",
+        backgroundColor: "#D235CC",
+        borderColor: "#D235CC",
+        data: [8000],
+        barPercentage: 0.8,
+        categoryPercentage: 0.8,
+      },
+    ],
+  };
+
   return (
     <>
       <Tab.Container defaultActiveKey="Category">
@@ -310,6 +463,8 @@ const MainTab = () => {
               saleTrendData={saleProductByCategory}
               topSaleBrandData={topSaleBrandData}
               saleTrendByBrandData={saleTrendByBrandData}
+              numberOfSkuByBrandData={numberOfSkuByBrandData}
+              totalSaleByEachBrandData={totalSaleByEachBrandData}
             />
           </Tab.Pane>
           <Tab.Pane eventKey="Brand" id="2" key="2">

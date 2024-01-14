@@ -2,6 +2,7 @@ import React from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import Select from "react-select";
 import LineChart from "../../components/LineChart/LineChart";
+import BarChart from "../../components/BarChart/BarChart";
 
 interface CategoryProps {
   categoryOptions: { value: string; label: string }[];
@@ -10,6 +11,8 @@ interface CategoryProps {
   saleTrendData?: any;
   topSaleBrandData?: any;
   saleTrendByBrandData?: any;
+  numberOfSkuByBrandData?: any;
+  totalSaleByEachBrandData?: any;
 }
 
 const Category: React.FC<CategoryProps> = ({
@@ -19,6 +22,8 @@ const Category: React.FC<CategoryProps> = ({
   saleTrendData,
   topSaleBrandData,
   saleTrendByBrandData,
+  numberOfSkuByBrandData,
+  totalSaleByEachBrandData,
 }) => {
   return (
     <>
@@ -65,6 +70,18 @@ const Category: React.FC<CategoryProps> = ({
         {saleTrendByBrandData && (
           <Col md={6} className="mb-3">
             <LineChart {...saleTrendByBrandData} />
+          </Col>
+        )}
+
+        {numberOfSkuByBrandData && (
+          <Col md={6} className="mb-3">
+            <BarChart {...numberOfSkuByBrandData} />
+          </Col>
+        )}
+
+        {totalSaleByEachBrandData && (
+          <Col md={6} className="mb-3">
+            <BarChart {...totalSaleByEachBrandData} />
           </Col>
         )}
       </Row>
