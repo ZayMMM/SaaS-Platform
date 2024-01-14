@@ -13,6 +13,7 @@ interface LineChartProps {
   showExport?: boolean;
   selectedDate?: Date;
   onDateChange?: (date: any) => void;
+  showLegend?: boolean;
 }
 
 const LineChart: React.FC<LineChartProps> = ({
@@ -24,6 +25,7 @@ const LineChart: React.FC<LineChartProps> = ({
   onDateChange,
   showYearPicker = true,
   showExport = true,
+  showLegend = true,
 }) => {
   // chart options
   const lineChartOpts = {
@@ -42,7 +44,7 @@ const LineChart: React.FC<LineChartProps> = ({
       legend: {
         position: "top" as const,
         align: "end" as const,
-        display: true,
+        display: showLegend,
         labels: {
           usePointStyle: true,
           fontSize: 12,

@@ -1,17 +1,20 @@
 import React from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import Select from "react-select";
+import LineChart from "../../components/LineChart/LineChart";
 
 interface CategoryProps {
   categoryOptions: { value: string; label: string }[];
   subCategoryOptions: { value: string; label: string }[];
   brandOptions: { value: string; label: string }[];
+  averageProductPriceTrendData?: any;
 }
 
 const Brand: React.FC<CategoryProps> = ({
   categoryOptions,
   subCategoryOptions,
   brandOptions,
+  averageProductPriceTrendData,
 }) => {
   return (
     <>
@@ -52,6 +55,12 @@ const Brand: React.FC<CategoryProps> = ({
             />
           </Form.Group>
         </Col>
+
+        {averageProductPriceTrendData && (
+          <Col md={6} className="mb-3">
+            <LineChart {...averageProductPriceTrendData} />
+          </Col>
+        )}
       </Row>
     </>
   );
