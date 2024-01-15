@@ -3,7 +3,9 @@ import { Col, Form, Row } from "react-bootstrap";
 import Select from "react-select";
 import LineChart from "../../components/LineChart/LineChart";
 import DonutChart from "../../components/DonutChart/DonutChart";
-import AverageProductPriceCard from "./AverageProductPriceCard";
+
+import ProductPriceCard from "./ProductPriceCard";
+import BarChart from "../../components/BarChart/BarChart";
 
 interface CategoryProps {
   categoryOptions: { value: string; label: string }[];
@@ -13,6 +15,8 @@ interface CategoryProps {
   stockAvailabilityData?: any;
   marketShareData?: any;
   brandMentionData?: any;
+  numberOfSkuByBrandData?: any;
+  totalSaleByEachBrandData?: any;
 }
 
 const Brand: React.FC<CategoryProps> = ({
@@ -23,6 +27,8 @@ const Brand: React.FC<CategoryProps> = ({
   stockAvailabilityData,
   marketShareData,
   brandMentionData,
+  numberOfSkuByBrandData,
+  totalSaleByEachBrandData,
 }) => {
   return (
     <>
@@ -77,7 +83,10 @@ const Brand: React.FC<CategoryProps> = ({
                 <DonutChart {...stockAvailabilityData} />
               </Col>
               <Col sm={12}>
-                <AverageProductPriceCard />
+                <ProductPriceCard
+                  title="Average Product Price"
+                  price="12,728,935,685"
+                />
               </Col>
             </Row>
           </Col>
@@ -94,9 +103,24 @@ const Brand: React.FC<CategoryProps> = ({
                 <LineChart {...brandMentionData} />
               </Col>
               <Col sm={12}>
-                <AverageProductPriceCard />
+                <ProductPriceCard
+                  title="Average Product Price"
+                  price="12,728,935,685"
+                />
               </Col>
             </Row>
+          </Col>
+        )}
+
+        {numberOfSkuByBrandData && (
+          <Col md={6} className="mb-3">
+            <BarChart {...numberOfSkuByBrandData} />
+          </Col>
+        )}
+
+        {totalSaleByEachBrandData && (
+          <Col md={6} className="mb-3">
+            <BarChart {...totalSaleByEachBrandData} />
           </Col>
         )}
       </Row>

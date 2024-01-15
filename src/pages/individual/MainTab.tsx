@@ -543,6 +543,8 @@ const MainTab = () => {
               stockAvailabilityData={stockAvailabilityData}
               marketShareData={marketShareData}
               brandMentionData={brandMentionData}
+              numberOfSkuByBrandData={numberOfSkuByBrandData}
+              totalSaleByEachBrandData={totalSaleByEachBrandData}
             />
           </Tab.Pane>
           <Tab.Pane eventKey="Product" id="3" key="3">
