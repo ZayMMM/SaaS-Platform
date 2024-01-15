@@ -3,6 +3,7 @@ import Category from "./Category";
 import Brand from "./Brand";
 import Product from "./Product";
 import { useState } from "react";
+import { myProductList, topSaleProductList } from "./data";
 
 interface TabContentType {
   id: number;
@@ -18,6 +19,10 @@ const MainTab = () => {
     new Date()
   );
   const [totalSaleByEachBrandDate, setTotalSaleByEachBrandDate] = useState(
+    new Date()
+  );
+
+  const [esteeLauderProductDate, setEsteeLauderProductDate] = useState(
     new Date()
   );
 
@@ -43,6 +48,10 @@ const MainTab = () => {
     if (date) {
       setTotalSaleByEachBrandDate(date);
     }
+  };
+
+  const esteeLauderDateChange = (date: Date) => {
+    setEsteeLauderProductDate(date);
   };
 
   const tabContents: TabContentType[] = [
@@ -554,6 +563,11 @@ const MainTab = () => {
                 subCategoryOptions={subCategoryOptions}
                 brandOptions={brandOptions}
                 productOptions={productOptions}
+                marketShareData={marketShareData}
+                esteeLauderProductList={topSaleProductList}
+                esteeLauderDate={esteeLauderProductDate}
+                esteeLauderDateChange={esteeLauderDateChange}
+                myProductList={myProductList}
               />
             </Row>
           </Tab.Pane>

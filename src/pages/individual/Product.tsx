@@ -1,12 +1,21 @@
 import React from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import Select from "react-select";
+import LineChart from "../../components/LineChart/LineChart";
+import EsteeLauderProduct from "./EsteeLauderProduct";
+import CompetitorProduct from "./CompetitorProduct";
+import MyProductList from "./MyProductList";
 
 interface CategoryProps {
   categoryOptions: { value: string; label: string }[];
   subCategoryOptions: { value: string; label: string }[];
   brandOptions: { value: string; label: string }[];
   productOptions: { value: string; label: string }[];
+  marketShareData?: any;
+  esteeLauderProductList?: any;
+  esteeLauderDate?: Date;
+  esteeLauderDateChange?: any;
+  myProductList?: any;
 }
 
 const Product: React.FC<CategoryProps> = ({
@@ -14,6 +23,11 @@ const Product: React.FC<CategoryProps> = ({
   subCategoryOptions,
   brandOptions,
   productOptions,
+  marketShareData,
+  esteeLauderProductList,
+  esteeLauderDate,
+  esteeLauderDateChange,
+  myProductList,
 }) => {
   return (
     <>
@@ -66,6 +80,52 @@ const Product: React.FC<CategoryProps> = ({
             />
           </Form.Group>
         </Col>
+        {marketShareData && (
+          <Col md={12} className="mb-3">
+            <LineChart {...marketShareData} />
+          </Col>
+        )}
+
+        {esteeLauderProductList && (
+          <Col md={6} className="mb-3">
+            <EsteeLauderProduct
+              productList={esteeLauderProductList}
+              showExport={true}
+              showYearPicker={true}
+              selectedDate={esteeLauderDate}
+              onDateChange={esteeLauderDateChange}
+            />
+          </Col>
+        )}
+
+        {esteeLauderProductList && (
+          <Col md={6} className="mb-3">
+            <CompetitorProduct
+              productList={esteeLauderProductList}
+              showExport={true}
+              showYearPicker={true}
+              selectedDate={esteeLauderDate}
+              onDateChange={esteeLauderDateChange}
+            />
+          </Col>
+        )}
+
+        <Col sm={12} className="mb-3">
+          <h3>My Product</h3>
+        </Col>
+
+        {myProductList && (
+          <Col md={6} className="mb-3">
+            <MyProductList
+              title="Product Name"
+              productList={myProductList}
+              showExport={true}
+              showYearPicker={true}
+              selectedDate={esteeLauderDate}
+              onDateChange={esteeLauderDateChange}
+            />
+          </Col>
+        )}
       </Row>
     </>
   );
