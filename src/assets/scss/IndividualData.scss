@@ -1,3 +1,21 @@
 body {
   background-color: #fff !important;
 }
+
+.average-product-price-card {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;
+}
+
+.average-product-price-card .title {
+  color: #101828;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.average-product-price-card .price {
+  color: #027a48;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+}

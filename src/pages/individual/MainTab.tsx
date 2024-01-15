@@ -474,6 +474,30 @@ const MainTab = () => {
     ],
   };
 
+  // chart data
+  const brandMentionData = {
+    selectedDate: marketShareFilterDate,
+    onDateChange: marketShareDateChange,
+    showYearPicker: true,
+    chartTitle: "Brand Mentioned",
+    subTitle: "",
+    labels: ["2021-01", "2021-02", "2021-03", "2021-04", "2021-05"],
+    datasets: [
+      {
+        label: "Number of mentions",
+        backgroundColor: "#1fa083",
+        borderColor: "#1fa083",
+        data: [100, 300, 200, 500, 700, 800],
+      },
+      {
+        label: "Estimated Social Media Reach",
+        backgroundColor: "#5AD8A6",
+        borderColor: "#5AD8A6",
+        data: [200, 500, 100, 800, 700, 300],
+      },
+    ],
+  };
+
   return (
     <>
       <Tab.Container defaultActiveKey="Category">
@@ -517,6 +541,8 @@ const MainTab = () => {
               brandOptions={brandOptions}
               averageProductPriceTrendData={averageProductPriceTrendData}
               stockAvailabilityData={stockAvailabilityData}
+              marketShareData={marketShareData}
+              brandMentionData={brandMentionData}
             />
           </Tab.Pane>
           <Tab.Pane eventKey="Product" id="3" key="3">

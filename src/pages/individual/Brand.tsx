@@ -3,6 +3,7 @@ import { Col, Form, Row } from "react-bootstrap";
 import Select from "react-select";
 import LineChart from "../../components/LineChart/LineChart";
 import DonutChart from "../../components/DonutChart/DonutChart";
+import AverageProductPriceCard from "./AverageProductPriceCard";
 
 interface CategoryProps {
   categoryOptions: { value: string; label: string }[];
@@ -10,6 +11,8 @@ interface CategoryProps {
   brandOptions: { value: string; label: string }[];
   averageProductPriceTrendData?: any;
   stockAvailabilityData?: any;
+  marketShareData?: any;
+  brandMentionData?: any;
 }
 
 const Brand: React.FC<CategoryProps> = ({
@@ -18,6 +21,8 @@ const Brand: React.FC<CategoryProps> = ({
   brandOptions,
   averageProductPriceTrendData,
   stockAvailabilityData,
+  marketShareData,
+  brandMentionData,
 }) => {
   return (
     <>
@@ -47,7 +52,7 @@ const Brand: React.FC<CategoryProps> = ({
           </Form.Group>
         </Col>
         <Col sm={4}>
-          <Form.Group className="mb-3">
+          <Form.Group className="mb-3 ">
             <Form.Label>Brand</Form.Label>
             <Select
               className="react-select react-select-container"
@@ -66,8 +71,32 @@ const Brand: React.FC<CategoryProps> = ({
         )}
 
         {stockAvailabilityData && (
+          <Col md={6}>
+            <Row>
+              <Col sm={12}>
+                <DonutChart {...stockAvailabilityData} />
+              </Col>
+              <Col sm={12}>
+                <AverageProductPriceCard />
+              </Col>
+            </Row>
+          </Col>
+        )}
+        {marketShareData && (
           <Col md={6} className="mb-3">
-            <DonutChart {...stockAvailabilityData} />
+            <LineChart {...marketShareData} />
+          </Col>
+        )}
+        {brandMentionData && (
+          <Col md={6}>
+            <Row>
+              <Col sm={12} className="mb-3">
+                <LineChart {...brandMentionData} />
+              </Col>
+              <Col sm={12}>
+                <AverageProductPriceCard />
+              </Col>
+            </Row>
           </Col>
         )}
       </Row>
