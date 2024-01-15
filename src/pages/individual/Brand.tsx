@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import Select from "react-select";
 import LineChart from "../../components/LineChart/LineChart";
@@ -6,6 +6,7 @@ import DonutChart from "../../components/DonutChart/DonutChart";
 
 import ProductPriceCard from "./ProductPriceCard";
 import BarChart from "../../components/BarChart/BarChart";
+import SocialMedia from "./SocialMedia";
 
 interface CategoryProps {
   categoryOptions: { value: string; label: string }[];
@@ -30,6 +31,14 @@ const Brand: React.FC<CategoryProps> = ({
   numberOfSkuByBrandData,
   totalSaleByEachBrandData,
 }) => {
+  const [socialMediaFilterDate, setSocialMediaFilterDate] = useState(
+    new Date()
+  );
+
+  const socialMediaDateChange = (date: Date) => {
+    setSocialMediaFilterDate(date);
+  };
+
   return (
     <>
       <Row>
@@ -103,9 +112,12 @@ const Brand: React.FC<CategoryProps> = ({
                 <LineChart {...brandMentionData} />
               </Col>
               <Col sm={12}>
-                <ProductPriceCard
-                  title="Average Product Price"
-                  price="12,728,935,685"
+                <SocialMedia
+                  title="Social Media Data"
+                  showExport={true}
+                  selectedDate={socialMediaFilterDate}
+                  onDateChange={socialMediaDateChange}
+                  showYearPicker={true}
                 />
               </Col>
             </Row>

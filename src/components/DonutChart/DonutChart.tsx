@@ -33,9 +33,6 @@ const DonutChart: React.FC<DonutChartProps> = ({
         display: showLegend,
         position: "bottom" as const,
       },
-      datalabels: {
-        display: true,
-      },
     },
     datalabels: {
       display: false,
