@@ -462,6 +462,18 @@ const MainTab = () => {
     ],
   };
 
+  const stockAvailabilityData = {
+    chartTitle: "Stocks",
+    labels: ["In Stock", "Out of Stock"],
+    datasets: [
+      {
+        data: [64, 43],
+        backgroundColor: ["#E8684A", "#F6BD16"],
+        borderColor: "transparent",
+      },
+    ],
+  };
+
   return (
     <>
       <Tab.Container defaultActiveKey="Category">
@@ -504,6 +516,7 @@ const MainTab = () => {
               subCategoryOptions={subCategoryOptions}
               brandOptions={brandOptions}
               averageProductPriceTrendData={averageProductPriceTrendData}
+              stockAvailabilityData={stockAvailabilityData}
             />
           </Tab.Pane>
           <Tab.Pane eventKey="Product" id="3" key="3">

@@ -96,11 +96,7 @@ const BarChart: React.FC<BarChartProps> = ({
     <Card className="dashboard-card h-100">
       <Card.Body>
         <div className="d-flex align-items-center justify-content-between w-100">
-          <p
-            style={{ fontSize: "18px", fontWeight: "600", marginBottom: "0px" }}
-          >
-            {chartTitle}
-          </p>
+          <p className="chartTitle mb-0">{chartTitle}</p>
           <div className="d-flex gap-2 align-items-center">
             {showYearPicker && (
               <CustomDatePicker

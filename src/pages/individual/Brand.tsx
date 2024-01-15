@@ -2,12 +2,14 @@ import React from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import Select from "react-select";
 import LineChart from "../../components/LineChart/LineChart";
+import DonutChart from "../../components/DonutChart/DonutChart";
 
 interface CategoryProps {
   categoryOptions: { value: string; label: string }[];
   subCategoryOptions: { value: string; label: string }[];
   brandOptions: { value: string; label: string }[];
   averageProductPriceTrendData?: any;
+  stockAvailabilityData?: any;
 }
 
 const Brand: React.FC<CategoryProps> = ({
@@ -15,6 +17,7 @@ const Brand: React.FC<CategoryProps> = ({
   subCategoryOptions,
   brandOptions,
   averageProductPriceTrendData,
+  stockAvailabilityData,
 }) => {
   return (
     <>
@@ -59,6 +62,12 @@ const Brand: React.FC<CategoryProps> = ({
         {averageProductPriceTrendData && (
           <Col md={6} className="mb-3">
             <LineChart {...averageProductPriceTrendData} />
+          </Col>
+        )}
+
+        {stockAvailabilityData && (
+          <Col md={6} className="mb-3">
+            <DonutChart {...stockAvailabilityData} />
           </Col>
         )}
       </Row>
