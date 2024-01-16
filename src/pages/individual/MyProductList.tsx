@@ -82,14 +82,14 @@ const MyProductList = ({
               </tbody>
             </table>
           </div>
-          <Row>
-            <Col sm={4}>
+          <Row className="mt-3">
+            <Col sm={4} className="m-0 p-1">
               <ProductSummary title="Current Price" value="5.14" />
             </Col>
-            <Col sm={4}>
+            <Col sm={4} className="p-1">
               <ProductSummary title="Current Availability" value="In Stock" />
             </Col>
-            <Col sm={4}>
+            <Col sm={4} className="p-1">
               <ProductSummary
                 title="Total Sales"
                 value="144,434"

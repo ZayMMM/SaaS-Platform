@@ -507,6 +507,37 @@ const MainTab = () => {
     ],
   };
 
+  // chart data
+  const saleTrendData = {
+    showExport: true,
+    showYearPicker: true,
+    showLegend: false,
+    chartTitle: "Sale Trend",
+    subTitle: "",
+    labels: [
+      "2021-01",
+      "2021-02",
+      "2021-03",
+      "2021-04",
+      "2021-05",
+      "2021-06",
+      "2021-07",
+      "2021-08",
+    ],
+    datasets: [
+      {
+        label: "Average Product Price Trend",
+        backgroundColor: "#1fa083",
+        borderColor: "#1fa083",
+        data: [400, 600, 500, 100, 500, 400, 700, 600],
+        fill: {
+          target: "origin",
+          above: "rgba(31, 160, 131, 0.3)",
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <Tab.Container defaultActiveKey="Category">
@@ -568,6 +599,7 @@ const MainTab = () => {
                 esteeLauderDate={esteeLauderProductDate}
                 esteeLauderDateChange={esteeLauderDateChange}
                 myProductList={myProductList}
+                productPriceTrendData={averageProductPriceTrendData}
               />
             </Row>
           </Tab.Pane>

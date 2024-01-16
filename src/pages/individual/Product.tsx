@@ -16,6 +16,7 @@ interface CategoryProps {
   esteeLauderDate?: Date;
   esteeLauderDateChange?: any;
   myProductList?: any;
+  productPriceTrendData?: any;
 }
 
 const Product: React.FC<CategoryProps> = ({
@@ -28,6 +29,7 @@ const Product: React.FC<CategoryProps> = ({
   esteeLauderDate,
   esteeLauderDateChange,
   myProductList,
+  productPriceTrendData,
 }) => {
   return (
     <>
@@ -124,6 +126,16 @@ const Product: React.FC<CategoryProps> = ({
               selectedDate={esteeLauderDate}
               onDateChange={esteeLauderDateChange}
             />
+          </Col>
+        )}
+        {productPriceTrendData && (
+          <Col md={6} className="mb-3">
+            <LineChart {...productPriceTrendData} />
+          </Col>
+        )}
+        {productPriceTrendData && (
+          <Col md={6} className="mb-3">
+            <LineChart {...productPriceTrendData} />
           </Col>
         )}
       </Row>
