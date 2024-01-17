@@ -58,17 +58,15 @@ const AppFilterDropDown: React.FC<AppFilterDropDownProps> = ({
           as="a"
           onClick={toggleDropDown}
           className="d-none"
-        >
-          Drop down
-        </Dropdown.Toggle>
+        ></Dropdown.Toggle>
         <Dropdown.Menu className="p-3 dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg py-0 ">
           <Row className="mb-3 mainFilterDropDown">
             <Col sm={12}>
-              <h5 className="mb-0 pb-0">Apply Filters</h5>
+              <h5 className="mb-0 pb-0 filterTitle">Apply Filters</h5>
 
               {menuItems.map((menuItem) => (
                 <div key={menuItem.title}>
-                  <h5 className="">{menuItem.title}</h5>
+                  <h5 className="filterSubTitle">{menuItem.title}</h5>
                   {menuItem.children.map((child) => (
                     <Form.Group
                       key={child.value}
@@ -85,10 +83,44 @@ const AppFilterDropDown: React.FC<AppFilterDropDownProps> = ({
                 </div>
               ))}
             </Col>
+            <Col md={6}>
+              <Form.Group className="mb-2">
+                <Form.Label htmlFor="unitPriceStartFrom" className="form-label">
+                  Unit Price Start From
+                </Form.Label>
+                <Form.Control type="text" name="text" id="unitPriceStartFrom" />
+                <Form.Text>0.03 USD</Form.Text>
+              </Form.Group>
+            </Col>
+            <Col md={6}>
+              <Form.Group className="mb-2">
+                <Form.Label htmlFor="unitPriceEndIn" className="form-label">
+                  Unit Price End In
+                </Form.Label>
+                <Form.Control type="text" name="text" id="unitPriceEndIn" />
+                <Form.Text>26.32 USD</Form.Text>
+              </Form.Group>
+            </Col>
+            <hr className="mt-1 mb-2" />
+            <h5 className="mb-0 pb-0 filterSubTitle">Product Availability</h5>
+            <Form.Group
+              className="mb-2 mt-2"
+              controlId={"productAvailability1"}
+            >
+              <Form.Check label="In Stock" id={`checkInStock`} />
+            </Form.Group>
+            <Form.Group className="mb-2" controlId={"productAvailability1"}>
+              <Form.Check
+                label="Bidy Enhancement"
+                id={`checkBidyEnhancement`}
+              />
+            </Form.Group>
           </Row>
           <Row className="mb-3">
             <Col sm={6} className="px-1">
-              <Button variant="outline-danger w-100">Cancel</Button>
+              <Button variant="outline-danger w-100" onClick={toggleDropDown}>
+                Cancel
+              </Button>
             </Col>
             <Col sm={6} className="px-1 ">
               <Button variant="primary w-100">Apply Filters</Button>
