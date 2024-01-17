@@ -44,7 +44,7 @@ const MarketShareData = () => {
 
   // chart data
   const lineChartData = {
-    chartTitle: "Top Sale By Brand",
+    chartTitle: "Market Share",
     subTitle: "Top 15 Products In Market",
     labels: ["2021-01", "2021-02", "2021-03", "2021-04", "2021-05"],
     datasets: [

@@ -125,7 +125,7 @@ const DateFilterDropDown = ({
                             dateFormat="dd MMM yyyy"
                             timeCaption="time"
                             value={selectedStartDate}
-                            showYearPicker={true}
+                            showYearPicker={false}
                             onChange={(date) => {
                               handleStartDateChange(date);
                             }}
@@ -140,7 +140,7 @@ const DateFilterDropDown = ({
                             dateFormat="dd MMM yyyy"
                             timeCaption="time"
                             value={selectedEndDate}
-                            showYearPicker={true}
+                            showYearPicker={false}
                             onChange={(date) => {
                               handleEndDateChange(date);
                             }}

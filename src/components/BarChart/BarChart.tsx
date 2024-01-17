@@ -1,11 +1,12 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import { Card } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
 import CustomDatePicker from "../Date/CustomDatePicker";
 import ExportButton from "../Button/ExportButton";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import { Chart as ChartJs } from "chart.js";
 import DateFilterDropDown from "../DateFilterDropdown/DateFilterDropDown";
+import TopSaleCard from "../TopSaleCard/TopSaleCard";
 
 ChartJs.register(ChartDataLabels);
 
@@ -28,17 +29,16 @@ interface BarChartProps {
   handleEndDateChange?: any;
   selectedMonth?: number;
   handleMonthChange?: any;
+  topSalePercent?: string;
+  yourBrandSalePercent?: string;
+  topBrandSalePercent?: string;
 }
 
 // simple bar chart
 const BarChart: React.FC<BarChartProps> = ({
   chartTitle,
-  subTitle,
   labels,
   datasets,
-  colors,
-  selectedDate,
-  onDateChange,
   showYearPicker,
   dateFilterType = 1,
   handleFilterTypeChange,
@@ -50,6 +50,9 @@ const BarChart: React.FC<BarChartProps> = ({
   handleStartDateChange,
   selectedMonth,
   handleMonthChange,
+  topSalePercent,
+  topBrandSalePercent,
+  yourBrandSalePercent,
 }) => {
   // options
   const barChartOpts = {
@@ -139,6 +142,41 @@ const BarChart: React.FC<BarChartProps> = ({
         <div className="chartjs-chart line-chart-min-320">
           <Bar data={barChartData} options={barChartOpts} />
         </div>
+
+        {topSalePercent || topBrandSalePercent || yourBrandSalePercent ? (
+          <Row className="mt-3">
+            {topSalePercent && (
+              <Col md={4}>
+                <TopSaleCard
+                  title="Top Sales"
+                  percent="10%"
+                  isUp={true}
+                  subTitle="last mth"
+                />
+              </Col>
+            )}
+            {topBrandSalePercent && (
+              <Col md={4}>
+                <TopSaleCard
+                  title="Top Brand Sales"
+                  percent="10%"
+                  isUp={false}
+                  subTitle="last mth"
+                />
+              </Col>
+            )}
+            {yourBrandSalePercent && (
+              <Col md={4}>
+                <TopSaleCard
+                  title="Your Brand Sale"
+                  percent="10%"
+                  isUp={false}
+                  subTitle="last mth"
+                />
+              </Col>
+            )}
+          </Row>
+        ) : null}
       </Card.Body>
     </Card>
   );

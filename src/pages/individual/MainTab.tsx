@@ -21,7 +21,7 @@ const MainTab = () => {
   const [marketShareFilterDate, setMarketShareFilterDate] = useState(
     new Date()
   );
-  const [topSaleBrandDate, setTopSaleBrandDate] = useState(new Date());
+
   const [numberOfSkuByBrandDate, setNumberOfSkuByBrandDate] = useState(
     new Date()
   );
@@ -29,29 +29,9 @@ const MainTab = () => {
     new Date()
   );
 
-  const [esteeLauderProductDate, setEsteeLauderProductDate] = useState(
-    new Date()
-  );
-
-  const [myProductPriceTrendDate, setMyProductPriceTrendDate] = useState(
-    new Date()
-  );
-
-  const [mySaleTrendDate, setMySaleTrendDate] = useState(new Date());
-
-  const [myBrandMentionDate, setMyBrandMentionDate] = useState(new Date());
-
-  const [socialMediaDate, setSocialMediaDate] = useState(new Date());
-
   const marketShareDateChange = (date: Date) => {
     if (date) {
       setMarketShareFilterDate(date);
-    }
-  };
-
-  const topSaleBrandDateChange = (date: Date) => {
-    if (date) {
-      setTopSaleBrandDate(date);
     }
   };
 
@@ -65,26 +45,6 @@ const MainTab = () => {
     if (date) {
       setTotalSaleByEachBrandDate(date);
     }
-  };
-
-  const esteeLauderDateChange = (date: Date) => {
-    setEsteeLauderProductDate(date);
-  };
-
-  const myProductPriceTrendDateChange = (date: Date) => {
-    setMyProductPriceTrendDate(date);
-  };
-
-  const mySaleTrendDateChange = (date: Date) => {
-    setMySaleTrendDate(date);
-  };
-
-  const myBrandMentionDateChange = (date: Date) => {
-    setMyBrandMentionDate(date);
-  };
-
-  const socialMediaDateChange = (date: Date) => {
-    setSocialMediaDate(date);
   };
 
   const tabContents: TabContentType[] = [
@@ -130,256 +90,6 @@ const MainTab = () => {
     { value: "3", label: "Product 3" },
   ];
 
-  // chart data
-  const marketShareData = {
-    selectedDate: marketShareFilterDate,
-    onDateChange: marketShareDateChange,
-    showYearPicker: true,
-    chartTitle: "Market Share",
-    subTitle: "Top 15 Categories in Market",
-    labels: ["2021-01", "2021-02", "2021-03", "2021-04", "2021-05"],
-    datasets: [
-      {
-        label: "Category 1",
-        backgroundColor: "#1fa083",
-        borderColor: "#1fa083",
-        data: [100, 300, 200, 500, 700, 800],
-      },
-      {
-        label: "Category 2",
-        backgroundColor: "#5AD8A6",
-        borderColor: "#5AD8A6",
-        data: [200, 500, 100, 800, 700, 300],
-      },
-      {
-        label: "Category 3",
-        backgroundColor: "#E8684A",
-        borderColor: "#E8684A",
-        data: [500, 300, 600, 300, 800, 200],
-      },
-      {
-        label: "Category 4",
-        backgroundColor: "#870182",
-        borderColor: "#870182",
-        data: [100, 400, 200, 600, 800, 500],
-      },
-      {
-        label: "Category 5",
-        backgroundColor: "#F6BD16",
-        borderColor: "#F6BD16",
-        data: [300, 600, 500, 400, 800, 700],
-      },
-      {
-        label: "Category 6",
-        backgroundColor: "#C78F8F",
-        borderColor: "#C78F8F",
-        data: [400, 200, 100, 700, 400, 100],
-      },
-      {
-        label: "Category 7",
-        backgroundColor: "#1fa083",
-        borderColor: "#1fa083",
-        data: [300, 500, 100, 800, 700, 800],
-      },
-      {
-        label: "Category 8",
-        backgroundColor: "#5AD8A6",
-        borderColor: "#5AD8A6",
-        data: [200, 500, 100, 800, 700, 300],
-      },
-      {
-        label: "Item 9",
-        backgroundColor: "#E8684A",
-        borderColor: "#E8684A",
-        data: [1000, 900, 600, 100, 400, 200],
-      },
-      {
-        label: "Category 10",
-        backgroundColor: "#870182",
-        borderColor: "#870182",
-        data: [800, 700, 600, 600, 800, 500],
-      },
-      {
-        label: "Category 11",
-        backgroundColor: "#D235CC",
-        borderColor: "#F6BD16",
-        data: [500, 600, 900, 400, 300, 100],
-      },
-      {
-        label: "Category 12",
-        backgroundColor: "#C78F8F",
-        borderColor: "#C78F8F",
-        data: [400, 200, 100, 700, 400, 100],
-      },
-    ],
-  };
-
-  // chart data
-  const numberOfSkuByBrandData = {
-    selectedDate: numberOfSkuByBrandDate,
-    onDateChange: numberOfSkuByBrandDateChange,
-    showYearPicker: true,
-    chartTitle: "Number of SKU By Brand",
-    subTitle: "",
-    labels: Array(1).fill(""),
-    datasets: [
-      {
-        label: "Beauty Buffet Shop",
-        backgroundColor: "#5B8FF9",
-        borderColor: "#5B8FF9",
-        data: [22000],
-        barPercentage: 0.8,
-        categoryPercentage: 0.8,
-      },
-      {
-        label: "SHISEIDO",
-        backgroundColor: "#5AD8A6",
-        borderColor: "#5AD8A6",
-        data: [16000],
-        barPercentage: 0.8,
-        categoryPercentage: 0.8,
-      },
-      {
-        label: "MISTINE",
-        backgroundColor: "#F6BD16",
-        borderColor: "#F6BD16",
-        data: [16000],
-        barPercentage: 0.8,
-        categoryPercentage: 0.8,
-      },
-      {
-        label: "SRICHAND",
-        backgroundColor: "#E8684A",
-        borderColor: "#E8684A",
-        data: [16000],
-        barPercentage: 0.8,
-        categoryPercentage: 0.8,
-      },
-      {
-        label: "Clarins",
-        backgroundColor: "#6DC8EC",
-        borderColor: "#6DC8EC",
-        data: [12000],
-        barPercentage: 0.8,
-        categoryPercentage: 0.8,
-      },
-      {
-        label: "Item 6",
-        backgroundColor: "#5D7092",
-        borderColor: "#5D7092",
-        data: [10000],
-        barPercentage: 0.8,
-        categoryPercentage: 0.8,
-      },
-      {
-        label: "Estee Lauder",
-        backgroundColor: "#D235CC",
-        borderColor: "#D235CC",
-        data: [8000],
-        barPercentage: 0.8,
-        categoryPercentage: 0.8,
-      },
-    ],
-  };
-
-  const totalSaleByEachBrandData = {
-    selectedDate: totalSaleByEachBrandDate,
-    onDateChange: totalSaleByEachBrandDateChange,
-    showYearPicker: true,
-    chartTitle: "Total Sales by each Brand",
-    subTitle: "",
-    labels: Array(1).fill(""),
-    datasets: [
-      {
-        label: "Beauty Buffet Shop",
-        backgroundColor: "#5B8FF9",
-        borderColor: "#5B8FF9",
-        data: [22000],
-        barPercentage: 0.8,
-        categoryPercentage: 0.8,
-      },
-      {
-        label: "SHISEIDO",
-        backgroundColor: "#5AD8A6",
-        borderColor: "#5AD8A6",
-        data: [16000],
-        barPercentage: 0.8,
-        categoryPercentage: 0.8,
-      },
-      {
-        label: "MISTINE",
-        backgroundColor: "#F6BD16",
-        borderColor: "#F6BD16",
-        data: [16000],
-        barPercentage: 0.8,
-        categoryPercentage: 0.8,
-      },
-      {
-        label: "SRICHAND",
-        backgroundColor: "#E8684A",
-        borderColor: "#E8684A",
-        data: [16000],
-        barPercentage: 0.8,
-        categoryPercentage: 0.8,
-      },
-      {
-        label: "Clarins",
-        backgroundColor: "#6DC8EC",
-        borderColor: "#6DC8EC",
-        data: [12000],
-        barPercentage: 0.8,
-        categoryPercentage: 0.8,
-      },
-      {
-        label: "Item 6",
-        backgroundColor: "#5D7092",
-        borderColor: "#5D7092",
-        data: [10000],
-        barPercentage: 0.8,
-        categoryPercentage: 0.8,
-      },
-      {
-        label: "Estee Lauder",
-        backgroundColor: "#D235CC",
-        borderColor: "#D235CC",
-        data: [8000],
-        barPercentage: 0.8,
-        categoryPercentage: 0.8,
-      },
-    ],
-  };
-
-  // chart data
-  const averageProductPriceTrendData = {
-    showExport: false,
-    showYearPicker: false,
-    showLegend: false,
-    chartTitle: "Average Product Price Trend",
-    subTitle: "",
-    labels: [
-      "2021-01",
-      "2021-02",
-      "2021-03",
-      "2021-04",
-      "2021-05",
-      "2021-06",
-      "2021-07",
-      "2021-08",
-    ],
-    datasets: [
-      {
-        label: "Average Product Price Trend",
-        backgroundColor: "#1fa083",
-        borderColor: "#1fa083",
-        data: [400, 600, 500, 100, 500, 400, 700, 600],
-        fill: {
-          target: "origin",
-          above: "rgba(31, 160, 131, 0.3)",
-        },
-      },
-    ],
-  };
-
   const stockAvailabilityData = {
     chartTitle: "Stocks",
     labels: ["In Stock", "Out of Stock"],
@@ -388,30 +98,6 @@ const MainTab = () => {
         data: [64, 43],
         backgroundColor: ["#E8684A", "#F6BD16"],
         borderColor: "transparent",
-      },
-    ],
-  };
-
-  // chart data
-  const brandMentionData = {
-    selectedDate: marketShareFilterDate,
-    onDateChange: marketShareDateChange,
-    showYearPicker: true,
-    chartTitle: "Brand Mentioned",
-    subTitle: "",
-    labels: ["2021-01", "2021-02", "2021-03", "2021-04", "2021-05"],
-    datasets: [
-      {
-        label: "Number of mentions",
-        backgroundColor: "#1fa083",
-        borderColor: "#1fa083",
-        data: [100, 300, 200, 500, 700, 800],
-      },
-      {
-        label: "Estimated Social Media Reach",
-        backgroundColor: "#5AD8A6",
-        borderColor: "#5AD8A6",
-        data: [200, 500, 100, 800, 700, 300],
       },
     ],
   };

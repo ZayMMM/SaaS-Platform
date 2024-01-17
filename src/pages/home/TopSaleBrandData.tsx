@@ -148,6 +148,9 @@ const TopSaleBrandData = () => {
         handleEndDateChange={handleEndDateChange}
         selectedMonth={selectedFilterMonth}
         handleMonthChange={handleSelectedMonthChange}
+        topBrandSalePercent="10%"
+        topSalePercent="15%"
+        yourBrandSalePercent="15%"
       />
     </>
   );
