@@ -26,6 +26,8 @@ interface MenuItems {
   subMenuClassNames?: string;
   activeMenuItems?: string[];
   toggleMenu?: (item: any, status: boolean) => void;
+  changeActiveMenuKey?: any;
+  activeMenuKey?: string;
 }
 
 const MenuItemWithChildren = ({
@@ -36,6 +38,8 @@ const MenuItemWithChildren = ({
   subMenuClassNames,
   activeMenuItems,
   toggleMenu,
+  changeActiveMenuKey,
+  activeMenuKey,
 }: MenuItems) => {
   const Tag: any = tag;
   //
@@ -170,15 +174,31 @@ const MenuItemWithChildren = ({
   );
 };
 
-const MenuItem = ({ item, className, linkClassName }: MenuItems) => {
+const MenuItem = ({
+  item,
+  className,
+  linkClassName,
+  activeMenuKey,
+  changeActiveMenuKey,
+}: MenuItems) => {
   return (
     <li className={classNames("menu-item", className)}>
-      <MenuItemLink item={item} className={linkClassName} />
+      <MenuItemLink
+        item={item}
+        className={linkClassName}
+        activeMenuKey={activeMenuKey}
+        changeActiveMenuKey={changeActiveMenuKey}
+      />
     </li>
   );
 };
 
-const MenuItemLink = ({ item, className }: MenuItems) => {
+const MenuItemLink = ({
+  item,
+  className,
+  activeMenuKey,
+  changeActiveMenuKey,
+}: MenuItems) => {
   //
 
   return (
@@ -188,6 +208,7 @@ const MenuItemLink = ({ item, className }: MenuItems) => {
         target={item.target}
         className="menu-link"
         data-menu-key={item.key}
+        onClick={() => changeActiveMenuKey(item.key)}
       >
         {item.icon && (
           <span className="menu-icon">
@@ -239,6 +260,7 @@ const AppMenu = ({ menuItems }: AppMenuProps) => {
 
   const [topnavMenuItems] = useState<MenuItemTypes[]>(menuItems);
   const [activeMenuItems, setActiveMenuItems] = useState<string[]>([]);
+  const [activeMenuKey, setActiveMenuKey] = useState("home");
 
   /*
    * toggle the menus
@@ -249,6 +271,10 @@ const AppMenu = ({ menuItems }: AppMenuProps) => {
         menuItem["key"],
         ...findAllParent(topnavMenuItems, menuItem),
       ]);
+  };
+
+  const changeActiveMenuKey = (key: string) => {
+    setActiveMenuKey(key);
   };
 
   /**
@@ -311,11 +337,13 @@ const AppMenu = ({ menuItems }: AppMenuProps) => {
               ) : (
                 <MenuItem
                   item={item}
+                  activeMenuKey={activeMenuKey}
+                  changeActiveMenuKey={changeActiveMenuKey}
                   className={classNames({
-                    "menuitem-active": activeMenuItems.includes(item.key),
+                    "menuitem-active": activeMenuKey == item.key,
                   })}
                   linkClassName={classNames({
-                    "menuitem-active": activeMenuItems.includes(item.key),
+                    "menuitem-active": activeMenuKey == item.key,
                   })}
                 />
               )}

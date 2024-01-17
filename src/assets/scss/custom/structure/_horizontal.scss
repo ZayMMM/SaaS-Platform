@@ -284,3 +284,18 @@ html[data-layout="horizontal"] {
     width: 200px !important;
   }
 }
+
+@media (max-width: 820px) {
+  .menu-search {
+    width: 120px !important;
+  }
+
+  html[data-layout="horizontal"] .app-menu .menu .menu-item {
+    position: relative;
+    padding: 0 0px;
+  }
+
+  html[data-layout="horizontal"] .app-menu .menu {
+    margin: 0 !important;
+  }
+}

@@ -158,3 +158,13 @@ html[data-bs-theme="dark"] {
   font-size: 14px;
   color: #b8b8b8;
 }
+
+@media screen and (max-width: 760px) {
+  .account-pages {
+    position: absolute;
+    width: 320px;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

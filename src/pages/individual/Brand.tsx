@@ -111,7 +111,7 @@ const Brand: React.FC<CategoryProps> = ({
               <Col sm={12} className="mb-3">
                 <LineChart {...brandMentionData} />
               </Col>
-              <Col sm={12}>
+              <Col sm={12} className="mb-3">
                 <SocialMedia
                   title="Social Media Data"
                   showExport={true}

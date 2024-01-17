@@ -33,7 +33,7 @@ const SocialMedia: React.FC<SocialMediaProps> = ({
     <>
       <Card className="dashboard-card h-100">
         <Card.Body>
-          <div className="d-flex align-items-center justify-content-between w-100">
+          <div className="d-flex align-items-center justify-content-between w-100 flex-wrap ">
             <p className="chartTitle mb-0">{title}</p>
             <div className="d-flex gap-2 align-items-center">
               {showYearPicker && (
@@ -53,7 +53,7 @@ const SocialMedia: React.FC<SocialMediaProps> = ({
               <ExportButton />
             </div>
           </div>
-          <ListGroup horizontal className="social-media-list mt-4">
+          <ListGroup horizontal className="social-media-list mt-4 ">
             <ListGroup.Item className="w-100 p-1 active">
               <SocialMediaItem
                 image={AllImage}

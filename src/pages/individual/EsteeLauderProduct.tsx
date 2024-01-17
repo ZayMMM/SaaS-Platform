@@ -29,7 +29,7 @@ const EsteeLauderProduct = ({
     <>
       <Card className="dashboard-card h-100">
         <Card.Body>
-          <div className="d-flex align-items-center justify-content-between w-100">
+          <div className="d-flex align-items-center justify-content-between w-100 flex-wrap">
             <h4 className="header-title fw-600">Estee Lauder Product</h4>
             <div className="d-flex gap-2 align-items-center">
               {showYearPicker && (
