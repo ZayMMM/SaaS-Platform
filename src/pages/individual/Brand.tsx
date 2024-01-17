@@ -1,35 +1,30 @@
 import React, { useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import Select from "react-select";
-import LineChart from "../../components/LineChart/LineChart";
 import DonutChart from "../../components/DonutChart/DonutChart";
 
 import ProductPriceCard from "./ProductPriceCard";
-import BarChart from "../../components/BarChart/BarChart";
+
 import SocialMedia from "./SocialMedia";
+import AverageProductPriceTrendLineChart from "./brand/AverageProductPriceTrendLineChart";
+import MarketShareData from "./category/MarketShareData";
+import BrandMentionLineChart from "./brand/BrandMentionLineChart";
+import SkuByBrandBarChart from "./category/SkuByBrandBarChart";
+import TotalSaleByBrandBarChart from "./category/TotalSaleByBrandBarChart";
 
 interface CategoryProps {
   categoryOptions: { value: string; label: string }[];
   subCategoryOptions: { value: string; label: string }[];
   brandOptions: { value: string; label: string }[];
-  averageProductPriceTrendData?: any;
   stockAvailabilityData?: any;
-  marketShareData?: any;
-  brandMentionData?: any;
-  numberOfSkuByBrandData?: any;
-  totalSaleByEachBrandData?: any;
 }
 
 const Brand: React.FC<CategoryProps> = ({
   categoryOptions,
   subCategoryOptions,
   brandOptions,
-  averageProductPriceTrendData,
+
   stockAvailabilityData,
-  marketShareData,
-  brandMentionData,
-  numberOfSkuByBrandData,
-  totalSaleByEachBrandData,
 }) => {
   const [socialMediaFilterDate, setSocialMediaFilterDate] = useState(
     new Date()
@@ -79,14 +74,12 @@ const Brand: React.FC<CategoryProps> = ({
           </Form.Group>
         </Col>
 
-        {averageProductPriceTrendData && (
-          <Col md={6} className="mb-3">
-            <LineChart {...averageProductPriceTrendData} />
-          </Col>
-        )}
+        <Col md={8} className="mb-3">
+          <AverageProductPriceTrendLineChart />
+        </Col>
 
         {stockAvailabilityData && (
-          <Col md={6}>
+          <Col md={4}>
             <Row>
               <Col sm={12} className="mb-3">
                 <DonutChart {...stockAvailabilityData} />
@@ -100,41 +93,29 @@ const Brand: React.FC<CategoryProps> = ({
             </Row>
           </Col>
         )}
-        {marketShareData && (
-          <Col md={6} className="mb-3">
-            <LineChart {...marketShareData} />
-          </Col>
-        )}
-        {brandMentionData && (
-          <Col md={6}>
-            <Row>
-              <Col sm={12} className="mb-3">
-                <LineChart {...brandMentionData} />
-              </Col>
-              <Col sm={12} className="mb-3">
-                <SocialMedia
-                  title="Social Media Data"
-                  showExport={true}
-                  selectedDate={socialMediaFilterDate}
-                  onDateChange={socialMediaDateChange}
-                  showYearPicker={true}
-                />
-              </Col>
-            </Row>
-          </Col>
-        )}
 
-        {numberOfSkuByBrandData && (
-          <Col md={6} className="mb-3">
-            <BarChart {...numberOfSkuByBrandData} />
-          </Col>
-        )}
+        <Col md={7} className="mb-3">
+          <MarketShareData />
+        </Col>
 
-        {totalSaleByEachBrandData && (
-          <Col md={6} className="mb-3">
-            <BarChart {...totalSaleByEachBrandData} />
-          </Col>
-        )}
+        <Col md={5}>
+          <Row>
+            <Col sm={12} className="mb-3">
+              <BrandMentionLineChart />
+            </Col>
+            <Col sm={12} className="mb-3">
+              <SocialMedia title="Social Media Data" />
+            </Col>
+          </Row>
+        </Col>
+
+        <Col md={6} className="mb-3">
+          <SkuByBrandBarChart />
+        </Col>
+
+        <Col md={6} className="mb-3">
+          <TotalSaleByBrandBarChart />
+        </Col>
       </Row>
     </>
   );

@@ -1,7 +1,7 @@
 import { Card } from "react-bootstrap";
-import CustomDatePicker from "../Date/CustomDatePicker";
 import ExportButton from "../Button/ExportButton";
 import { Line } from "react-chartjs-2";
+import DateFilterDropDown from "../DateFilterDropdown/DateFilterDropDown";
 
 interface LineChartProps {
   chartTitle?: string;
@@ -14,6 +14,16 @@ interface LineChartProps {
   selectedDate?: Date;
   onDateChange?: (date: any) => void;
   showLegend?: boolean;
+  dateFilterType?: number;
+  handleFilterTypeChange?: any;
+  selectedFilterYear?: Date;
+  handleFilterYearChange?: any;
+  selectedStartDate?: Date;
+  handleStartDateChange?: any;
+  selectedEndDate?: Date;
+  handleEndDateChange?: any;
+  selectedMonth?: number;
+  handleMonthChange?: any;
 }
 
 const LineChart: React.FC<LineChartProps> = ({
@@ -26,6 +36,16 @@ const LineChart: React.FC<LineChartProps> = ({
   showYearPicker = true,
   showExport = true,
   showLegend = true,
+  dateFilterType = 1,
+  handleFilterTypeChange,
+  selectedFilterYear,
+  handleFilterYearChange,
+  selectedEndDate,
+  handleEndDateChange,
+  selectedStartDate,
+  handleStartDateChange,
+  selectedMonth,
+  handleMonthChange,
 }) => {
   // chart options
   const lineChartOpts = {
@@ -89,17 +109,17 @@ const LineChart: React.FC<LineChartProps> = ({
           <p className="chartTitle mb-0">{chartTitle}</p>
           <div className="d-flex gap-2 align-items-center">
             {showYearPicker && (
-              <CustomDatePicker
-                hideAddon={false}
-                dateFormat="yyyy"
-                timeCaption="time"
-                value={selectedDate}
-                showYearPicker={true}
-                onChange={(date) => {
-                  if (onDateChange) {
-                    onDateChange(date);
-                  }
-                }}
+              <DateFilterDropDown
+                handleFilterTypeChange={handleFilterTypeChange}
+                selectedFilterType={dateFilterType}
+                selectedFilterYear={selectedFilterYear}
+                handleFilterYearChange={handleFilterYearChange}
+                selectedStartDate={selectedStartDate}
+                handleStartDateChange={handleStartDateChange}
+                selectedEndDate={selectedEndDate}
+                handleEndDateChange={handleEndDateChange}
+                handleMonthChange={handleMonthChange}
+                selectedMonth={selectedMonth}
               />
             )}
             {showExport && <ExportButton />}

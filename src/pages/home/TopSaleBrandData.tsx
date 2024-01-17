@@ -1,38 +1,50 @@
-import { Row, Col } from "react-bootstrap";
-import { topSaleProductList } from "./data";
-
 import { useState } from "react";
-import TopSaleProduct from "./TopSaleProduct";
-import MarketShareData from "./MarketShareData";
-import TopSaleBrandData from "./TopSaleBrandData";
+import BarChart from "../../components/BarChart/BarChart";
 
-const Home = () => {
-  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+const TopSaleBrandData = () => {
+  const [selectedFilterType, setSelectedFilterType] = useState(1);
+  const [selectedFilterYear, setSelectedFilterYear] = useState<Date>(
+    new Date()
+  );
+  const [selectedFilterMonth, setSelectedFilterMonth] = useState<number>(1);
+  const [selectedFilterStartDate, setSelectedFilterStartDate] = useState<Date>(
+    new Date()
+  );
+  const [selectedFilterEndDate, setSelectedFilterEndDate] = useState<Date>(
+    new Date()
+  );
 
-  const [brandChartDate, setBrandChartDate] = useState<Date>(new Date());
+  const handleSelectedFilterTypeChange = (value: number) => {
+    setSelectedFilterType(value);
+  };
 
-  /*
-   * handle date change
-   */
-  const onDateChange = (date: Date) => {
+  const handleSelectedYearChange = (date: Date) => {
     if (date) {
-      console.log(date);
-      setSelectedDate(date);
+      setSelectedFilterYear(date);
     }
   };
 
-  const brandChartDateChange = (date: Date) => {
+  const handleStartDateChange = (date: Date) => {
     if (date) {
-      setBrandChartDate(date);
+      setSelectedFilterStartDate(date);
+    }
+  };
+
+  const handleEndDateChange = (date: Date) => {
+    if (date) {
+      setSelectedFilterEndDate(date);
+    }
+  };
+
+  const handleSelectedMonthChange = (value: number) => {
+    if (value) {
+      setSelectedFilterMonth(value);
     }
   };
 
   const emptyLabels = Array(1).fill("");
-
   // chart data
   const barChartData = {
-    selectedDate: brandChartDate,
-    onDateChange: brandChartDateChange,
     showYearPicker: true,
     chartTitle: "Top Sale By Brand",
     subTitle: "",
@@ -123,22 +135,22 @@ const Home = () => {
 
   return (
     <>
-      <Row className="mt-4">
-        <Col lg={12} className="mb-3">
-          <MarketShareData />
-        </Col>
-      </Row>
-
-      <Row>
-        <Col xl={6} className="mb-3">
-          <TopSaleBrandData />
-        </Col>
-        <Col xl={6} className="mb-3">
-          <TopSaleProduct />
-        </Col>
-      </Row>
+      <BarChart
+        {...barChartData}
+        showYearPicker={true}
+        dateFilterType={selectedFilterType}
+        handleFilterTypeChange={handleSelectedFilterTypeChange}
+        selectedFilterYear={selectedFilterYear}
+        handleFilterYearChange={handleSelectedYearChange}
+        selectedStartDate={selectedFilterStartDate}
+        handleStartDateChange={handleStartDateChange}
+        selectedEndDate={selectedFilterEndDate}
+        handleEndDateChange={handleEndDateChange}
+        selectedMonth={selectedFilterMonth}
+        handleMonthChange={handleSelectedMonthChange}
+      />
     </>
   );
 };
 
-export default Home;
+export default TopSaleBrandData;

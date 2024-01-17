@@ -8,27 +8,59 @@ import ForumImage from "../../assets/images/social-media/forturm.svg";
 import NewsImage from "../../assets/images/social-media/news.svg";
 import VideoImage from "../../assets/images/social-media/video.svg";
 import PhotoImage from "../../assets/images/social-media/photo.svg";
-import React from "react";
-import CustomDatePicker from "../../components/Date/CustomDatePicker";
+import React, { useState } from "react";
 import ExportButton from "../../components/Button/ExportButton";
+import DateFilterDropDown from "../../components/DateFilterDropdown/DateFilterDropDown";
 
 interface SocialMediaProps {
   title: string;
-  showYearPicker?: boolean;
-  showExport?: boolean;
-  selectedDate?: Date;
-  onDateChange?: (date: any) => void;
   isVertical?: boolean;
 }
 
 const SocialMedia: React.FC<SocialMediaProps> = ({
-  showYearPicker = false,
-  showExport = false,
-  selectedDate,
-  onDateChange,
   title,
   isVertical = false,
 }) => {
+  const [selectedFilterType, setSelectedFilterType] = useState(1);
+  const [selectedFilterYear, setSelectedFilterYear] = useState<Date>(
+    new Date()
+  );
+  const [selectedFilterMonth, setSelectedFilterMonth] = useState<number>(1);
+  const [selectedFilterStartDate, setSelectedFilterStartDate] = useState<Date>(
+    new Date()
+  );
+  const [selectedFilterEndDate, setSelectedFilterEndDate] = useState<Date>(
+    new Date()
+  );
+
+  const handleSelectedFilterTypeChange = (value: number) => {
+    setSelectedFilterType(value);
+  };
+
+  const handleSelectedYearChange = (date: Date) => {
+    if (date) {
+      setSelectedFilterYear(date);
+    }
+  };
+
+  const handleStartDateChange = (date: Date) => {
+    if (date) {
+      setSelectedFilterStartDate(date);
+    }
+  };
+
+  const handleEndDateChange = (date: Date) => {
+    if (date) {
+      setSelectedFilterEndDate(date);
+    }
+  };
+
+  const handleSelectedMonthChange = (value: number) => {
+    if (value) {
+      setSelectedFilterMonth(value);
+    }
+  };
+
   return (
     <>
       <Card className="dashboard-card h-100">
@@ -36,20 +68,18 @@ const SocialMedia: React.FC<SocialMediaProps> = ({
           <div className="d-flex align-items-center justify-content-between w-100 flex-wrap ">
             <p className="chartTitle mb-0">{title}</p>
             <div className="d-flex gap-2 align-items-center">
-              {showYearPicker && (
-                <CustomDatePicker
-                  hideAddon={false}
-                  dateFormat="yyyy"
-                  timeCaption="time"
-                  value={selectedDate}
-                  showYearPicker={true}
-                  onChange={(date) => {
-                    if (onDateChange) {
-                      onDateChange(date);
-                    }
-                  }}
-                />
-              )}
+              <DateFilterDropDown
+                handleFilterTypeChange={handleSelectedFilterTypeChange}
+                selectedFilterType={selectedFilterType}
+                selectedFilterYear={selectedFilterYear}
+                handleFilterYearChange={handleSelectedYearChange}
+                selectedStartDate={selectedFilterStartDate}
+                handleStartDateChange={handleStartDateChange}
+                selectedEndDate={selectedFilterEndDate}
+                handleEndDateChange={handleEndDateChange}
+                handleMonthChange={handleSelectedMonthChange}
+                selectedMonth={selectedFilterMonth}
+              />
               <ExportButton />
             </div>
           </div>

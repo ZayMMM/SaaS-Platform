@@ -1,27 +1,10 @@
 import { Card, Image } from "react-bootstrap";
-import CustomDatePicker from "../../components/Date/CustomDatePicker";
-import ExportButton from "../../components/Button/ExportButton";
-import DateFilterDropDown from "../../components/DateFilterDropdown/DateFilterDropDown";
-import { topSaleProductList } from "./data";
+import ExportButton from "../../../components/Button/ExportButton";
+import DateFilterDropDown from "../../../components/DateFilterDropdown/DateFilterDropDown";
+import { topSaleProductList } from "../data";
 import { useState } from "react";
 
-interface TopSaleProductProps {
-  topSaleProductList: {
-    id: number;
-    product: string;
-    brand: string;
-    ecommerceSite: string;
-    image?: string;
-    saleUsd?: string;
-    priceUsd?: string;
-  }[];
-  showYearPicker?: boolean;
-  showExport?: boolean;
-  selectedDate?: Date;
-  onDateChange?: (date: any) => void;
-}
-
-const TopSaleProduct = ({}) => {
+const CompetitorProductTable = ({}) => {
   const [selectedFilterType, setSelectedFilterType] = useState(1);
   const [selectedFilterYear, setSelectedFilterYear] = useState<Date>(
     new Date()
@@ -67,7 +50,7 @@ const TopSaleProduct = ({}) => {
       <Card className="dashboard-card h-100">
         <Card.Body>
           <div className="d-flex align-items-center justify-content-between w-100 flex-wrap">
-            <h4 className="header-title fw-600">Top Sales By Product</h4>
+            <h4 className="header-title fw-600">Competitor Products</h4>
             <div className="d-flex gap-2 align-items-center">
               <DateFilterDropDown
                 handleFilterTypeChange={handleSelectedFilterTypeChange}
@@ -128,4 +111,4 @@ const TopSaleProduct = ({}) => {
   );
 };
 
-export default TopSaleProduct;
+export default CompetitorProductTable;

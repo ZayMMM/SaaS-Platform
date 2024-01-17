@@ -9,6 +9,7 @@ interface DatepickerInputProps {
   value?: string;
   inputClass: string;
   children?: React.ReactNode;
+  dateFormat?: string;
 }
 
 /* Datepicker with Input */
@@ -35,28 +36,31 @@ const DatepickerInputWithAddon = forwardRef<
   HTMLInputElement,
   DatepickerInputProps
 >((props, ref) => (
-  // <div
-  //   className="input-group input-group-sm"
-  //   ref={ref}
-  //   style={{ maxWidth: "120px" }}
-  // >
-  //   <span className="input-group-text " style={{ backgroundColor: "#fff" }}>
-  //     <i className="mdi mdi-calendar-range" style={{ fontSize: "16px" }}></i>
-  //   </span>
-  //   <input
-  //     type="text"
-  //     className={classNames("form-control", props.inputClass)}
-  //     onClick={props.onClick}
-  //     value={props.value}
-  //     style={{ height: "40px", borderLeft: "0px", fontSize: "14px" }}
-  //     readOnly
-  //   />
-  // </div>
-  <button onClick={props.onClick} className="year-picker-btn">
-    <i className="mdi mdi-calendar-range fs-16 pt-2px"></i>
-    <span style={{ fontSize: "14px" }}> {props.value}</span>
-    <i className="fas fa-caret-down fs-16 ml-20px"></i>
-  </button>
+  <div className="input-group input-group-sm" ref={ref}>
+    <input
+      type="text"
+      className={classNames("form-control", props.inputClass)}
+      onClick={props.onClick}
+      value={props.value}
+      style={{ height: "40px", borderRight: "0px", fontSize: "14px" }}
+      readOnly
+    />
+    <span className="input-group-text ps-0 bg-white">
+      {props.dateFormat == "yyyy" ? (
+        <i
+          className="fas fa-caret-down fs-16 ml-20px"
+          style={{ fontSize: "16px" }}
+        ></i>
+      ) : (
+        <i className="mdi mdi-calendar-range" style={{ fontSize: "16px" }}></i>
+      )}
+    </span>
+  </div>
+  // <button onClick={props.onClick} className="year-picker-btn">
+  //   <i className="mdi mdi-calendar-range fs-16 pt-2px"></i>
+  //   <span style={{ fontSize: "14px" }}> {props.value}</span>
+  //   <i className="fas fa-caret-down fs-16 ml-20px"></i>
+  // </button>
 ));
 
 interface HyperDatepickerProps {
@@ -92,6 +96,7 @@ const CustomDatePicker = (props: HyperDatepickerProps) => {
       <DatepickerInputWithAddon
         inputClass={props.inputClass!}
         value={formattedValue}
+        dateFormat={props.dateFormat}
       />
     );
 

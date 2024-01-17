@@ -1,29 +1,21 @@
 import React from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import Select from "react-select";
-import LineChart from "../../components/LineChart/LineChart";
-import BarChart from "../../components/BarChart/BarChart";
+import MarketShareData from "./category/MarketShareData";
+import SaleTrendByCategory from "./category/SaleTrendByCategory";
+import TopSaleBrandInCategory from "./category/TopSaleBrandInCategory";
+import SkuByBrandBarChart from "./category/SkuByBrandBarChart";
+import SaleTrendByBrandLineChart from "./category/SaleTrendByBrandLineChart";
+import TotalSaleByBrandBarChart from "./category/TotalSaleByBrandBarChart";
 
 interface CategoryProps {
   categoryOptions: { value: string; label: string }[];
   subCategoryOptions: { value: string; label: string }[];
-  marketShareData?: any;
-  saleTrendData?: any;
-  topSaleBrandData?: any;
-  saleTrendByBrandData?: any;
-  numberOfSkuByBrandData?: any;
-  totalSaleByEachBrandData?: any;
 }
 
 const Category: React.FC<CategoryProps> = ({
   categoryOptions,
   subCategoryOptions,
-  marketShareData,
-  saleTrendData,
-  topSaleBrandData,
-  saleTrendByBrandData,
-  numberOfSkuByBrandData,
-  totalSaleByEachBrandData,
 }) => {
   return (
     <>
@@ -52,38 +44,30 @@ const Category: React.FC<CategoryProps> = ({
             />
           </Form.Group>
         </Col>
-        {marketShareData && (
-          <Col md={6} className="mb-3">
-            <LineChart {...marketShareData} />
-          </Col>
-        )}
-        {saleTrendData && (
-          <Col md={6} className="mb-3">
-            <LineChart {...saleTrendData} />
-          </Col>
-        )}
-        {topSaleBrandData && (
-          <Col md={6} className="mb-3">
-            <LineChart {...topSaleBrandData} />
-          </Col>
-        )}
-        {saleTrendByBrandData && (
-          <Col md={6} className="mb-3">
-            <LineChart {...saleTrendByBrandData} />
-          </Col>
-        )}
 
-        {numberOfSkuByBrandData && (
-          <Col md={6} className="mb-3">
-            <BarChart {...numberOfSkuByBrandData} />
-          </Col>
-        )}
+        <Col md={7} className="mb-3">
+          <MarketShareData />
+        </Col>
 
-        {totalSaleByEachBrandData && (
-          <Col md={6} className="mb-3">
-            <BarChart {...totalSaleByEachBrandData} />
-          </Col>
-        )}
+        <Col md={5} className="mb-3">
+          <SaleTrendByCategory />
+        </Col>
+
+        <Col md={7} className="mb-3">
+          <TopSaleBrandInCategory />
+        </Col>
+
+        <Col md={5} className="mb-3">
+          <SaleTrendByBrandLineChart />
+        </Col>
+
+        <Col md={6} className="mb-3">
+          <SkuByBrandBarChart />
+        </Col>
+
+        <Col md={6} className="mb-3">
+          <TotalSaleByBrandBarChart />
+        </Col>
       </Row>
     </>
   );

@@ -5,6 +5,7 @@ import CustomDatePicker from "../Date/CustomDatePicker";
 import ExportButton from "../Button/ExportButton";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import { Chart as ChartJs } from "chart.js";
+import DateFilterDropDown from "../DateFilterDropdown/DateFilterDropDown";
 
 ChartJs.register(ChartDataLabels);
 
@@ -16,7 +17,17 @@ interface BarChartProps {
   colors?: string[];
   showYearPicker?: boolean;
   selectedDate?: Date;
-  onDateChange: (date: any) => void;
+  onDateChange?: (date: any) => void;
+  dateFilterType?: number;
+  handleFilterTypeChange?: any;
+  selectedFilterYear?: Date;
+  handleFilterYearChange?: any;
+  selectedStartDate?: Date;
+  handleStartDateChange?: any;
+  selectedEndDate?: Date;
+  handleEndDateChange?: any;
+  selectedMonth?: number;
+  handleMonthChange?: any;
 }
 
 // simple bar chart
@@ -29,6 +40,16 @@ const BarChart: React.FC<BarChartProps> = ({
   selectedDate,
   onDateChange,
   showYearPicker,
+  dateFilterType = 1,
+  handleFilterTypeChange,
+  selectedFilterYear,
+  handleFilterYearChange,
+  selectedEndDate,
+  handleEndDateChange,
+  selectedStartDate,
+  handleStartDateChange,
+  selectedMonth,
+  handleMonthChange,
 }) => {
   // options
   const barChartOpts = {
@@ -99,15 +120,17 @@ const BarChart: React.FC<BarChartProps> = ({
           <p className="chartTitle mb-0">{chartTitle}</p>
           <div className="d-flex gap-2 align-items-center">
             {showYearPicker && (
-              <CustomDatePicker
-                hideAddon={false}
-                dateFormat="yyyy"
-                timeCaption="time"
-                value={selectedDate}
-                showYearPicker={true}
-                onChange={(date) => {
-                  onDateChange(date);
-                }}
+              <DateFilterDropDown
+                handleFilterTypeChange={handleFilterTypeChange}
+                selectedFilterType={dateFilterType}
+                selectedFilterYear={selectedFilterYear}
+                handleFilterYearChange={handleFilterYearChange}
+                selectedStartDate={selectedStartDate}
+                handleStartDateChange={handleStartDateChange}
+                selectedEndDate={selectedEndDate}
+                handleEndDateChange={handleEndDateChange}
+                handleMonthChange={handleMonthChange}
+                selectedMonth={selectedMonth}
               />
             )}
             <ExportButton />

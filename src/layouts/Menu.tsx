@@ -17,6 +17,8 @@ interface SubMenus {
   activeMenuItems?: Array<string>;
   toggleMenu?: (item: any, status: boolean) => void;
   className?: string;
+  activeMenuKey?: string;
+  changeActiveMenuKey?: any;
 }
 
 const MenuItemWithChildren = ({
@@ -25,6 +27,8 @@ const MenuItemWithChildren = ({
   subMenuClassNames,
   activeMenuItems,
   toggleMenu,
+  activeMenuKey,
+  changeActiveMenuKey,
 }: SubMenus) => {
   const [open, setOpen] = useState<boolean>(
     activeMenuItems!.includes(item.key)
@@ -116,21 +120,37 @@ const MenuItemWithChildren = ({
   );
 };
 
-const MenuItem = ({ item, className, linkClassName }: SubMenus) => {
+const MenuItem = ({
+  item,
+  className,
+  linkClassName,
+  activeMenuKey,
+  changeActiveMenuKey,
+}: SubMenus) => {
   return (
     <li className={classNames("menu-item", className)}>
-      <MenuItemLink item={item} className={linkClassName} />
+      <MenuItemLink
+        item={item}
+        className={linkClassName}
+        changeActiveMenuKey={changeActiveMenuKey}
+      />
     </li>
   );
 };
 
-const MenuItemLink = ({ item, className }: SubMenus) => {
+const MenuItemLink = ({
+  item,
+  className,
+  activeMenuKey,
+  changeActiveMenuKey,
+}: SubMenus) => {
   return (
     <Link
       to={item.url!}
       target={item.target}
       className={classNames("side-nav-link-ref menu-link", className)}
       data-menu-key={item.key}
+      onClick={() => changeActiveMenuKey(item.key)}
     >
       {item.icon && (
         <span className="menu-icon">
@@ -160,6 +180,11 @@ const AppMenu = ({ menuItems }: AppMenuProps) => {
   const menuRef: any = useRef(null);
 
   const [activeMenuItems, setActiveMenuItems] = useState<Array<string>>([]);
+  const [activeMenuKey, setActiveMenuKey] = useState("home");
+
+  const changeActiveMenuKey = (key: string) => {
+    setActiveMenuKey(key);
+  };
 
   /*
    * toggle the menus
@@ -182,10 +207,16 @@ const AppMenu = ({ menuItems }: AppMenuProps) => {
     if (div) {
       let items: any = div.getElementsByClassName("side-nav-link-ref");
       for (let i = 0; i < items.length; ++i) {
-        let trimmedURL = location?.pathname?.replaceAll(process.env.PUBLIC_URL, "");
+        let trimmedURL = location?.pathname?.replaceAll(
+          process.env.PUBLIC_URL,
+          ""
+        );
         // console.log(trimmedURL);
         // console.log("pathname",items[i].pathname.replaceAll(process.env.PUBLIC_URL, ""));
-        if (trimmedURL === items[i]?.pathname?.replaceAll(process.env.PUBLIC_URL, "")) {
+        if (
+          trimmedURL ===
+          items[i]?.pathname?.replaceAll(process.env.PUBLIC_URL, "")
+        ) {
           matchingMenuItem = items[i];
           break;
         }
@@ -237,12 +268,14 @@ const AppMenu = ({ menuItems }: AppMenuProps) => {
                   ) : (
                     <MenuItem
                       item={item}
-                      linkClassName="menu-link"
-                      className={
-                        activeMenuItems!.includes(item.key)
-                          ? "menuitem-active"
-                          : ""
-                      }
+                      activeMenuKey={activeMenuKey}
+                      changeActiveMenuKey={changeActiveMenuKey}
+                      className={classNames({
+                        "menuitem-active": activeMenuKey == item.key,
+                      })}
+                      linkClassName={classNames({
+                        "menuitem-active": activeMenuKey == item.key,
+                      })}
                     />
                   )}
                 </>

@@ -1,4 +1,4 @@
-import { Col, Nav, Row, Tab } from "react-bootstrap";
+import { Nav, Row, Tab } from "react-bootstrap";
 import Category from "./Category";
 import Brand from "./Brand";
 import Product from "./Product";
@@ -210,130 +210,6 @@ const MainTab = () => {
         backgroundColor: "#C78F8F",
         borderColor: "#C78F8F",
         data: [400, 200, 100, 700, 400, 100],
-      },
-    ],
-  };
-
-  // chart data
-  const saleProductByCategory = {
-    showYearPicker: false,
-    showExport: false,
-    chartTitle: "E-Commerce Sale Trend By Category",
-    subTitle: "",
-    labels: ["2021-01", "2021-02", "2021-03", "2021-04", "2021-05"],
-    datasets: [
-      {
-        label: "Category 1",
-        backgroundColor: "#1fa083",
-        borderColor: "#1fa083",
-        data: [100, 300, 200, 500, 700, 800],
-      },
-      {
-        label: "Category 2",
-        backgroundColor: "#5AD8A6",
-        borderColor: "#5AD8A6",
-        data: [200, 500, 100, 800, 700, 300],
-      },
-      {
-        label: "Category 3",
-        backgroundColor: "#E8684A",
-        borderColor: "#E8684A",
-        data: [500, 300, 600, 300, 800, 200],
-      },
-      {
-        label: "Category 4",
-        backgroundColor: "#870182",
-        borderColor: "#870182",
-        data: [100, 400, 200, 600, 800, 500],
-      },
-      {
-        label: "Category 5",
-        backgroundColor: "#F6BD16",
-        borderColor: "#F6BD16",
-        data: [300, 600, 500, 400, 800, 700],
-      },
-    ],
-  };
-
-  // chart data
-  const topSaleBrandData = {
-    selectedDate: topSaleBrandDate,
-    onDateChange: topSaleBrandDateChange,
-    showYearPicker: true,
-    chartTitle: "Top Sale Brand in Category",
-    subTitle: "Top 5 Brands in Market",
-    labels: ["2021-01", "2021-02", "2021-03", "2021-04", "2021-05"],
-    datasets: [
-      {
-        label: "Brand 1",
-        backgroundColor: "#1fa083",
-        borderColor: "#1fa083",
-        data: [100, 300, 200, 500, 700, 800],
-      },
-      {
-        label: "Brand 2",
-        backgroundColor: "#5AD8A6",
-        borderColor: "#5AD8A6",
-        data: [200, 500, 100, 800, 700, 300],
-      },
-      {
-        label: "Brand 3",
-        backgroundColor: "#E8684A",
-        borderColor: "#E8684A",
-        data: [500, 300, 600, 300, 800, 200],
-      },
-      {
-        label: "Brand 4",
-        backgroundColor: "#870182",
-        borderColor: "#870182",
-        data: [100, 400, 200, 600, 800, 500],
-      },
-      {
-        label: "Brand 5",
-        backgroundColor: "#F6BD16",
-        borderColor: "#F6BD16",
-        data: [300, 600, 500, 400, 800, 700],
-      },
-    ],
-  };
-
-  // chart data
-  const saleTrendByBrandData = {
-    showYearPicker: false,
-    showExport: false,
-    chartTitle: "E-Commerce Sale Trend By Brand",
-    subTitle: "",
-    labels: ["2021-01", "2021-02", "2021-03", "2021-04", "2021-05"],
-    datasets: [
-      {
-        label: "Brand 1",
-        backgroundColor: "#1fa083",
-        borderColor: "#1fa083",
-        data: [100, 300, 200, 500, 700, 800],
-      },
-      {
-        label: "Brand 2",
-        backgroundColor: "#5AD8A6",
-        borderColor: "#5AD8A6",
-        data: [200, 500, 100, 800, 700, 300],
-      },
-      {
-        label: "Brand 3",
-        backgroundColor: "#E8684A",
-        borderColor: "#E8684A",
-        data: [500, 300, 600, 300, 800, 200],
-      },
-      {
-        label: "Brand 4",
-        backgroundColor: "#870182",
-        borderColor: "#870182",
-        data: [100, 400, 200, 600, 800, 500],
-      },
-      {
-        label: "Brand 5",
-        backgroundColor: "#F6BD16",
-        borderColor: "#F6BD16",
-        data: [300, 600, 500, 400, 800, 700],
       },
     ],
   };
@@ -568,12 +444,6 @@ const MainTab = () => {
             <Category
               categoryOptions={categoryOptions}
               subCategoryOptions={subCategoryOptions}
-              marketShareData={marketShareData}
-              saleTrendData={saleProductByCategory}
-              topSaleBrandData={topSaleBrandData}
-              saleTrendByBrandData={saleTrendByBrandData}
-              numberOfSkuByBrandData={numberOfSkuByBrandData}
-              totalSaleByEachBrandData={totalSaleByEachBrandData}
             />
           </Tab.Pane>
           <Tab.Pane eventKey="Brand" id="2" key="2">
@@ -581,12 +451,7 @@ const MainTab = () => {
               categoryOptions={categoryOptions}
               subCategoryOptions={subCategoryOptions}
               brandOptions={brandOptions}
-              averageProductPriceTrendData={averageProductPriceTrendData}
               stockAvailabilityData={stockAvailabilityData}
-              marketShareData={marketShareData}
-              brandMentionData={brandMentionData}
-              numberOfSkuByBrandData={numberOfSkuByBrandData}
-              totalSaleByEachBrandData={totalSaleByEachBrandData}
             />
           </Tab.Pane>
           <Tab.Pane eventKey="Product" id="3" key="3">
@@ -596,25 +461,7 @@ const MainTab = () => {
                 subCategoryOptions={subCategoryOptions}
                 brandOptions={brandOptions}
                 productOptions={productOptions}
-                marketShareData={marketShareData}
-                esteeLauderProductList={topSaleProductList}
-                esteeLauderDate={esteeLauderProductDate}
-                esteeLauderDateChange={esteeLauderDateChange}
-                myProductList={myProductList}
-                productPriceTrendData={myProductPriceTrendData}
-                myProductPriceTrendDate={myProductPriceTrendDate}
-                myProductPriceTrendDateChange={myProductPriceTrendDateChange}
-                showMyProductPriceTrendYearPicker={true}
-                mySaleTrendData={mySaleTrendData}
-                mySaleTrendDate={mySaleTrendDate}
-                mySaleTrendDateChange={mySaleTrendDateChange}
                 myStockAvailabilityData={myStockAvailabilityData}
-                myBrandMentionData={myBrandMentionData}
-                myBrandMentionDate={myBrandMentionDate}
-                myBrandMentionDateChange={myBrandMentionDateChange}
-                showMyBrandMentionPicker={true}
-                socialMediaDateChange={socialMediaDateChange}
-                socialMediaDate={socialMediaDate}
               />
             </Row>
           </Tab.Pane>
