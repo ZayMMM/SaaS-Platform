@@ -18,6 +18,7 @@ interface SocialMediaProps {
   showExport?: boolean;
   selectedDate?: Date;
   onDateChange?: (date: any) => void;
+  isVertical?: boolean;
 }
 
 const SocialMedia: React.FC<SocialMediaProps> = ({
@@ -26,10 +27,11 @@ const SocialMedia: React.FC<SocialMediaProps> = ({
   selectedDate,
   onDateChange,
   title,
+  isVertical = false,
 }) => {
   return (
     <>
-      <Card className="dashboard-card">
+      <Card className="dashboard-card h-100">
         <Card.Body>
           <div className="d-flex align-items-center justify-content-between w-100">
             <p className="chartTitle mb-0">{title}</p>
@@ -85,40 +87,79 @@ const SocialMedia: React.FC<SocialMediaProps> = ({
                 count="12345"
               />
             </ListGroup.Item>
-            <ListGroup.Item className="w-100 p-1">
-              <SocialMediaItem
-                image={ForumImage}
-                altText="Forums"
-                label="Forums"
-                count="12345"
-              />
-            </ListGroup.Item>
-
-            <ListGroup.Item className="w-100 p-1">
-              <SocialMediaItem
-                image={NewsImage}
-                altText="News"
-                label="News"
-                count="12345"
-              />
-            </ListGroup.Item>
-            <ListGroup.Item className="w-100 p-1">
-              <SocialMediaItem
-                image={VideoImage}
-                altText="Video"
-                label="Video"
-                count="12345"
-              />
-            </ListGroup.Item>
-            <ListGroup.Item className="w-100 p-1">
-              <SocialMediaItem
-                image={PhotoImage}
-                altText="Photo"
-                label="Photo"
-                count="12345"
-              />
-            </ListGroup.Item>
+            {!isVertical && (
+              <>
+                <ListGroup.Item className="w-100 p-1">
+                  <SocialMediaItem
+                    image={ForumImage}
+                    altText="Forums"
+                    label="Forums"
+                    count="12345"
+                  />
+                </ListGroup.Item>
+                <ListGroup.Item className="w-100 p-1">
+                  <SocialMediaItem
+                    image={NewsImage}
+                    altText="News"
+                    label="News"
+                    count="12345"
+                  />
+                </ListGroup.Item>
+                <ListGroup.Item className="w-100 p-1">
+                  <SocialMediaItem
+                    image={VideoImage}
+                    altText="Video"
+                    label="Video"
+                    count="12345"
+                  />
+                </ListGroup.Item>
+                <ListGroup.Item className="w-100 p-1">
+                  <SocialMediaItem
+                    image={PhotoImage}
+                    altText="Photo"
+                    label="Photo"
+                    count="12345"
+                  />
+                </ListGroup.Item>
+              </>
+            )}
           </ListGroup>
+          {isVertical && (
+            <ListGroup horizontal className="social-media-list">
+              <ListGroup.Item className="w-100 p-1">
+                <SocialMediaItem
+                  image={ForumImage}
+                  altText="Forums"
+                  label="Forums"
+                  count="12345"
+                />
+              </ListGroup.Item>
+              <ListGroup.Item className="w-100 p-1">
+                <SocialMediaItem
+                  image={NewsImage}
+                  altText="News"
+                  label="News"
+                  count="12345"
+                />
+              </ListGroup.Item>
+              <ListGroup.Item className="w-100 p-1">
+                <SocialMediaItem
+                  image={VideoImage}
+                  altText="Video"
+                  label="Video"
+                  count="12345"
+                />
+              </ListGroup.Item>
+              <ListGroup.Item className="w-100 p-1">
+                <SocialMediaItem
+                  image={PhotoImage}
+                  altText="Photo"
+                  label="Photo"
+                  count="12345"
+                />
+              </ListGroup.Item>
+            </ListGroup>
+          )}
         </Card.Body>
       </Card>
     </>

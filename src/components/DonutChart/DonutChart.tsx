@@ -46,11 +46,11 @@ const DonutChart: React.FC<DonutChartProps> = ({
   };
 
   return (
-    <Card className="dashboard-card">
+    <Card className="dashboard-card h-100">
       <Card.Body>
         <p className="chartTitle mb-0">{chartTitle}</p>
 
-        <div className="mb-5 mt-4 chartjs-chart">
+        <div className="chartjs-chart min-w-250">
           <Doughnut data={donutChartData} options={donutChartOpts} />
         </div>
       </Card.Body>

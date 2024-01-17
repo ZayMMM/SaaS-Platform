@@ -3,7 +3,14 @@ import Category from "./Category";
 import Brand from "./Brand";
 import Product from "./Product";
 import { useState } from "react";
-import { myProductList, topSaleProductList } from "./data";
+import {
+  myBrandMentionData,
+  myProductList,
+  myProductPriceTrendData,
+  mySaleTrendData,
+  myStockAvailabilityData,
+  topSaleProductList,
+} from "./data";
 
 interface TabContentType {
   id: number;
@@ -25,6 +32,16 @@ const MainTab = () => {
   const [esteeLauderProductDate, setEsteeLauderProductDate] = useState(
     new Date()
   );
+
+  const [myProductPriceTrendDate, setMyProductPriceTrendDate] = useState(
+    new Date()
+  );
+
+  const [mySaleTrendDate, setMySaleTrendDate] = useState(new Date());
+
+  const [myBrandMentionDate, setMyBrandMentionDate] = useState(new Date());
+
+  const [socialMediaDate, setSocialMediaDate] = useState(new Date());
 
   const marketShareDateChange = (date: Date) => {
     if (date) {
@@ -52,6 +69,22 @@ const MainTab = () => {
 
   const esteeLauderDateChange = (date: Date) => {
     setEsteeLauderProductDate(date);
+  };
+
+  const myProductPriceTrendDateChange = (date: Date) => {
+    setMyProductPriceTrendDate(date);
+  };
+
+  const mySaleTrendDateChange = (date: Date) => {
+    setMySaleTrendDate(date);
+  };
+
+  const myBrandMentionDateChange = (date: Date) => {
+    setMyBrandMentionDate(date);
+  };
+
+  const socialMediaDateChange = (date: Date) => {
+    setSocialMediaDate(date);
   };
 
   const tabContents: TabContentType[] = [
@@ -507,37 +540,6 @@ const MainTab = () => {
     ],
   };
 
-  // chart data
-  const saleTrendData = {
-    showExport: true,
-    showYearPicker: true,
-    showLegend: false,
-    chartTitle: "Sale Trend",
-    subTitle: "",
-    labels: [
-      "2021-01",
-      "2021-02",
-      "2021-03",
-      "2021-04",
-      "2021-05",
-      "2021-06",
-      "2021-07",
-      "2021-08",
-    ],
-    datasets: [
-      {
-        label: "Average Product Price Trend",
-        backgroundColor: "#1fa083",
-        borderColor: "#1fa083",
-        data: [400, 600, 500, 100, 500, 400, 700, 600],
-        fill: {
-          target: "origin",
-          above: "rgba(31, 160, 131, 0.3)",
-        },
-      },
-    ],
-  };
-
   return (
     <>
       <Tab.Container defaultActiveKey="Category">
@@ -599,7 +601,20 @@ const MainTab = () => {
                 esteeLauderDate={esteeLauderProductDate}
                 esteeLauderDateChange={esteeLauderDateChange}
                 myProductList={myProductList}
-                productPriceTrendData={averageProductPriceTrendData}
+                productPriceTrendData={myProductPriceTrendData}
+                myProductPriceTrendDate={myProductPriceTrendDate}
+                myProductPriceTrendDateChange={myProductPriceTrendDateChange}
+                showMyProductPriceTrendYearPicker={true}
+                mySaleTrendData={mySaleTrendData}
+                mySaleTrendDate={mySaleTrendDate}
+                mySaleTrendDateChange={mySaleTrendDateChange}
+                myStockAvailabilityData={myStockAvailabilityData}
+                myBrandMentionData={myBrandMentionData}
+                myBrandMentionDate={myBrandMentionDate}
+                myBrandMentionDateChange={myBrandMentionDateChange}
+                showMyBrandMentionPicker={true}
+                socialMediaDateChange={socialMediaDateChange}
+                socialMediaDate={socialMediaDate}
               />
             </Row>
           </Tab.Pane>

@@ -88,7 +88,7 @@ const Brand: React.FC<CategoryProps> = ({
         {stockAvailabilityData && (
           <Col md={6}>
             <Row>
-              <Col sm={12}>
+              <Col sm={12} className="mb-3">
                 <DonutChart {...stockAvailabilityData} />
               </Col>
               <Col sm={12}>

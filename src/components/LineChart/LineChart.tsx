@@ -107,7 +107,7 @@ const LineChart: React.FC<LineChartProps> = ({
         </div>
 
         {subTitle && <p className="chartSubTitle">{subTitle}</p>}
-        <div className="mt-3 chartjs-chart line-chart-min-320">
+        <div className="mt-3 mb-0 chartjs-chart line-chart-min-320">
           <Line data={lineChartData} options={lineChartOpts} />
         </div>
       </Card.Body>
