@@ -122,6 +122,9 @@ const TotalSaleByBrandBarChart = () => {
         handleEndDateChange={handleEndDateChange}
         selectedMonth={selectedFilterMonth}
         handleMonthChange={handleSelectedMonthChange}
+        showSwitch={true}
+        switchLeftLabel="Value"
+        switchRightLabel="Volume"
       />
     </>
   );

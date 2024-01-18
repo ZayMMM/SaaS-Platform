@@ -1,6 +1,6 @@
 import LineChart from "../../../components/LineChart/LineChart";
 
-const SaleTrendByCategory = () => {
+const EcommerceSaleTrendLineChart = () => {
   const saleProductByCategory = {
     chartTitle: "E-Commerce Sale Trend By Category",
     subTitle: "",
@@ -50,4 +50,4 @@ const SaleTrendByCategory = () => {
   );
 };
 
-export default SaleTrendByCategory;
+export default EcommerceSaleTrendLineChart;

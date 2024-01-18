@@ -1,4 +1,6 @@
-import { Card, ListGroup } from "react-bootstrap";
+import { Card, Image, ListGroup } from "react-bootstrap";
+import DateFilterDropDown from "../DateFilterDropdown/DateFilterDropDown";
+import ExportButton from "../Button/ExportButton";
 import SocialMediaItem from "./SocialMediaItem";
 import AllImage from "../../assets/images/social-media/all.svg";
 import FacebookImage from "../../assets/images/social-media/facebook.svg";
@@ -8,81 +10,66 @@ import ForumImage from "../../assets/images/social-media/forturm.svg";
 import NewsImage from "../../assets/images/social-media/news.svg";
 import VideoImage from "../../assets/images/social-media/video.svg";
 import PhotoImage from "../../assets/images/social-media/photo.svg";
-import React, { useState } from "react";
-import ExportButton from "../../components/Button/ExportButton";
-import DateFilterDropDown from "../../components/DateFilterDropdown/DateFilterDropDown";
 
-interface SocialMediaProps {
+interface SociaMediaProps {
   title: string;
+  showYearPicker?: boolean;
+  showExport?: boolean;
+  dateFilterType?: number;
+  handleFilterTypeChange?: any;
+  selectedFilterYear?: Date;
+  handleFilterYearChange?: any;
+  selectedStartDate?: Date;
+  handleStartDateChange?: any;
+  selectedEndDate?: Date;
+  handleEndDateChange?: any;
+  selectedMonth?: number;
+  handleMonthChange?: any;
+  productList?: any;
   isVertical?: boolean;
 }
 
-const SocialMedia: React.FC<SocialMediaProps> = ({
+const SocialMedia = ({
   title,
+  showYearPicker,
+  showExport,
+  dateFilterType = 1,
+  handleFilterTypeChange,
+  selectedFilterYear,
+  handleFilterYearChange,
+  selectedStartDate,
+  handleStartDateChange,
+  selectedEndDate,
+  handleEndDateChange,
+  selectedMonth,
+  handleMonthChange,
   isVertical = false,
-}) => {
-  const [selectedFilterType, setSelectedFilterType] = useState(1);
-  const [selectedFilterYear, setSelectedFilterYear] = useState<Date>(
-    new Date()
-  );
-  const [selectedFilterMonth, setSelectedFilterMonth] = useState<number>(1);
-  const [selectedFilterStartDate, setSelectedFilterStartDate] = useState<Date>(
-    new Date()
-  );
-  const [selectedFilterEndDate, setSelectedFilterEndDate] = useState<Date>(
-    new Date()
-  );
-
-  const handleSelectedFilterTypeChange = (value: number) => {
-    setSelectedFilterType(value);
-  };
-
-  const handleSelectedYearChange = (date: Date) => {
-    if (date) {
-      setSelectedFilterYear(date);
-    }
-  };
-
-  const handleStartDateChange = (date: Date) => {
-    if (date) {
-      setSelectedFilterStartDate(date);
-    }
-  };
-
-  const handleEndDateChange = (date: Date) => {
-    if (date) {
-      setSelectedFilterEndDate(date);
-    }
-  };
-
-  const handleSelectedMonthChange = (value: number) => {
-    if (value) {
-      setSelectedFilterMonth(value);
-    }
-  };
-
+}: SociaMediaProps) => {
   return (
     <>
       <Card className="dashboard-card h-100">
         <Card.Body>
-          <div className="d-flex align-items-center justify-content-between w-100 flex-wrap ">
+          <div className="d-flex align-items-center justify-content-between w-100 flex-wrap gap-2">
             <p className="chartTitle mb-0">{title}</p>
             <div className="d-flex gap-2 align-items-center">
-              <DateFilterDropDown
-                handleFilterTypeChange={handleSelectedFilterTypeChange}
-                selectedFilterType={selectedFilterType}
-                selectedFilterYear={selectedFilterYear}
-                handleFilterYearChange={handleSelectedYearChange}
-                selectedStartDate={selectedFilterStartDate}
-                handleStartDateChange={handleStartDateChange}
-                selectedEndDate={selectedFilterEndDate}
-                handleEndDateChange={handleEndDateChange}
-                handleMonthChange={handleSelectedMonthChange}
-                selectedMonth={selectedFilterMonth}
-              />
-              <ExportButton />
+              {showYearPicker && (
+                <DateFilterDropDown
+                  handleFilterTypeChange={handleFilterTypeChange}
+                  selectedFilterType={dateFilterType}
+                  selectedFilterYear={selectedFilterYear}
+                  handleFilterYearChange={handleFilterYearChange}
+                  selectedStartDate={selectedStartDate}
+                  handleStartDateChange={handleStartDateChange}
+                  selectedEndDate={selectedEndDate}
+                  handleEndDateChange={handleEndDateChange}
+                  handleMonthChange={handleMonthChange}
+                  selectedMonth={selectedMonth}
+                />
+              )}
+              {showExport && <ExportButton />}
             </div>
           </div>
+
           <ListGroup horizontal className="social-media-list mt-4 ">
             <ListGroup.Item className="w-100 p-1 active">
               <SocialMediaItem

@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import Select from "react-select";
 import DonutChart from "../../components/DonutChart/DonutChart";
-
-import ProductPriceCard from "./ProductPriceCard";
-
-import SocialMedia from "./SocialMedia";
 import AverageProductPriceTrendLineChart from "./brand/AverageProductPriceTrendLineChart";
 import MarketShareData from "./category/MarketShareData";
 import BrandMentionLineChart from "./brand/BrandMentionLineChart";
 import SkuByBrandBarChart from "./category/SkuByBrandBarChart";
 import TotalSaleByBrandBarChart from "./category/TotalSaleByBrandBarChart";
+import TopSaleBrandInLineChart from "./brand/TopSaleBrandInLineChart";
+import EcommerceSaleTrendLineChart from "./brand/EcommerceSaleTrendLineChart";
+import ProductPriceCard from "../../components/ProductPriceCard/ProductPriceCard";
+import SocialMediaCard from "./HorizontalSocialMedia";
 
 interface CategoryProps {
   categoryOptions: { value: string; label: string }[];
@@ -104,17 +104,35 @@ const Brand: React.FC<CategoryProps> = ({
               <BrandMentionLineChart />
             </Col>
             <Col sm={12} className="mb-3">
-              <SocialMedia title="Social Media Data" />
+              <SocialMediaCard />
             </Col>
           </Row>
         </Col>
 
-        <Col md={6} className="mb-3">
+        <Col md={5} className="mb-3">
           <SkuByBrandBarChart />
         </Col>
 
-        <Col md={6} className="mb-3">
+        <Col md={7} className="mb-3">
           <TotalSaleByBrandBarChart />
+        </Col>
+
+        <Col md={7} className="mb-3">
+          <TopSaleBrandInLineChart />
+        </Col>
+
+        <Col md={5}>
+          <Row>
+            <Col sm={12} className="mb-3">
+              <EcommerceSaleTrendLineChart />
+            </Col>
+            <Col sm={12} className="mb-3">
+              <ProductPriceCard
+                title="Number of Products in E- Commerce"
+                price="12,728,935,685"
+              />
+            </Col>
+          </Row>
         </Col>
       </Row>
     </>

@@ -1,12 +1,12 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
 import { Card, Col, Row } from "react-bootstrap";
-import CustomDatePicker from "../Date/CustomDatePicker";
 import ExportButton from "../Button/ExportButton";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import { Chart as ChartJs } from "chart.js";
 import DateFilterDropDown from "../DateFilterDropdown/DateFilterDropDown";
 import TopSaleCard from "../TopSaleCard/TopSaleCard";
+import CustomSwitch from "../Swtich/CustomSwitch";
 
 ChartJs.register(ChartDataLabels);
 
@@ -32,6 +32,9 @@ interface BarChartProps {
   topSalePercent?: string;
   yourBrandSalePercent?: string;
   topBrandSalePercent?: string;
+  showSwitch?: boolean;
+  switchLeftLabel?: string;
+  switchRightLabel?: string;
 }
 
 // simple bar chart
@@ -53,6 +56,9 @@ const BarChart: React.FC<BarChartProps> = ({
   topSalePercent,
   topBrandSalePercent,
   yourBrandSalePercent,
+  showSwitch,
+  switchLeftLabel = "",
+  switchRightLabel = "",
 }) => {
   // options
   const barChartOpts = {
@@ -122,6 +128,12 @@ const BarChart: React.FC<BarChartProps> = ({
         <div className="d-flex align-items-center justify-content-between w-100 flex-wrap gap-2">
           <p className="chartTitle mb-0">{chartTitle}</p>
           <div className="d-flex gap-2 align-items-center">
+            {showSwitch && (
+              <CustomSwitch
+                leftLabel={switchLeftLabel}
+                rightLabel={switchRightLabel}
+              />
+            )}
             {showYearPicker && (
               <DateFilterDropDown
                 handleFilterTypeChange={handleFilterTypeChange}

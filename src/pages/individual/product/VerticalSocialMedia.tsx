@@ -1,11 +1,7 @@
-import { Card, Image } from "react-bootstrap";
-import ExportButton from "../../../components/Button/ExportButton";
-import DateFilterDropDown from "../../../components/DateFilterDropdown/DateFilterDropDown";
-import { topSaleProductList } from "../data";
 import { useState } from "react";
-import ProductTable from "../../../components/Product/ProductTable";
+import SociaMedia from "../../../components/SocialMedia/SocialMedia";
 
-const EsteeLauderProductTable = ({}) => {
+const VerticalSocialMedia = ({}) => {
   const [selectedFilterType, setSelectedFilterType] = useState(1);
   const [selectedFilterYear, setSelectedFilterYear] = useState<Date>(
     new Date()
@@ -48,8 +44,9 @@ const EsteeLauderProductTable = ({}) => {
 
   return (
     <>
-      <ProductTable
-        title="Estee Lauder Products"
+      <SociaMedia
+        title="Social Media Data"
+        isVertical={true}
         showExport={true}
         showYearPicker={true}
         dateFilterType={selectedFilterType}
@@ -62,10 +59,9 @@ const EsteeLauderProductTable = ({}) => {
         handleEndDateChange={handleEndDateChange}
         selectedMonth={selectedFilterMonth}
         handleMonthChange={handleSelectedMonthChange}
-        productList={topSaleProductList}
       />
     </>
   );
 };
 
-export default EsteeLauderProductTable;
+export default VerticalSocialMedia;

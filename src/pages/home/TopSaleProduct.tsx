@@ -4,6 +4,7 @@ import ExportButton from "../../components/Button/ExportButton";
 import DateFilterDropDown from "../../components/DateFilterDropdown/DateFilterDropDown";
 import { topSaleProductList } from "./data";
 import { useState } from "react";
+import ProductTable from "../../components/Product/ProductTable";
 
 interface TopSaleProductProps {
   topSaleProductList: {
@@ -64,66 +65,22 @@ const TopSaleProduct = ({}) => {
 
   return (
     <>
-      <Card className="dashboard-card h-100">
-        <Card.Body>
-          <div className="d-flex align-items-center justify-content-between w-100 flex-wrap">
-            <h4 className="header-title fw-600">Top Sales By Product</h4>
-            <div className="d-flex gap-2 align-items-center">
-              <DateFilterDropDown
-                handleFilterTypeChange={handleSelectedFilterTypeChange}
-                selectedFilterType={selectedFilterType}
-                selectedFilterYear={selectedFilterYear}
-                handleFilterYearChange={handleSelectedYearChange}
-                selectedStartDate={selectedFilterStartDate}
-                handleStartDateChange={handleStartDateChange}
-                selectedEndDate={selectedFilterEndDate}
-                handleEndDateChange={handleEndDateChange}
-                handleMonthChange={handleSelectedMonthChange}
-                selectedMonth={selectedFilterMonth}
-              />
-              <ExportButton />
-            </div>
-          </div>
-          <div className="table-responsive mt-4 table-vertical-scroll">
-            <table className="table table-borderless table-hover table-nowrap table-centered m-0 ">
-              <thead className="table-light">
-                <tr>
-                  <th>Product</th>
-                  <th>Brand</th>
-                  <th>E-Commerce Site</th>
-                  <th>Image</th>
-                  <th>Sale(USD)</th>
-                  <th>Price(USD)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {(topSaleProductList || []).map((item, i) => {
-                  return (
-                    <tr key={item.id}>
-                      <td>{item.product}</td>
-                      <td>
-                        {item.brand}
-                        <br />
-                        <span className="badge bg-soft-success text-success">
-                          Customer
-                        </span>
-                      </td>
-                      <td>{item.brand}</td>
-                      <td>
-                        {item.image ? (
-                          <Image src={item.image} className="rounded" />
-                        ) : null}
-                      </td>
-                      <td>{item.brand}</td>
-                      <td>{item.brand}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </Card.Body>
-      </Card>
+      <ProductTable
+        title="Top Sales By Product"
+        showExport={true}
+        showYearPicker={true}
+        dateFilterType={selectedFilterType}
+        handleFilterTypeChange={handleSelectedFilterTypeChange}
+        selectedFilterYear={selectedFilterYear}
+        handleFilterYearChange={handleSelectedYearChange}
+        selectedStartDate={selectedFilterStartDate}
+        handleStartDateChange={handleStartDateChange}
+        selectedEndDate={selectedFilterEndDate}
+        handleEndDateChange={handleEndDateChange}
+        selectedMonth={selectedFilterMonth}
+        handleMonthChange={handleSelectedMonthChange}
+        productList={topSaleProductList}
+      />
     </>
   );
 };

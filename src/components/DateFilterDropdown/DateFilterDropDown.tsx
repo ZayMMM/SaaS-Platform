@@ -51,9 +51,9 @@ const DateFilterDropDown = ({
           variant="primary"
           onClick={toggleDropdown}
         >
-          <Button variant="outline-secondary">
+          <Button variant="outline-secondary" className="h-40">
             <i className="mdi mdi-calendar-range fs-16 pt-2px"></i>
-            <span className="px-2"> 2023</span>
+            <span className="px-1"> 2023</span>
             <i className="mdi mdi-chevron-down"></i>
           </Button>
         </Dropdown.Toggle>

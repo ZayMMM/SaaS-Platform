@@ -2,7 +2,6 @@ import React from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import Select from "react-select";
 import DonutChart from "../../components/DonutChart/DonutChart";
-import SocialMedia from "./SocialMedia";
 import MarketShareData from "./category/MarketShareData";
 import EsteeLauderProductTable from "./product/EsteeLauderProductTable";
 import CompetitorProductTable from "./product/CompetitorProductTable";
@@ -10,6 +9,8 @@ import MyProductListTable from "./product/MyProductListTable";
 import MyProductPriceTrendLineChart from "./product/MyProductPriceTrendLineChart";
 import MyProductSaleTrendLineChart from "./product/MyProductSaleTrendLineChart";
 import MyProductBrandMentionLineChart from "./product/MyProductBrandMentionLineChart";
+import SocialMediaCard from "./HorizontalSocialMedia";
+import VerticalSocialMedia from "./product/VerticalSocialMedia";
 
 interface CategoryProps {
   categoryOptions: { value: string; label: string }[];
@@ -118,7 +119,7 @@ const Product: React.FC<CategoryProps> = ({
         </Col>
 
         <Col md={6} className="mb-3">
-          <SocialMedia title="Social Media Data" isVertical={true} />
+          <VerticalSocialMedia />
         </Col>
       </Row>
     </>
