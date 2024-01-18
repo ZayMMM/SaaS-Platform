@@ -57,8 +57,9 @@ const AppFilterDropDown: React.FC<AppFilterDropDownProps> = ({
           role="button"
           as="a"
           onClick={toggleDropDown}
-          className="d-none"
-        ></Dropdown.Toggle>
+        >
+          <i className="mdi mdi-filter-variant"></i>
+        </Dropdown.Toggle>
         <Dropdown.Menu className="p-3 dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg py-0 ">
           <Row className="mb-3 mainFilterDropDown">
             <Col sm={12}>

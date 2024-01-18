@@ -27,15 +27,14 @@ const HeaderSearch = () => {
               id="searchDataPoint"
               onClick={() => toggleDropdown()}
             >
-              <i className="mdi mdi-filter-variant"></i>
+              <AppFilterDropDown
+                dropdownOpen={dropdownOpen}
+                toggleDropDown={toggleDropdown}
+              />
             </InputGroup.Text>
           </InputGroup>
         </li>
       </li>
-      <AppFilterDropDown
-        dropdownOpen={dropdownOpen}
-        toggleDropDown={toggleDropdown}
-      />
     </>
   );
 };
