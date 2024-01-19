@@ -110,7 +110,11 @@ const Product: React.FC<CategoryProps> = ({
 
         {myStockAvailabilityData && (
           <Col md={6} className="mb-3">
-            <DonutChart {...myStockAvailabilityData} showLegend={true} />
+            <DonutChart
+              {...myStockAvailabilityData}
+              showLegend={true}
+              showFilter={true}
+            />
           </Col>
         )}
 

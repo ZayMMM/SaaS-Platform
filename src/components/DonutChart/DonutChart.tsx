@@ -1,15 +1,21 @@
+import React from "react";
 import { Card } from "react-bootstrap";
 import { Doughnut } from "react-chartjs-2";
 import { Chart } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
+import ChartFilterDropDown from "../ChartFilterDropdown/ChartFilterDropDown";
 
 Chart.register(ChartDataLabels);
 
 interface DonutChartProps {
   chartTitle: string;
   labels: string[];
-  datasets: any;
+  datasets: {
+    data: number[];
+    backgroundColor: string[];
+  }[];
   showLegend?: boolean;
+  showFilter?: boolean;
 }
 
 const DonutChart: React.FC<DonutChartProps> = ({
@@ -17,6 +23,7 @@ const DonutChart: React.FC<DonutChartProps> = ({
   labels,
   datasets,
   showLegend = true,
+  showFilter,
 }) => {
   // default options
   const donutChartOpts = {
@@ -33,10 +40,20 @@ const DonutChart: React.FC<DonutChartProps> = ({
         display: showLegend,
         position: "bottom" as const,
       },
-    },
-    datalabels: {
-      display: false,
-      anchor: "start" as const,
+      datalabels: {
+        display: true,
+        anchor: "start" as const,
+        color: "#000000",
+        formatter: (value: any, context: any) => {
+          const dataset = context.chart.data.datasets[0];
+          const total = dataset.data.reduce(
+            (acc: any, data: any) => acc + data,
+            0
+          );
+          const percentage = ((value / total) * 100).toFixed(2) + "%";
+          return `${value} (${percentage})`;
+        },
+      },
     },
   };
 
@@ -48,7 +65,10 @@ const DonutChart: React.FC<DonutChartProps> = ({
   return (
     <Card className="dashboard-card h-100">
       <Card.Body>
-        <p className="chartTitle mb-0">{chartTitle}</p>
+        <div className="d-flex align-items-center justify-content-between w-100 flex-wrap gap-2">
+          <p className="chartTitle mb-0">{chartTitle}</p>
+          {showFilter && <ChartFilterDropDown />}
+        </div>
 
         <div className="chartjs-chart min-w-250">
           <Doughnut data={donutChartData} options={donutChartOpts} />

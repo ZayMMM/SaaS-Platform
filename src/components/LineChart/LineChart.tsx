@@ -2,6 +2,8 @@ import { Card } from "react-bootstrap";
 import ExportButton from "../Button/ExportButton";
 import { Line } from "react-chartjs-2";
 import DateFilterDropDown from "../DateFilterDropdown/DateFilterDropDown";
+import CustomSwitch from "../Swtich/CustomSwitch";
+import ChartFilterDropDown from "../ChartFilterDropdown/ChartFilterDropDown";
 
 interface LineChartProps {
   chartTitle?: string;
@@ -24,6 +26,10 @@ interface LineChartProps {
   handleEndDateChange?: any;
   selectedMonth?: number;
   handleMonthChange?: any;
+  showSwitch?: boolean;
+  switchLeftLabel?: string;
+  switchRightLabel?: string;
+  showFilter?: boolean;
 }
 
 const LineChart: React.FC<LineChartProps> = ({
@@ -31,8 +37,6 @@ const LineChart: React.FC<LineChartProps> = ({
   subTitle,
   labels = [],
   datasets,
-  selectedDate,
-  onDateChange,
   showYearPicker = true,
   showExport = true,
   showLegend = true,
@@ -46,6 +50,10 @@ const LineChart: React.FC<LineChartProps> = ({
   handleStartDateChange,
   selectedMonth,
   handleMonthChange,
+  showSwitch = false,
+  switchLeftLabel = "",
+  switchRightLabel = "",
+  showFilter = false,
 }) => {
   // chart options
   const lineChartOpts = {
@@ -96,18 +104,18 @@ const LineChart: React.FC<LineChartProps> = ({
     datasets: datasets,
   };
 
-  const onDateChangeHandler = (date: Date) => {
-    if (onDateChange) {
-      onDateChange(date); // Call the onDateChange prop if it exists
-    }
-  };
-
   return (
     <Card className="dashboard-card h-100">
       <Card.Body>
         <div className="d-flex align-items-center justify-content-between w-100 flex-wrap gap-2">
           <p className="chartTitle mb-0">{chartTitle}</p>
           <div className="d-flex gap-2 align-items-center">
+            {showSwitch && (
+              <CustomSwitch
+                leftLabel={switchLeftLabel}
+                rightLabel={switchRightLabel}
+              />
+            )}
             {showYearPicker && (
               <DateFilterDropDown
                 handleFilterTypeChange={handleFilterTypeChange}
@@ -123,6 +131,7 @@ const LineChart: React.FC<LineChartProps> = ({
               />
             )}
             {showExport && <ExportButton />}
+            {showFilter && <ChartFilterDropDown hideLabel={true} />}
           </div>
         </div>
 

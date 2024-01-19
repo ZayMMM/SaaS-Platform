@@ -82,7 +82,7 @@ const Brand: React.FC<CategoryProps> = ({
           <Col md={4}>
             <Row>
               <Col sm={12} className="mb-3">
-                <DonutChart {...stockAvailabilityData} />
+                <DonutChart {...stockAvailabilityData} showFilter={true} />
               </Col>
               <Col sm={12}>
                 <ProductPriceCard
