@@ -15,6 +15,7 @@ import avatar4 from "../assets/images/users/user-4.jpg";
 
 import { useViewport } from "../hooks/useViewPort";
 import TradeLogo from "../assets/images/trade-logo.png";
+import HeaderSearch from "./Horizontal/HeaderSearch";
 
 export interface NotificationItem {
   id: number;
@@ -130,7 +131,7 @@ const Topbar = ({
     <React.Fragment>
       <div className={`navbar-custom ${navbarCssClasses}`}>
         <div className={`topbar ${containerCssClasses}`}>
-          <div className="topbar-menu d-flex align-items-center gap-1">
+          <div className="topbar-menu w-100 d-flex align-items-center gap-1">
             {!hideLogo && (
               <div className="logo-box">
                 <Link to="/" className="logo logo-dark text-center">
@@ -158,6 +159,9 @@ const Topbar = ({
             >
               <i className="mdi mdi-menu" />
             </button>
+            <div className="w-100">
+              <HeaderSearch menClass="top-bar-search" />
+            </div>
           </div>
         </div>
       </div>

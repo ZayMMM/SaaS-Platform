@@ -350,7 +350,11 @@ const AppMenu = ({ menuItems }: AppMenuProps) => {
             </React.Fragment>
           );
         })}
-        <HeaderSearch />
+        <li className="menu-item">
+          <li className="menu-item">
+            <HeaderSearch menClass="menu-search" />
+          </li>
+        </li>
         <Logout />
       </ul>
     </>

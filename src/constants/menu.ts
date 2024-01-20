@@ -18,7 +18,7 @@ export interface MenuItemTypes {
 
 const MENU_ITEMS: MenuItemTypes[] = [
   {
-    key: "dashboard",
+    key: "home",
     icon: "",
     label: "",
     isTitle: true,
@@ -55,7 +55,7 @@ const MENU_ITEMS: MenuItemTypes[] = [
 
 const HORIZONTAL_MENU_ITEMS: MenuItemTypes[] = [
   {
-    key: "dashboard",
+    key: "home",
     icon: "",
     label: "",
     isTitle: true,

@@ -170,3 +170,27 @@
 .individual-search-btn .fe-search {
   font-size: 20px;
 }
+
+.top-bar-search {
+  max-width: 100%;
+}
+
+.top-bar-search .menuSearchInput {
+  height: 32px !important;
+  border-radius: 40px;
+  border-right: 0px !important;
+  background: #f3f7f9;
+  color: #8f8787;
+}
+
+.top-bar-search .input-group-text {
+  height: 32px !important;
+  border-radius: 40px;
+  background: #f3f7f9;
+}
+
+@media only screen and (max-width: 768px) {
+  .app-filter-dropdown-menu {
+    max-width: 300px;
+  }
+}
