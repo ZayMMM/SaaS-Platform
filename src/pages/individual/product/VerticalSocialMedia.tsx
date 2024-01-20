@@ -14,6 +14,8 @@ const VerticalSocialMedia = ({}) => {
     new Date()
   );
 
+  const [activeKey, setActiveKey] = useState("all");
+
   const handleSelectedFilterTypeChange = (value: number) => {
     setSelectedFilterType(value);
   };
@@ -42,6 +44,10 @@ const VerticalSocialMedia = ({}) => {
     }
   };
 
+  const handleActiveKeyChange = (value: string) => {
+    setActiveKey(value);
+  };
+
   return (
     <>
       <SociaMedia
@@ -59,6 +65,8 @@ const VerticalSocialMedia = ({}) => {
         handleEndDateChange={handleEndDateChange}
         selectedMonth={selectedFilterMonth}
         handleMonthChange={handleSelectedMonthChange}
+        activeKey={activeKey}
+        activeKeyChange={handleActiveKeyChange}
       />
     </>
   );

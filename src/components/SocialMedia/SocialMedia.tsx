@@ -3,13 +3,21 @@ import DateFilterDropDown from "../DateFilterDropdown/DateFilterDropDown";
 import ExportButton from "../Button/ExportButton";
 import SocialMediaItem from "./SocialMediaItem";
 import AllImage from "../../assets/images/social-media/all.svg";
+import AllWhiteImage from "../../assets/images/social-media/all-w.svg";
 import FacebookImage from "../../assets/images/social-media/facebook.svg";
+import FacebookWhiteImage from "../../assets/images/social-media/facebook-w.svg";
 import TwitterImage from "../../assets/images/social-media/twitter.svg";
+import TwitterWhiteImage from "../../assets/images/social-media/twitter-w.svg";
 import BlogImage from "../../assets/images/social-media/blog.svg";
+import BlogWhiteImage from "../../assets/images/social-media/blog-w.svg";
 import ForumImage from "../../assets/images/social-media/forturm.svg";
+import ForumWhiteImage from "../../assets/images/social-media/forturm-w.svg";
 import NewsImage from "../../assets/images/social-media/news.svg";
+import NewsWhiteImage from "../../assets/images/social-media/news-w.svg";
 import VideoImage from "../../assets/images/social-media/video.svg";
+import VideoWhiteImage from "../../assets/images/social-media/video-w.svg";
 import PhotoImage from "../../assets/images/social-media/photo.svg";
+import PhotoWhiteImage from "../../assets/images/social-media/photo-w.svg";
 
 interface SociaMediaProps {
   title: string;
@@ -27,6 +35,8 @@ interface SociaMediaProps {
   handleMonthChange?: any;
   productList?: any;
   isVertical?: boolean;
+  activeKey?: string;
+  activeKeyChange: any;
 }
 
 const SocialMedia = ({
@@ -44,6 +54,8 @@ const SocialMedia = ({
   selectedMonth,
   handleMonthChange,
   isVertical = false,
+  activeKey,
+  activeKeyChange,
 }: SociaMediaProps) => {
   return (
     <>
@@ -71,34 +83,54 @@ const SocialMedia = ({
           </div>
 
           <ListGroup horizontal className="social-media-list mt-4 ">
-            <ListGroup.Item className="w-100 p-1 active">
+            <ListGroup.Item
+              className={`w-100 p-1 ${activeKey === "all" ? " active" : ""}`}
+              onClick={() => activeKeyChange("all")}
+            >
               <SocialMediaItem
-                image={AllImage}
+                image={activeKey === "all" ? AllWhiteImage : AllImage}
                 altText="All"
                 label="All"
                 count="12345"
               />
             </ListGroup.Item>
-            <ListGroup.Item className="w-100 p-1">
+            <ListGroup.Item
+              className={`w-100 p-1 ${
+                activeKey === "facebook" ? " active" : ""
+              }`}
+              onClick={() => activeKeyChange("facebook")}
+            >
               <SocialMediaItem
-                image={FacebookImage}
+                image={
+                  activeKey === "facebook" ? FacebookWhiteImage : FacebookImage
+                }
                 altText="Facebook"
                 label="Facebook"
                 count="12345"
               />
             </ListGroup.Item>
 
-            <ListGroup.Item className="w-100 p-1">
+            <ListGroup.Item
+              className={`w-100 p-1 ${
+                activeKey === "twitter" ? " active" : ""
+              }`}
+              onClick={() => activeKeyChange("twitter")}
+            >
               <SocialMediaItem
-                image={TwitterImage}
+                image={
+                  activeKey === "twitter" ? TwitterWhiteImage : TwitterImage
+                }
                 altText="Twitter"
                 label="Twitter"
                 count="12345"
               />
             </ListGroup.Item>
-            <ListGroup.Item className="w-100 p-1">
+            <ListGroup.Item
+              className={`w-100 p-1 ${activeKey === "blog" ? " active" : ""}`}
+              onClick={() => activeKeyChange("blog")}
+            >
               <SocialMediaItem
-                image={BlogImage}
+                image={activeKey === "blog" ? BlogWhiteImage : BlogImage}
                 altText="Blog"
                 label="Blog"
                 count="12345"
@@ -106,33 +138,53 @@ const SocialMedia = ({
             </ListGroup.Item>
             {!isVertical && (
               <>
-                <ListGroup.Item className="w-100 p-1">
+                <ListGroup.Item
+                  className={`w-100 p-1 ${
+                    activeKey === "forum" ? " active" : ""
+                  }`}
+                  onClick={() => activeKeyChange("forum")}
+                >
                   <SocialMediaItem
-                    image={ForumImage}
+                    image={activeKey === "forum" ? ForumWhiteImage : ForumImage}
                     altText="Forums"
                     label="Forums"
                     count="12345"
                   />
                 </ListGroup.Item>
-                <ListGroup.Item className="w-100 p-1">
+                <ListGroup.Item
+                  className={`w-100 p-1 ${
+                    activeKey === "news" ? " active" : ""
+                  }`}
+                  onClick={() => activeKeyChange("news")}
+                >
                   <SocialMediaItem
-                    image={NewsImage}
+                    image={activeKey === "news" ? NewsWhiteImage : NewsImage}
                     altText="News"
                     label="News"
                     count="12345"
                   />
                 </ListGroup.Item>
-                <ListGroup.Item className="w-100 p-1">
+                <ListGroup.Item
+                  className={`w-100 p-1 ${
+                    activeKey === "video" ? " active" : ""
+                  }`}
+                  onClick={() => activeKeyChange("video")}
+                >
                   <SocialMediaItem
-                    image={VideoImage}
+                    image={activeKey === "video" ? VideoWhiteImage : VideoImage}
                     altText="Video"
                     label="Video"
                     count="12345"
                   />
                 </ListGroup.Item>
-                <ListGroup.Item className="w-100 p-1">
+                <ListGroup.Item
+                  className={`w-100 p-1 ${
+                    activeKey === "photo" ? " active" : ""
+                  }`}
+                  onClick={() => activeKeyChange("photo")}
+                >
                   <SocialMediaItem
-                    image={PhotoImage}
+                    image={activeKey === "photo" ? PhotoWhiteImage : PhotoImage}
                     altText="Photo"
                     label="Photo"
                     count="12345"
@@ -143,33 +195,51 @@ const SocialMedia = ({
           </ListGroup>
           {isVertical && (
             <ListGroup horizontal className="social-media-list">
-              <ListGroup.Item className="w-100 p-1">
+              <ListGroup.Item
+                className={`w-100 p-1 ${
+                  activeKey === "forum" ? " active" : ""
+                }`}
+                onClick={() => activeKeyChange("forum")}
+              >
                 <SocialMediaItem
-                  image={ForumImage}
+                  image={activeKey === "forum" ? ForumWhiteImage : ForumImage}
                   altText="Forums"
                   label="Forums"
                   count="12345"
                 />
               </ListGroup.Item>
-              <ListGroup.Item className="w-100 p-1">
+              <ListGroup.Item
+                className={`w-100 p-1 ${activeKey === "news" ? " active" : ""}`}
+                onClick={() => activeKeyChange("news")}
+              >
                 <SocialMediaItem
-                  image={NewsImage}
+                  image={activeKey === "news" ? NewsWhiteImage : NewsImage}
                   altText="News"
                   label="News"
                   count="12345"
                 />
               </ListGroup.Item>
-              <ListGroup.Item className="w-100 p-1">
+              <ListGroup.Item
+                className={`w-100 p-1 ${
+                  activeKey === "video" ? " active" : ""
+                }`}
+                onClick={() => activeKeyChange("video")}
+              >
                 <SocialMediaItem
-                  image={VideoImage}
+                  image={activeKey === "video" ? VideoWhiteImage : VideoImage}
                   altText="Video"
                   label="Video"
                   count="12345"
                 />
               </ListGroup.Item>
-              <ListGroup.Item className="w-100 p-1">
+              <ListGroup.Item
+                className={`w-100 p-1 ${
+                  activeKey === "photo" ? " active" : ""
+                }`}
+                onClick={() => activeKeyChange("photo")}
+              >
                 <SocialMediaItem
-                  image={PhotoImage}
+                  image={activeKey === "photo" ? PhotoWhiteImage : PhotoImage}
                   altText="Photo"
                   label="Photo"
                   count="12345"
