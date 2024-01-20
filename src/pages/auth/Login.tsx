@@ -38,7 +38,12 @@ const BottomLink = () => {
             {t("Forgot Password")}
           </Link>
         </p>
-        <p className="">Or</p>
+        <div className="or-container">
+          <div className="line"></div>
+          <div className="or-text">Or</div>
+          <div className="line"></div>
+        </div>
+
         <div className="d-flex justify-content-center gap-2">
           <img src={SupportImage} alt="Support" width={"24px"} />
           <span className="support">Support</span>
