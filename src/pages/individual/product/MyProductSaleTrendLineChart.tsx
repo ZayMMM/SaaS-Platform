@@ -86,6 +86,10 @@ const MyProductSaleTrendLineChart = () => {
         switchLeftLabel="Value"
         switchRightLabel="Volume"
         showFilter={true}
+        numberOfSale="28,100"
+        period="Aug, 2021"
+        channel="E-Commerce"
+        outlet="Shoppe"
       />
     </>
   );

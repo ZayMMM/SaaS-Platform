@@ -4,6 +4,7 @@ import { Line } from "react-chartjs-2";
 import DateFilterDropDown from "../DateFilterDropdown/DateFilterDropDown";
 import CustomSwitch from "../Swtich/CustomSwitch";
 import ChartFilterDropDown from "../ChartFilterDropdown/ChartFilterDropDown";
+import SaleSummary from "../SaleSummary/SaleSummaryCard";
 
 interface LineChartProps {
   chartTitle?: string;
@@ -30,6 +31,10 @@ interface LineChartProps {
   switchLeftLabel?: string;
   switchRightLabel?: string;
   showFilter?: boolean;
+  numberOfSale?: string;
+  period?: string;
+  channel?: string;
+  outlet?: string;
 }
 
 const LineChart: React.FC<LineChartProps> = ({
@@ -54,6 +59,10 @@ const LineChart: React.FC<LineChartProps> = ({
   switchLeftLabel = "",
   switchRightLabel = "",
   showFilter = false,
+  numberOfSale,
+  period,
+  channel,
+  outlet,
 }) => {
   // chart options
   const lineChartOpts = {
@@ -109,7 +118,7 @@ const LineChart: React.FC<LineChartProps> = ({
       <Card.Body>
         <div className="d-flex align-items-center justify-content-between w-100 flex-wrap gap-2">
           <p className="chartTitle mb-0">{chartTitle}</p>
-          <div className="d-flex gap-2 align-items-center">
+          <div className="d-flex gap-2 align-items-center flex-wrap">
             {showSwitch && (
               <CustomSwitch
                 leftLabel={switchLeftLabel}
@@ -139,6 +148,15 @@ const LineChart: React.FC<LineChartProps> = ({
         <div className="mt-3 mb-0 chartjs-chart line-chart-min-320">
           <Line data={lineChartData} options={lineChartOpts} />
         </div>
+
+        {numberOfSale || channel || period || outlet ? (
+          <SaleSummary
+            numberOfSale={numberOfSale}
+            channel={channel}
+            period={period}
+            outlet={outlet}
+          />
+        ) : null}
       </Card.Body>
     </Card>
   );

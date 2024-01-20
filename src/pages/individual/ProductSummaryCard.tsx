@@ -10,7 +10,7 @@ const ProductSummary = ({ title, value, percent }: ProductSummaryProps) => {
   return (
     <>
       <Card className="product-summary-card">
-        <Card.Body className="p-2">
+        <Card.Body className="py-1">
           <div className="d-flex align-items-start flex-column gap-1 flex-wrap">
             <p className="mb-1 title">{title}</p>
             <p className="mb-0 value d-flex align-items-center gap-1">

@@ -50,8 +50,8 @@ const MyProductListTable = ({}) => {
     <>
       <Card className="dashboard-card h-100">
         <Card.Body>
-          <div className="d-flex align-items-center justify-content-between w-100 flex-wrap">
-            <h4 className="header-title fw-600">Estee Lauder Products</h4>
+          <div className="d-flex align-items-center justify-content-between w-100 gap-2 flex-wrap">
+            <h4 className="header-title fs-14 fw-600">Estee Lauder Products</h4>
             <div className="d-flex gap-2 align-items-center">
               <DateFilterDropDown
                 handleFilterTypeChange={handleSelectedFilterTypeChange}
@@ -101,13 +101,13 @@ const MyProductListTable = ({}) => {
             </table>
           </div>
           <Row className="mt-3">
-            <Col sm={4} className="m-0 p-1">
+            <Col sm={4}>
               <ProductSummary title="Current Price" value="5.14" />
             </Col>
-            <Col sm={4} className="p-1">
+            <Col sm={4}>
               <ProductSummary title="Current Availability" value="In Stock" />
             </Col>
-            <Col sm={4} className="p-1">
+            <Col sm={4}>
               <ProductSummary
                 title="Total Sales"
                 value="144,434"
