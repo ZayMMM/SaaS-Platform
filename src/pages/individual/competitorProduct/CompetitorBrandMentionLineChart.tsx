@@ -1,8 +1,7 @@
-import { myProductList } from "../data";
 import { useState } from "react";
-import MyProductTable from "../../../components/Product/MyProductTable";
+import LineChart from "../../../components/LineChart/LineChart";
 
-const MyProductListTable = ({}) => {
+const CompetitorBrandMentionLineChart = () => {
   const [selectedFilterType, setSelectedFilterType] = useState(1);
   const [selectedFilterYear, setSelectedFilterYear] = useState<Date>(
     new Date()
@@ -42,12 +41,31 @@ const MyProductListTable = ({}) => {
       setSelectedFilterMonth(value);
     }
   };
+  // chart data
+  const brandMentionData = {
+    chartTitle: "Brand Mentioned",
+    subTitle: "",
+    labels: ["2021-01", "2021-02", "2021-03", "2021-04", "2021-05"],
+    datasets: [
+      {
+        label: "Number of mentions",
+        backgroundColor: "#1fa083",
+        borderColor: "#1fa083",
+        data: [100, 300, 200, 500, 700, 800],
+      },
+      {
+        label: "Estimated Social Media Reach",
+        backgroundColor: "#5AD8A6",
+        borderColor: "#5AD8A6",
+        data: [200, 500, 100, 800, 700, 300],
+      },
+    ],
+  };
 
   return (
     <>
-      <MyProductTable
-        title="Product Name"
-        showExport={true}
+      <LineChart
+        {...brandMentionData}
         showYearPicker={true}
         dateFilterType={selectedFilterType}
         handleFilterTypeChange={handleSelectedFilterTypeChange}
@@ -59,14 +77,9 @@ const MyProductListTable = ({}) => {
         handleEndDateChange={handleEndDateChange}
         selectedMonth={selectedFilterMonth}
         handleMonthChange={handleSelectedMonthChange}
-        productList={myProductList}
-        currentAvailability="In Stock"
-        currentPrice="5.14"
-        totalSalePercent="15%"
-        totalSaleValue="144,344"
       />
     </>
   );
 };
 
-export default MyProductListTable;
+export default CompetitorBrandMentionLineChart;

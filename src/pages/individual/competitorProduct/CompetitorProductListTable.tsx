@@ -2,7 +2,7 @@ import { myProductList } from "../data";
 import { useState } from "react";
 import MyProductTable from "../../../components/Product/MyProductTable";
 
-const MyProductListTable = ({}) => {
+const CompetitorProductListTable = ({}) => {
   const [selectedFilterType, setSelectedFilterType] = useState(1);
   const [selectedFilterYear, setSelectedFilterYear] = useState<Date>(
     new Date()
@@ -69,4 +69,4 @@ const MyProductListTable = ({}) => {
   );
 };
 
-export default MyProductListTable;
+export default CompetitorProductListTable;

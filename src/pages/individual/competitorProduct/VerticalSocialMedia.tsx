@@ -1,8 +1,7 @@
-import { myProductList } from "../data";
 import { useState } from "react";
-import MyProductTable from "../../../components/Product/MyProductTable";
+import SociaMedia from "../../../components/SocialMedia/SocialMedia";
 
-const MyProductListTable = ({}) => {
+const VerticalSocialMedia = ({}) => {
   const [selectedFilterType, setSelectedFilterType] = useState(1);
   const [selectedFilterYear, setSelectedFilterYear] = useState<Date>(
     new Date()
@@ -14,6 +13,8 @@ const MyProductListTable = ({}) => {
   const [selectedFilterEndDate, setSelectedFilterEndDate] = useState<Date>(
     new Date()
   );
+
+  const [activeKey, setActiveKey] = useState("all");
 
   const handleSelectedFilterTypeChange = (value: number) => {
     setSelectedFilterType(value);
@@ -43,10 +44,15 @@ const MyProductListTable = ({}) => {
     }
   };
 
+  const handleActiveKeyChange = (value: string) => {
+    setActiveKey(value);
+  };
+
   return (
     <>
-      <MyProductTable
-        title="Product Name"
+      <SociaMedia
+        title="Social Media Data"
+        isVertical={true}
         showExport={true}
         showYearPicker={true}
         dateFilterType={selectedFilterType}
@@ -59,14 +65,11 @@ const MyProductListTable = ({}) => {
         handleEndDateChange={handleEndDateChange}
         selectedMonth={selectedFilterMonth}
         handleMonthChange={handleSelectedMonthChange}
-        productList={myProductList}
-        currentAvailability="In Stock"
-        currentPrice="5.14"
-        totalSalePercent="15%"
-        totalSaleValue="144,344"
+        activeKey={activeKey}
+        activeKeyChange={handleActiveKeyChange}
       />
     </>
   );
 };
 
-export default MyProductListTable;
+export default VerticalSocialMedia;

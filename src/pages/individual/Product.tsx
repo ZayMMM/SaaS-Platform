@@ -11,6 +11,7 @@ import MyProductSaleTrendLineChart from "./product/MyProductSaleTrendLineChart";
 import MyProductBrandMentionLineChart from "./product/MyProductBrandMentionLineChart";
 import SocialMediaCard from "./HorizontalSocialMedia";
 import VerticalSocialMedia from "./product/VerticalSocialMedia";
+import CompetitorProduct from "./competitorProduct/CompetitorProduct";
 
 interface CategoryProps {
   categoryOptions: { value: string; label: string }[];
@@ -126,6 +127,7 @@ const Product: React.FC<CategoryProps> = ({
           <VerticalSocialMedia />
         </Col>
       </Row>
+      <CompetitorProduct />
     </>
   );
 };

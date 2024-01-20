@@ -1,8 +1,7 @@
-import { myProductList } from "../data";
 import { useState } from "react";
-import MyProductTable from "../../../components/Product/MyProductTable";
+import LineChart from "../../../components/LineChart/LineChart";
 
-const MyProductListTable = ({}) => {
+const CompetitorPriceTrendLineChart = () => {
   const [selectedFilterType, setSelectedFilterType] = useState(1);
   const [selectedFilterYear, setSelectedFilterYear] = useState<Date>(
     new Date()
@@ -43,11 +42,39 @@ const MyProductListTable = ({}) => {
     }
   };
 
+  // chart data
+  const myProductPriceTrendData = {
+    showLegend: false,
+    chartTitle: "Product Price Trend (USD)",
+    subTitle: "",
+    labels: [
+      "2021-01",
+      "2021-02",
+      "2021-03",
+      "2021-04",
+      "2021-05",
+      "2021-06",
+      "2021-07",
+      "2021-08",
+    ],
+    datasets: [
+      {
+        label: "Product Price Trend",
+        backgroundColor: "#1fa083",
+        borderColor: "#1fa083",
+        data: [400, 600, 500, 100, 500, 400, 700, 600],
+        fill: {
+          target: "origin",
+          above: "rgba(31, 160, 131, 0.3)",
+        },
+      },
+    ],
+  };
+
   return (
     <>
-      <MyProductTable
-        title="Product Name"
-        showExport={true}
+      <LineChart
+        {...myProductPriceTrendData}
         showYearPicker={true}
         dateFilterType={selectedFilterType}
         handleFilterTypeChange={handleSelectedFilterTypeChange}
@@ -59,14 +86,9 @@ const MyProductListTable = ({}) => {
         handleEndDateChange={handleEndDateChange}
         selectedMonth={selectedFilterMonth}
         handleMonthChange={handleSelectedMonthChange}
-        productList={myProductList}
-        currentAvailability="In Stock"
-        currentPrice="5.14"
-        totalSalePercent="15%"
-        totalSaleValue="144,344"
       />
     </>
   );
 };
 
-export default MyProductListTable;
+export default CompetitorPriceTrendLineChart;
