@@ -189,8 +189,20 @@
   background: #f3f7f9;
 }
 
+.date-filter-dropdown {
+  min-width: 350px !important;
+}
+
 @media only screen and (max-width: 768px) {
   .app-filter-dropdown-menu {
     max-width: 300px;
+  }
+
+  .chart-filter-dropdown-menu {
+    min-width: 300px !important;
+  }
+
+  .date-filter-dropdown {
+    min-width: 300px !important;
   }
 }

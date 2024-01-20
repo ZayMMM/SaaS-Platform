@@ -118,12 +118,12 @@ const AppFilterDropDown: React.FC<AppFilterDropDownProps> = ({
             </Form.Group>
           </Row>
           <Row className="mb-3">
-            <Col sm={6} className="px-1">
+            <Col sm={6} className="px-1 mb-2">
               <Button variant="outline-danger w-100" onClick={toggleDropDown}>
                 Cancel
               </Button>
             </Col>
-            <Col sm={6} className="px-1 ">
+            <Col sm={6} className="px-1 mb-2">
               <Button variant="primary w-100">Apply Filters</Button>
             </Col>
           </Row>

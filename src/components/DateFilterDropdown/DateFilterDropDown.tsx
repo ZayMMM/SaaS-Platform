@@ -57,7 +57,7 @@ const DateFilterDropDown = ({
             <i className="mdi mdi-chevron-down"></i>
           </Button>
         </Dropdown.Toggle>
-        <Dropdown.Menu className="p-3" style={{ minWidth: "350px" }}>
+        <Dropdown.Menu className="p-3 date-filter-dropdown">
           <form>
             {dateFilterType.map((option) => (
               <div key={option.value}>
