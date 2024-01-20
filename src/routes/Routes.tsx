@@ -18,7 +18,6 @@ import {
   authProtectedFlattenRoutes,
   publicProtectedFlattenRoutes,
 } from "./index";
-import { APICore } from "../helpers/api/apiCore";
 
 interface IRoutesProps {}
 
