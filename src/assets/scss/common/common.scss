@@ -143,3 +143,30 @@
 .h-40 {
   height: 40px;
 }
+
+.empty-state-section {
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty-state-section .title {
+  font-size: 16px;
+  color: #000000;
+  font-weight: 600;
+}
+
+.empty-state-section .individual-search-btn {
+  height: 48px;
+  width: 48px;
+  border-radius: 28px;
+  background: rgba(91, 143, 249, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.individual-search-btn .fe-search {
+  font-size: 20px;
+}

@@ -11,6 +11,7 @@ import {
   myStockAvailabilityData,
   topSaleProductList,
 } from "./data";
+import EmptyData from "../../components/EmptyData/EmptyData";
 
 interface TabContentType {
   id: number;
@@ -131,6 +132,11 @@ const MainTab = () => {
               categoryOptions={categoryOptions}
               subCategoryOptions={subCategoryOptions}
             />
+
+            {/* <EmptyData
+              title="Select Category & Sub Category To View Data"
+              subTitle="We need your input to retrieve the related information"
+            /> */}
           </Tab.Pane>
           <Tab.Pane eventKey="Brand" id="2" key="2">
             <Brand
@@ -139,17 +145,23 @@ const MainTab = () => {
               brandOptions={brandOptions}
               stockAvailabilityData={stockAvailabilityData}
             />
+            {/* <EmptyData
+              title="Select Category, Sub Category & Brand To View Data"
+              subTitle="We need your input to retrieve the related information"
+            /> */}
           </Tab.Pane>
           <Tab.Pane eventKey="Product" id="3" key="3">
-            <Row>
-              <Product
-                categoryOptions={categoryOptions}
-                subCategoryOptions={subCategoryOptions}
-                brandOptions={brandOptions}
-                productOptions={productOptions}
-                myStockAvailabilityData={myStockAvailabilityData}
-              />
-            </Row>
+            <Product
+              categoryOptions={categoryOptions}
+              subCategoryOptions={subCategoryOptions}
+              brandOptions={brandOptions}
+              productOptions={productOptions}
+              myStockAvailabilityData={myStockAvailabilityData}
+            />
+            {/* <EmptyData
+              title="Select Category, Sub Category, Brand & Product To View Data"
+              subTitle="We need your input to retrieve the related information"
+            /> */}
           </Tab.Pane>
         </Tab.Content>
       </Tab.Container>
