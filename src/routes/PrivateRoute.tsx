@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Navigate, RouteProps } from "react-router-dom";
 
 import { APICore } from "../helpers/api/apiCore";
