@@ -9,23 +9,6 @@ import PrivateRoute from "./PrivateRoute";
 
 // auth
 const Login = React.lazy(() => import("../pages/auth/Login"));
-const Logout = React.lazy(() => import("../pages/auth/Logout"));
-const Confirm = React.lazy(() => import("../pages/auth/Confirm"));
-const ForgetPassword = React.lazy(() => import("../pages/auth/ForgetPassword"));
-const Register = React.lazy(() => import("../pages/auth/Register"));
-const SignInSignUp = React.lazy(() => import("../pages/auth/SignInSignUp"));
-const LockScreen = React.lazy(() => import("../pages/auth/LockScreen"));
-
-// auth2
-const Login2 = React.lazy(() => import("../pages/auth2/Login2"));
-const Logout2 = React.lazy(() => import("../pages/auth2/Logout2"));
-const Register2 = React.lazy(() => import("../pages/auth2/Register2"));
-const Confirm2 = React.lazy(() => import("../pages/auth2/Confirm2"));
-const ForgetPassword2 = React.lazy(
-  () => import("../pages/auth2/ForgetPassword2")
-);
-const LockScreen2 = React.lazy(() => import("../pages/auth2/LockScreen2"));
-const SignInSignUp2 = React.lazy(() => import("../pages/auth2/SignInSignUp2"));
 
 const Home = React.lazy(() => import("../pages/home/Home"));
 const IndividualData = React.lazy(

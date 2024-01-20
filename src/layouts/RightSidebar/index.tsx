@@ -9,13 +9,6 @@ import { hideRightSidebar } from "../../redux/actions";
 // store
 import { AppDispatch, RootState } from "../../redux/store";
 
-// components
-import Chats from "../../components/Chats";
-import Tasks from "../../components/Tasks";
-import ThemeCustomizer from "../../components/ThemeCustomizer/";
-
-import { chats, tasks } from "./data";
-
 interface RightSideBarProps {
   hideRightSidebar?: () => void;
   title?: string;
@@ -97,18 +90,6 @@ const RightSideBar = (props: RightSideBarProps) => {
                   </Nav.Link>
                 </Nav.Item>
               </Nav>
-
-              <Tab.Content className="p-0">
-                <Tab.Pane eventKey="chats">
-                  <Chats chats={chats} />
-                </Tab.Pane>
-                <Tab.Pane eventKey="tasks">
-                  <Tasks tasks={tasks} />
-                </Tab.Pane>
-                <Tab.Pane eventKey="themecustomizer">
-                  <ThemeCustomizer />
-                </Tab.Pane>
-              </Tab.Content>
             </Tab.Container>
           </SimpleBar>
         </div>

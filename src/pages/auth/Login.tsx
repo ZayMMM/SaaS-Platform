@@ -16,10 +16,11 @@ import { resetAuth, loginUser } from "../../redux/actions";
 import { RootState, AppDispatch } from "../../redux/store";
 
 // components
-import { VerticalForm, FormInput } from "../../components/";
 
 import AuthLayout from "./AuthLayout";
 import EmailInput from "../../components/EmailInput";
+import VerticalForm from "../../components/VerticalForm";
+import FormInput from "../../components/FormInput";
 
 interface UserData {
   username: string;

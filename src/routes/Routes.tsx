@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 // layout constants
@@ -13,7 +13,6 @@ import DefaultLayout from "../layouts/Default";
 import VerticalLayout from "../layouts/Vertical";
 import DetachedLayout from "../layouts/Detached";
 import HorizontalLayout from "../layouts/Horizontal/";
-import TwoColumnLayout from "../layouts/TwoColumn/";
 
 import {
   authProtectedFlattenRoutes,
@@ -29,7 +28,7 @@ const AllRoutes = (props: IRoutesProps) => {
   }));
 
   const getLayout = () => {
-    let layoutCls = TwoColumnLayout;
+    let layoutCls = HorizontalLayout;
 
     switch (layout.layoutType) {
       case LayoutTypes.LAYOUT_HORIZONTAL:
@@ -42,14 +41,13 @@ const AllRoutes = (props: IRoutesProps) => {
         layoutCls = VerticalLayout;
         break;
       default:
-        layoutCls = TwoColumnLayout;
+        layoutCls = HorizontalLayout;
         break;
     }
     return layoutCls;
   };
 
   let Layout = getLayout();
-  const api = new APICore();
 
   return (
     <React.Fragment>
