@@ -14,6 +14,10 @@ const VerticalSocialMedia = ({}) => {
     new Date()
   );
 
+  const handleExport = () => {
+    alert("clicked export");
+  };
+
   const [activeKey, setActiveKey] = useState("all");
 
   const handleSelectedFilterTypeChange = (value: number) => {
@@ -54,6 +58,7 @@ const VerticalSocialMedia = ({}) => {
         title="Social Media Data"
         isVertical={true}
         showExport={true}
+        handleExport={handleExport}
         showYearPicker={true}
         dateFilterType={selectedFilterType}
         handleFilterTypeChange={handleSelectedFilterTypeChange}

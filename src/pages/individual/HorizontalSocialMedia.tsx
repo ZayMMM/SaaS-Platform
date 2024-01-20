@@ -14,6 +14,10 @@ const HorizontalSocialMedia = ({}) => {
     new Date()
   );
 
+  const handleExport = () => {
+    alert("clicked export");
+  };
+
   const [activeKey, setActiveKey] = useState("all");
 
   const handleSelectedFilterTypeChange = (value: number) => {
@@ -51,10 +55,11 @@ const HorizontalSocialMedia = ({}) => {
   return (
     <>
       <SociaMedia
-        title="Competitor Products"
+        title="Social Media Data"
         isVertical={false}
         showExport={true}
         showYearPicker={true}
+        handleExport={handleExport}
         dateFilterType={selectedFilterType}
         handleFilterTypeChange={handleSelectedFilterTypeChange}
         selectedFilterYear={selectedFilterYear}

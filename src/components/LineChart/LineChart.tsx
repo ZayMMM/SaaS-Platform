@@ -15,6 +15,7 @@ interface LineChartProps {
   colors?: string[];
   showYearPicker?: boolean;
   showExport?: boolean;
+  handleExport?: any;
   selectedDate?: Date;
   onDateChange?: (date: any) => void;
   showLegend?: boolean;
@@ -37,6 +38,7 @@ interface LineChartProps {
   channel?: string;
   outlet?: string;
   numberOfProductInEcommerce?: string;
+  hideFilterLabel?: boolean;
 }
 
 const LineChart: React.FC<LineChartProps> = ({
@@ -44,8 +46,9 @@ const LineChart: React.FC<LineChartProps> = ({
   subTitle,
   labels = [],
   datasets,
-  showYearPicker = true,
-  showExport = true,
+  showYearPicker = false,
+  showExport = false,
+  handleExport,
   showLegend = true,
   dateFilterType = 1,
   handleFilterTypeChange,
@@ -66,6 +69,7 @@ const LineChart: React.FC<LineChartProps> = ({
   channel,
   outlet,
   numberOfProductInEcommerce,
+  hideFilterLabel = true,
 }) => {
   // chart options
   const lineChartOpts = {
@@ -142,8 +146,8 @@ const LineChart: React.FC<LineChartProps> = ({
                 selectedMonth={selectedMonth}
               />
             )}
-            {showExport && <ExportButton />}
-            {showFilter && <ChartFilterDropDown hideLabel={true} />}
+            {showExport && <ExportButton handleExport={handleExport} />}
+            {showFilter && <ChartFilterDropDown hideLabel={hideFilterLabel} />}
           </div>
         </div>
 

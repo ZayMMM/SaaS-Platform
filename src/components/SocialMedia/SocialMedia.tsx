@@ -23,6 +23,7 @@ interface SociaMediaProps {
   title: string;
   showYearPicker?: boolean;
   showExport?: boolean;
+  handleExport?: any;
   dateFilterType?: number;
   handleFilterTypeChange?: any;
   selectedFilterYear?: Date;
@@ -41,8 +42,9 @@ interface SociaMediaProps {
 
 const SocialMedia = ({
   title,
-  showYearPicker,
-  showExport,
+  showYearPicker = false,
+  showExport = false,
+  handleExport,
   dateFilterType = 1,
   handleFilterTypeChange,
   selectedFilterYear,
@@ -78,7 +80,7 @@ const SocialMedia = ({
                   selectedMonth={selectedMonth}
                 />
               )}
-              {showExport && <ExportButton />}
+              {showExport && <ExportButton handleExport={handleExport} />}
             </div>
           </div>
 

@@ -6,6 +6,7 @@ interface ProductTableProps {
   title: string;
   showYearPicker?: boolean;
   showExport?: boolean;
+  handleExport?: any;
   dateFilterType?: number;
   handleFilterTypeChange?: any;
   selectedFilterYear?: Date;
@@ -21,8 +22,9 @@ interface ProductTableProps {
 
 const ProductTable = ({
   title,
-  showYearPicker,
-  showExport,
+  showYearPicker = false,
+  showExport = false,
+  handleExport,
   dateFilterType = 1,
   handleFilterTypeChange,
   selectedFilterYear,
@@ -56,7 +58,7 @@ const ProductTable = ({
                   selectedMonth={selectedMonth}
                 />
               )}
-              {showExport && <ExportButton />}
+              {showExport && <ExportButton handleExport={handleExport} />}
             </div>
           </div>
           <div className="table-responsive mt-4 table-vertical-scroll">

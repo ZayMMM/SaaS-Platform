@@ -14,6 +14,10 @@ const TopSaleBrandInLineChart = () => {
     new Date()
   );
 
+  const handleExport = () => {
+    alert("clicked export");
+  };
+
   const handleSelectedFilterTypeChange = (value: number) => {
     setSelectedFilterType(value);
   };
@@ -87,6 +91,7 @@ const TopSaleBrandInLineChart = () => {
         {...topSaleBrandData}
         showExport={true}
         showYearPicker={true}
+        handleExport={handleExport}
         dateFilterType={selectedFilterType}
         handleFilterTypeChange={handleSelectedFilterTypeChange}
         selectedFilterYear={selectedFilterYear}

@@ -37,6 +37,8 @@ const AverageProductPriceTrendLineChart = () => {
         showExport={false}
         showYearPicker={false}
         showLegend={false}
+        showFilter={true}
+        hideFilterLabel={false}
       />
     </>
   );

@@ -14,6 +14,10 @@ const TotalSaleByBrandBarChart = () => {
     new Date()
   );
 
+  const handleExport = () => {
+    alert("clicked export");
+  };
+
   const handleSelectedFilterTypeChange = (value: number) => {
     setSelectedFilterType(value);
   };
@@ -112,6 +116,8 @@ const TotalSaleByBrandBarChart = () => {
       <BarChart
         {...totalSaleByEachBrandData}
         showYearPicker={true}
+        showExport={true}
+        handleExport={handleExport}
         dateFilterType={selectedFilterType}
         handleFilterTypeChange={handleSelectedFilterTypeChange}
         selectedFilterYear={selectedFilterYear}

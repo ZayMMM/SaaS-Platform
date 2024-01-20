@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import { Button, Alert, Row, Col } from "react-bootstrap";
-import { Navigate, Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useTranslation } from "react-i18next";
-import classNames from "classnames";
 import SupportImage from "../../assets/images/support.png";
 
 // actions
@@ -35,10 +34,7 @@ const BottomLink = () => {
     <Row className="mt-3">
       <Col className="text-center">
         <p>
-          <Link
-            to={"/auth/forget-password"}
-            className=" ms-1 text-blue-15 fw-600"
-          >
+          <Link to={"#"} className=" ms-1 text-blue-15 fw-600">
             {t("Forgot Password")}
           </Link>
         </p>
@@ -49,50 +45,6 @@ const BottomLink = () => {
         </div>
       </Col>
     </Row>
-  );
-};
-
-/* social links */
-const SocialLinks = () => {
-  const socialLinks = [
-    {
-      variant: "primary",
-      icon: "facebook",
-    },
-    {
-      variant: "danger",
-      icon: "google",
-    },
-    {
-      variant: "info",
-      icon: "twitter",
-    },
-    {
-      variant: "secondary",
-      icon: "github",
-    },
-  ];
-  return (
-    <>
-      <ul className="social-list list-inline mt-3 mb-0">
-        {(socialLinks || []).map((item, index: number) => {
-          return (
-            <li key={index} className="list-inline-item">
-              <Link
-                to="#"
-                className={classNames(
-                  "social-list-item",
-                  "border-" + item.variant,
-                  "text-" + item.variant
-                )}
-              >
-                <i className={classNames("mdi", "mdi-" + item.icon)}></i>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </>
   );
 };
 
@@ -130,11 +82,6 @@ const Login = () => {
   const onSubmit = (formData: UserData) => {
     dispatch(loginUser(formData["username"], formData["password"]));
   };
-
-  const location = useLocation();
-  //
-  // const redirectUrl = location.state && location.state.from ? location.state.from.pathname : '/';
-  const redirectUrl = "/home";
 
   return (
     <>

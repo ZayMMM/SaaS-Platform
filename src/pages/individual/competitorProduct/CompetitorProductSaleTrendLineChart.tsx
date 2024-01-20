@@ -14,6 +14,10 @@ const CompetitorProductSaleTrendLineChart = () => {
     new Date()
   );
 
+  const handleExport = () => {
+    alert("clicked export");
+  };
+
   const handleSelectedFilterTypeChange = (value: number) => {
     setSelectedFilterType(value);
   };
@@ -72,6 +76,8 @@ const CompetitorProductSaleTrendLineChart = () => {
       <LineChart
         {...mySaleTrendData}
         showYearPicker={true}
+        showExport={true}
+        handleExport={handleExport}
         dateFilterType={selectedFilterType}
         handleFilterTypeChange={handleSelectedFilterTypeChange}
         selectedFilterYear={selectedFilterYear}

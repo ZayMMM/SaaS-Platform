@@ -17,7 +17,9 @@ interface BarChartProps {
   datasets: any;
   colors?: string[];
   showYearPicker?: boolean;
+  showExport?: boolean;
   selectedDate?: Date;
+  handleExport?: any;
   onDateChange?: (date: any) => void;
   dateFilterType?: number;
   handleFilterTypeChange?: any;
@@ -42,7 +44,9 @@ const BarChart: React.FC<BarChartProps> = ({
   chartTitle,
   labels,
   datasets,
-  showYearPicker,
+  showYearPicker = false,
+  showExport = false,
+  handleExport,
   dateFilterType = 1,
   handleFilterTypeChange,
   selectedFilterYear,
@@ -148,7 +152,7 @@ const BarChart: React.FC<BarChartProps> = ({
                 selectedMonth={selectedMonth}
               />
             )}
-            <ExportButton />
+            {showExport && <ExportButton handleExport={handleExport} />}
           </div>
         </div>
         <div className="chartjs-chart line-chart-min-320 mt-3">

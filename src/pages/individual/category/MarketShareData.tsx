@@ -14,6 +14,10 @@ const MarketShareData = () => {
     new Date()
   );
 
+  const handleExport = () => {
+    alert("clicked export");
+  };
+
   const handleSelectedFilterTypeChange = (value: number) => {
     setSelectedFilterType(value);
   };
@@ -128,6 +132,8 @@ const MarketShareData = () => {
       <LineChart
         {...lineChartData}
         showYearPicker={true}
+        showExport={true}
+        handleExport={handleExport}
         dateFilterType={selectedFilterType}
         handleFilterTypeChange={handleSelectedFilterTypeChange}
         selectedFilterYear={selectedFilterYear}

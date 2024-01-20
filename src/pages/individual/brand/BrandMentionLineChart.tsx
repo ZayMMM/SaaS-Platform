@@ -14,6 +14,10 @@ const BrandMentionLineChart = () => {
     new Date()
   );
 
+  const handleExport = () => {
+    alert("clicked export");
+  };
+
   const handleSelectedFilterTypeChange = (value: number) => {
     setSelectedFilterType(value);
   };
@@ -67,6 +71,8 @@ const BrandMentionLineChart = () => {
       <LineChart
         {...brandMentionData}
         showYearPicker={true}
+        showExport={true}
+        handleExport={handleExport}
         dateFilterType={selectedFilterType}
         handleFilterTypeChange={handleSelectedFilterTypeChange}
         selectedFilterYear={selectedFilterYear}

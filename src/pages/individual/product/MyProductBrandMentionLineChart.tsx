@@ -14,6 +14,10 @@ const MyProductBrandMentionLineChart = () => {
     new Date()
   );
 
+  const handleExport = () => {
+    alert("clicked export");
+  };
+
   const handleSelectedFilterTypeChange = (value: number) => {
     setSelectedFilterType(value);
   };
@@ -44,7 +48,7 @@ const MyProductBrandMentionLineChart = () => {
   // chart data
   const brandMentionData = {
     chartTitle: "Brand Mentioned",
-    subTitle: "",
+    subTitle: "Top 15 Products in Market",
     labels: ["2021-01", "2021-02", "2021-03", "2021-04", "2021-05"],
     datasets: [
       {
@@ -67,6 +71,8 @@ const MyProductBrandMentionLineChart = () => {
       <LineChart
         {...brandMentionData}
         showYearPicker={true}
+        showExport={true}
+        handleExport={handleExport}
         dateFilterType={selectedFilterType}
         handleFilterTypeChange={handleSelectedFilterTypeChange}
         selectedFilterYear={selectedFilterYear}

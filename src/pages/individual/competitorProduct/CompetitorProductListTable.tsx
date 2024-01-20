@@ -15,6 +15,10 @@ const CompetitorProductListTable = ({}) => {
     new Date()
   );
 
+  const handleExport = () => {
+    alert("clicked export");
+  };
+
   const handleSelectedFilterTypeChange = (value: number) => {
     setSelectedFilterType(value);
   };
@@ -49,6 +53,7 @@ const CompetitorProductListTable = ({}) => {
         title="Product Name"
         showExport={true}
         showYearPicker={true}
+        handleExport={handleExport}
         dateFilterType={selectedFilterType}
         handleFilterTypeChange={handleSelectedFilterTypeChange}
         selectedFilterYear={selectedFilterYear}
