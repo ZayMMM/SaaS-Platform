@@ -46,6 +46,7 @@ const SaleTrendByBrandLineChart = () => {
         {...saleTrendByBrandData}
         showYearPicker={false}
         showExport={false}
+        numberOfProductInEcommerce="12,728,935,685"
       />
     </>
   );

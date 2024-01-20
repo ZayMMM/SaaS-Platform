@@ -59,7 +59,7 @@ const ChartFilterDropDown = ({
             <i className="mdi mdi-chevron-down"></i>
           </Button>
         </Dropdown.Toggle>
-        <Dropdown.Menu className="p-3 dropdown-menu chart-filter-dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg py-0 ">
+        <Dropdown.Menu className="p-3 dropdown-menu chart-filter-dropdown-menu dropdown-menu-animated dropdown-lg py-0 ">
           <Row className="mb-3 mainFilterDropDown">
             <Col sm={12}>
               <h5 className="mb-0 pb-0 filterTitle">Apply Filters</h5>

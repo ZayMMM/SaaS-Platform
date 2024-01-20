@@ -126,12 +126,6 @@ const Brand: React.FC<CategoryProps> = ({
             <Col sm={12} className="mb-3">
               <EcommerceSaleTrendLineChart />
             </Col>
-            <Col sm={12} className="mb-3">
-              <ProductPriceCard
-                title="Number of Products in E- Commerce"
-                price="12,728,935,685"
-              />
-            </Col>
           </Row>
         </Col>
       </Row>

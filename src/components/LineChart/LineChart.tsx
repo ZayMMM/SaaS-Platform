@@ -1,10 +1,11 @@
-import { Card } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
 import ExportButton from "../Button/ExportButton";
 import { Line } from "react-chartjs-2";
 import DateFilterDropDown from "../DateFilterDropdown/DateFilterDropDown";
 import CustomSwitch from "../Swtich/CustomSwitch";
 import ChartFilterDropDown from "../ChartFilterDropdown/ChartFilterDropDown";
 import SaleSummary from "../SaleSummary/SaleSummaryCard";
+import ProductPriceCard from "../ProductPriceCard/ProductPriceCard";
 
 interface LineChartProps {
   chartTitle?: string;
@@ -35,6 +36,7 @@ interface LineChartProps {
   period?: string;
   channel?: string;
   outlet?: string;
+  numberOfProductInEcommerce?: string;
 }
 
 const LineChart: React.FC<LineChartProps> = ({
@@ -63,6 +65,7 @@ const LineChart: React.FC<LineChartProps> = ({
   period,
   channel,
   outlet,
+  numberOfProductInEcommerce,
 }) => {
   // chart options
   const lineChartOpts = {
@@ -115,7 +118,7 @@ const LineChart: React.FC<LineChartProps> = ({
 
   return (
     <Card className="dashboard-card h-100">
-      <Card.Body>
+      <Card.Body className="pb-0">
         <div className="d-flex align-items-center justify-content-between w-100 flex-wrap gap-2">
           <p className="chartTitle mb-0">{chartTitle}</p>
           <div className="d-flex gap-2 align-items-center flex-wrap">
@@ -149,14 +152,26 @@ const LineChart: React.FC<LineChartProps> = ({
           <Line data={lineChartData} options={lineChartOpts} />
         </div>
 
-        {numberOfSale || channel || period || outlet ? (
-          <SaleSummary
-            numberOfSale={numberOfSale}
-            channel={channel}
-            period={period}
-            outlet={outlet}
-          />
-        ) : null}
+        <Row>
+          {numberOfProductInEcommerce && (
+            <Col md={12} className="p-0">
+              <ProductPriceCard
+                title="Number of Products in E- Commerce"
+                price={numberOfProductInEcommerce}
+              />
+            </Col>
+          )}
+          {numberOfSale || channel || period || outlet ? (
+            <Col md={12} className="p-0">
+              <SaleSummary
+                numberOfSale={numberOfSale}
+                channel={channel}
+                period={period}
+                outlet={outlet}
+              />
+            </Col>
+          ) : null}
+        </Row>
       </Card.Body>
     </Card>
   );
