@@ -3,10 +3,8 @@ import { Nav, Offcanvas, Tab } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import SimpleBar from "simplebar-react";
 
-// actions
 import { hideRightSidebar } from "../../redux/actions";
 
-// store
 import { AppDispatch, RootState } from "../../redux/store";
 
 interface RightSideBarProps {

@@ -9,18 +9,12 @@ import { getMenuItems } from "../helpers/menu";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 
-// constants
-import { LayoutTypes } from "../constants/layout";
-
 // components
 import AppMenu from "./Menu";
 
 import profileImg from "../assets/images/users/user-1.jpg";
 import logoSm from "../assets/images/logo-sm.png";
-import logoDark from "../assets/images/logo-dark.png";
-import logoDark2 from "../assets/images/logo-dark-2.png";
-import logoLight from "../assets/images/logo-light.png";
-import logoLight2 from "../assets/images/logo-light-2.png";
+
 import TradeLogo from "../assets/images/trade-logo.png";
 
 /* user box */
@@ -156,7 +150,7 @@ const LeftSidebar = ({ isCondensed, hideLogo }: LeftSidebarProps) => {
           <div className="logo-box">
             <Link to="/" className="logo logo-dark text-center">
               <span className="logo-sm">
-                <img src={logoSm} alt="" height="22" />
+                <img src={TradeLogo} alt="" height="22" />
               </span>
               <span className="logo-lg">
                 <img src={TradeLogo} alt="" height="20" />
@@ -164,7 +158,7 @@ const LeftSidebar = ({ isCondensed, hideLogo }: LeftSidebarProps) => {
             </Link>
             <Link to="/" className="logo logo-light text-center">
               <span className="logo-sm">
-                <img src={logoSm} alt="" height="22" />
+                <img src={TradeLogo} alt="" height="22" />
               </span>
               <span className="logo-lg">
                 <img src={TradeLogo} alt="" height="20" />

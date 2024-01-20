@@ -13,8 +13,6 @@ import { LayoutTypes, SideBarTypes } from "../../constants/layout";
 import { changeHTMLAttribute } from "../../utils";
 import { useViewport } from "../../hooks/useViewPort";
 
-// code splitting and lazy loading
-// https://blog.logrocket.com/lazy-loading-components-in-react-16-6-6cea535c0b52
 import Navbar from "./Navbar";
 import Footer from "../Footer";
 import RightSidebar from "../RightSidebar";
@@ -118,10 +116,6 @@ const HorizontalLayout = ({ children }: HorizontalLayoutProps) => {
         </Suspense>
 
         <div className="content-page">
-          {/* <Suspense fallback={loading()}>
-            <Topbar openLeftMenuCallBack={openMenu} topbarDark={false} />
-          </Suspense> */}
-
           <div className="content">
             <Container fluid>
               <Suspense fallback={loading()}>{children}</Suspense>

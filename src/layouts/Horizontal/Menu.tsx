@@ -38,8 +38,6 @@ const MenuItemWithChildren = ({
   subMenuClassNames,
   activeMenuItems,
   toggleMenu,
-  changeActiveMenuKey,
-  activeMenuKey,
 }: MenuItems) => {
   const Tag: any = tag;
   //

@@ -14,12 +14,10 @@ import { changeLayout, changeSidebarType } from "../redux/actions";
 import { changeHTMLAttribute } from "../utils";
 import { useViewport } from "../hooks/useViewPort";
 
-// code splitting and lazy loading
-// https://blog.logrocket.com/lazy-loading-components-in-react-16-6-6cea535c0b52
-const Topbar = React.lazy(() => import("./Topbar"));
-const LeftSidebar = React.lazy(() => import("./LeftSidebar"));
-const Footer = React.lazy(() => import("./Footer"));
-const RightSidebar = React.lazy(() => import("./RightSidebar/"));
+import Topbar from "./Topbar";
+import LeftSidebar from "./LeftSidebar";
+import Footer from "./Footer";
+import RightSidebar from "./RightSidebar";
 
 const loading = () => <div className=""></div>;
 
