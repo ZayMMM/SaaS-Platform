@@ -1,19 +1,15 @@
 import React from "react";
 import { Route, RouteProps } from "react-router-dom";
 
-// components
 import PrivateRoute from "./PrivateRoute";
-// import Root from './Root';
 
-// lazy load all the views
-
-// auth
 const Login = React.lazy(() => import("../pages/auth/Login"));
 
 const Home = React.lazy(() => import("../pages/home/Home"));
 const IndividualData = React.lazy(
   () => import("../pages/individual/IndividualData")
 );
+const Support = React.lazy(() => import("../pages/support/Support"));
 
 export interface RoutesProps {
   path: RouteProps["path"];
@@ -27,16 +23,8 @@ export interface RoutesProps {
   children?: RoutesProps[];
 }
 
-// root routes
-// const rootRoute: RoutesProps = {
-//     path: '/',
-//     exact: true,
-//     element: () => <Root />,
-//     route: Route,
-// };
-
 // dashboards
-const dashboardRoutes: RoutesProps = {
+const privateRoutes: RoutesProps = {
   path: "/dashboard",
   name: "Dashboards",
   icon: "airplay",
@@ -54,6 +42,12 @@ const dashboardRoutes: RoutesProps = {
       element: <IndividualData />,
       route: PrivateRoute,
     },
+    {
+      path: "/support",
+      name: "Support",
+      element: <Support />,
+      route: PrivateRoute,
+    },
   ],
 };
 
@@ -67,7 +61,6 @@ const authRoutes: RoutesProps[] = [
   },
 ];
 
-// flatten the list of all nested routes
 const flattenRoutes = (routes: RoutesProps[]) => {
   let flatRoutes: RoutesProps[] = [];
 
@@ -83,7 +76,7 @@ const flattenRoutes = (routes: RoutesProps[]) => {
 };
 
 // All routes
-const authProtectedRoutes = [dashboardRoutes];
+const authProtectedRoutes = [privateRoutes];
 const publicRoutes = [...authRoutes];
 
 const authProtectedFlattenRoutes = flattenRoutes([...authProtectedRoutes]);

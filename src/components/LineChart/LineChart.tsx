@@ -16,8 +16,6 @@ interface LineChartProps {
   showYearPicker?: boolean;
   showExport?: boolean;
   handleExport?: any;
-  selectedDate?: Date;
-  onDateChange?: (date: any) => void;
   showLegend?: boolean;
   dateFilterType?: number;
   handleFilterTypeChange?: any;

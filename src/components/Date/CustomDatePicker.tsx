@@ -85,7 +85,11 @@ const CustomDatePicker = (props: HyperDatepickerProps) => {
   // handle custom input
   // ;
 
-  const formattedValue = format(props.value, props.dateFormat || "MM/dd/yyyy");
+  let formattedValue = "";
+
+  if (props.value) {
+    formattedValue = format(props.value, props.dateFormat || "MM/dd/yyyy");
+  }
 
   console.log(formattedValue);
 

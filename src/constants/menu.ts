@@ -43,6 +43,7 @@ const MENU_ITEMS: MenuItemTypes[] = [
     icon: "fe-aperture",
     label: "Support",
     isTitle: false,
+    url: "/support",
   },
   {
     key: "logout",
@@ -80,6 +81,7 @@ const HORIZONTAL_MENU_ITEMS: MenuItemTypes[] = [
     icon: "fe-aperture",
     label: "Support",
     isTitle: false,
+    url: "/support",
   },
 ];
 

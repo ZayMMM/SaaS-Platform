@@ -18,9 +18,7 @@ interface BarChartProps {
   colors?: string[];
   showYearPicker?: boolean;
   showExport?: boolean;
-  selectedDate?: Date;
   handleExport?: any;
-  onDateChange?: (date: any) => void;
   dateFilterType?: number;
   handleFilterTypeChange?: any;
   selectedFilterYear?: Date;
