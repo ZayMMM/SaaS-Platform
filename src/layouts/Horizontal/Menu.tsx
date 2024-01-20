@@ -210,7 +210,7 @@ const MenuItemLink = ({
       >
         {item.icon && (
           <span className="menu-icon">
-            <FeatherIcon icon={item.icon} className="hori-icon me-1" />
+            <i className={`${item.icon} hori-icon me-1`} />
           </span>
         )}
 

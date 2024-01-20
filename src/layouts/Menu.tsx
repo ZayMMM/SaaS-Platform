@@ -27,8 +27,6 @@ const MenuItemWithChildren = ({
   subMenuClassNames,
   activeMenuItems,
   toggleMenu,
-  activeMenuKey,
-  changeActiveMenuKey,
 }: SubMenus) => {
   const [open, setOpen] = useState<boolean>(
     activeMenuItems!.includes(item.key)
@@ -61,7 +59,7 @@ const MenuItemWithChildren = ({
       >
         {item.icon && (
           <span className="menu-icon">
-            <FeatherIcon icon={item.icon} />{" "}
+            <i className={`${item.icon} hori-icon me-1`} />
           </span>
         )}
         <span className="menu-text"> {item.label} </span>
@@ -141,7 +139,7 @@ const MenuItem = ({
 const MenuItemLink = ({
   item,
   className,
-  activeMenuKey,
+
   changeActiveMenuKey,
 }: SubMenus) => {
   return (
@@ -154,7 +152,7 @@ const MenuItemLink = ({
     >
       {item.icon && (
         <span className="menu-icon">
-          <FeatherIcon icon={item.icon} />{" "}
+          <i className={`${item.icon} hori-icon me-1`} />
         </span>
       )}
       <span className="menu-text"> {item.label} </span>
