@@ -216,7 +216,7 @@ const MenuItemLink = ({
           </span>
         )}
 
-        {item.logo && <img src={item.logo} />}
+        {item.logo && <img src={item.logo} alt="logo" />}
         <span className="menu-text"> {item.label} </span>
       </Link>
     </li>
@@ -340,10 +340,12 @@ const AppMenu = ({ menuItems }: AppMenuProps) => {
                   activeMenuKey={activeMenuKey}
                   changeActiveMenuKey={changeActiveMenuKey}
                   className={classNames({
-                    "menuitem-active": activeMenuKey == item.key,
+                    "menuitem-active":
+                      !item.isTitle && activeMenuKey == item.key,
                   })}
                   linkClassName={classNames({
-                    "menuitem-active": activeMenuKey == item.key,
+                    "menuitem-active":
+                      !item.isTitle && activeMenuKey == item.key,
                   })}
                 />
               )}

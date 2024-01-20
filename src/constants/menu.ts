@@ -65,21 +65,21 @@ const HORIZONTAL_MENU_ITEMS: MenuItemTypes[] = [
     key: "home",
     icon: "home",
     label: "Home",
-    isTitle: true,
+    isTitle: false,
     url: "/home",
   },
   {
     key: "individual-data",
     icon: "bar-chart",
     label: "Individual Data",
-    isTitle: true,
+    isTitle: false,
     url: "/individual",
   },
   {
     key: "support",
     icon: "aperture",
     label: "Support",
-    isTitle: true,
+    isTitle: false,
   },
 ];
 

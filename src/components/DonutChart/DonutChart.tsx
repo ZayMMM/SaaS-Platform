@@ -70,7 +70,7 @@ const DonutChart: React.FC<DonutChartProps> = ({
           {showFilter && <ChartFilterDropDown />}
         </div>
 
-        <div className="chartjs-chart min-w-250">
+        <div className="chartjs-chart min-w-250 mt-3">
           <Doughnut data={donutChartData} options={donutChartOpts} />
         </div>
       </Card.Body>

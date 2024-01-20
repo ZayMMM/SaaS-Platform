@@ -74,12 +74,12 @@ const Brand: React.FC<CategoryProps> = ({
           </Form.Group>
         </Col>
 
-        <Col md={8} className="mb-3">
+        <Col md={6} lg={8} className="mb-3">
           <AverageProductPriceTrendLineChart />
         </Col>
 
         {stockAvailabilityData && (
-          <Col md={4}>
+          <Col md={6} lg={4}>
             <Row>
               <Col sm={12} className="mb-3">
                 <DonutChart {...stockAvailabilityData} showFilter={true} />
@@ -94,11 +94,11 @@ const Brand: React.FC<CategoryProps> = ({
           </Col>
         )}
 
-        <Col md={7} className="mb-3">
+        <Col md={6} lg={7} className="mb-3">
           <MarketShareData />
         </Col>
 
-        <Col md={5}>
+        <Col md={6} lg={5}>
           <Row>
             <Col sm={12} className="mb-3">
               <BrandMentionLineChart />
@@ -109,19 +109,19 @@ const Brand: React.FC<CategoryProps> = ({
           </Row>
         </Col>
 
-        <Col md={5} className="mb-3">
+        <Col md={6} lg={5} className="mb-3">
           <SkuByBrandBarChart />
         </Col>
 
-        <Col md={7} className="mb-3">
+        <Col md={6} lg={7} className="mb-3">
           <TotalSaleByBrandBarChart />
         </Col>
 
-        <Col md={7} className="mb-3">
+        <Col md={6} lg={7} className="mb-3">
           <TopSaleBrandInLineChart />
         </Col>
 
-        <Col md={5}>
+        <Col md={6} lg={5}>
           <Row>
             <Col sm={12} className="mb-3">
               <EcommerceSaleTrendLineChart />

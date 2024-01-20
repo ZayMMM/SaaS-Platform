@@ -127,7 +127,7 @@ const BarChart: React.FC<BarChartProps> = ({
       <Card.Body>
         <div className="d-flex align-items-center justify-content-between w-100 flex-wrap gap-2">
           <p className="chartTitle mb-0">{chartTitle}</p>
-          <div className="d-flex gap-2 align-items-center">
+          <div className="d-flex gap-2 align-items-center flex-wrap">
             {showSwitch && (
               <CustomSwitch
                 leftLabel={switchLeftLabel}
@@ -151,7 +151,7 @@ const BarChart: React.FC<BarChartProps> = ({
             <ExportButton />
           </div>
         </div>
-        <div className="chartjs-chart line-chart-min-320">
+        <div className="chartjs-chart line-chart-min-320 mt-3">
           <Bar data={barChartData} options={barChartOpts} />
         </div>
 

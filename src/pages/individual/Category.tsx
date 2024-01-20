@@ -45,19 +45,19 @@ const Category: React.FC<CategoryProps> = ({
           </Form.Group>
         </Col>
 
-        <Col md={7} className="mb-3">
+        <Col md={6} lg={7} className="mb-3">
           <MarketShareData />
         </Col>
 
-        <Col md={5} className="mb-3">
+        <Col md={6} lg={5} className="mb-3">
           <SaleTrendByCategory />
         </Col>
 
-        <Col md={7} className="mb-3">
+        <Col md={6} lg={7} className="mb-3">
           <TopSaleBrandInCategory />
         </Col>
 
-        <Col md={5} className="mb-3">
+        <Col md={6} lg={5} className="mb-3">
           <SaleTrendByBrandLineChart />
         </Col>
 
