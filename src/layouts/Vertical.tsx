@@ -7,11 +7,15 @@ import { RootState, AppDispatch } from "../redux/store";
 import { LayoutTypes, SideBarTypes } from "../constants/layout";
 import { changeLayout, changeSidebarType } from "../redux/actions";
 
+// constants
+// import { LayoutTypes, SideBarTypes } from '../constants';
+
 // utils
 import { changeHTMLAttribute } from "../utils";
 import { useViewport } from "../hooks/useViewPort";
 
 import Topbar from "./Topbar";
+import LeftSidebar from "./LeftSidebar";
 import Footer from "./Footer";
 import RightSidebar from "./RightSidebar";
 
@@ -124,9 +128,16 @@ const VerticalLayout = ({ children }: VerticalLayoutProps) => {
     }
   };
 
+  const isCondensed: boolean =
+    leftSideBarType === SideBarTypes.LEFT_SIDEBAR_TYPE_CONDENSED;
+
   return (
     <>
       <div id="wrapper">
+        <Suspense fallback={loading()}>
+          <LeftSidebar isCondensed={isCondensed} hideLogo={false} />
+        </Suspense>
+
         <div className="content-page">
           <Suspense fallback={loading()}>
             <Topbar openLeftMenuCallBack={openMenu} />

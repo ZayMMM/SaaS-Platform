@@ -8,7 +8,10 @@ import { showRightSidebar, changeSidebarType } from "../redux/actions";
 import { RootState, AppDispatch } from "../redux/store";
 
 //constants
-import { SideBarTypes } from "../constants/layout";
+import { LayoutTypes, SideBarTypes } from "../constants/layout";
+
+import profilePic from "../assets/images/users/user-1.jpg";
+import avatar4 from "../assets/images/users/user-4.jpg";
 
 import { useViewport } from "../hooks/useViewPort";
 import TradeLogo from "../assets/images/trade-logo.png";
@@ -47,6 +50,9 @@ const Topbar = ({
     leftSideBarType: state.Layout.leftSideBarType,
   }));
 
+  /**
+   * Toggle the leftmenu when having mobile screen
+   */
   const handleLeftMenuCallBack = () => {
     if (width < 1140) {
       if (leftSideBarType === "full") {
@@ -104,6 +110,22 @@ const Topbar = ({
       document.body.style.overflow = "visible";
     }
   }
+
+  /**
+   * Toggles the right sidebar
+   */
+  const handleRightSideBar = () => {
+    dispatch(showRightSidebar());
+  };
+
+  /**
+   * Toggles the left sidebar width
+   */
+  // const toggleLeftSidebarWidth = () => {
+  //   if (leftSideBarType === 'default' || leftSideBarType === 'compact')
+  //     dispatch(changeSidebarType(SideBarTypes.LEFT_SIDEBAR_TYPE_CONDENSED));
+  //   if (leftSideBarType === 'condensed') dispatch(changeSidebarType(SideBarTypes.LEFT_SIDEBAR_TYPE_DEFAULT));
+  // };
 
   return (
     <React.Fragment>

@@ -37,7 +37,7 @@ const BottomLink = () => {
 const Login = () => {
   return (
     <>
-      <AuthLayout bottomLinks={<BottomLink />}>
+      <AuthLayout>
         <form>
           <EmailInput
             type="text"

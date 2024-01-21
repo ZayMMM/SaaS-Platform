@@ -5,18 +5,10 @@ import { Link } from "react-router-dom";
 import LoginBanner from "../../assets/images/LoginBanner3.png";
 
 interface AccountLayoutProps {
-  helpText?: string;
-  bottomLinks?: any;
-  isCombineForm?: boolean;
   children?: any;
 }
 
-const AuthLayout = ({
-  helpText,
-  bottomLinks,
-  children,
-  isCombineForm,
-}: AccountLayoutProps) => {
+const AuthLayout = ({ children }: AccountLayoutProps) => {
   useEffect(() => {
     if (document.body)
       document.body.classList.add(
@@ -41,6 +33,7 @@ const AuthLayout = ({
         style={{
           position: "relative",
         }}
+        alt="Login banner"
       />
       <div className="account-pages">
         <Card className="bg-pattern login-card">
