@@ -6,12 +6,12 @@
 .chartTitle {
   font-size: 16px;
   font-weight: 600;
-  color: #000000;
+  color: var(--chart-color);
 }
 
 .chartSubTitle {
   font-size: 12px;
-  color: #8c8c8c;
+  color: var(--chart-color);
 }
 
 .export-btn {

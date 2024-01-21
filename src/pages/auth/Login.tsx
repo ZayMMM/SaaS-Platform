@@ -6,6 +6,8 @@ import SupportImage from "../../assets/images/support.png";
 import AuthLayout from "./AuthLayout";
 import EmailInput from "../../components/EmailInput";
 import FormInput from "../../components/FormInput";
+import ErrorAlert from "../../components/Alert/ErrorAlert";
+import SuccessAlert from "../../components/Alert/SuccessAlert";
 
 /* bottom links */
 const BottomLink = () => {
@@ -38,6 +40,8 @@ const Login = () => {
   return (
     <>
       <AuthLayout>
+        <ErrorAlert error="Error Alert" />
+        <SuccessAlert error="Success Alert" />
         <form>
           <EmailInput
             type="text"
@@ -66,7 +70,6 @@ const Login = () => {
             </Link>
           </div>
         </form>
-
         <div className="text-center">
           <BottomLink />
         </div>
