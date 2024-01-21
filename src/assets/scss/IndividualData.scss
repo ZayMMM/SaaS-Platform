@@ -2,6 +2,12 @@ body {
   background-color: #fff !important;
 }
 
+html[data-bs-theme="dark"] {
+  body {
+    background-color: #303841 !important;
+  }
+}
+
 .average-product-price-card {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;
 }
