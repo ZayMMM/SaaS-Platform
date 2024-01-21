@@ -16,7 +16,6 @@ import { changeHTMLAttribute } from "../utils";
 import { useViewport } from "../hooks/useViewPort";
 
 import Topbar from "./Topbar";
-import LeftSidebar from "./LeftSidebar";
 import Footer from "./Footer";
 import RightSidebar from "./RightSidebar";
 
@@ -107,13 +106,6 @@ const DetachedLayout = ({ children }: VerticalLayoutProps) => {
     changeHTMLAttribute("data-topbar-color", topbarTheme);
   }, [topbarTheme]);
 
-  // useEffect(() => {
-  //   changeHTMLAttribute('data-sidebar-user', showSidebarUserInfo);
-  // }, [showSidebarUserInfo]);
-
-  /**
-   * Open the menu when having mobile screen
-   */
   const openMenu = () => {
     setIsMenuOpened((prevState) => !prevState);
     if (document.body) {
@@ -125,9 +117,6 @@ const DetachedLayout = ({ children }: VerticalLayoutProps) => {
     }
   };
 
-  const isCondensed =
-    leftSideBarType === SideBarTypes.LEFT_SIDEBAR_TYPE_CONDENSED;
-
   return (
     <>
       <div id="wrapper">
@@ -137,9 +126,6 @@ const DetachedLayout = ({ children }: VerticalLayoutProps) => {
             navCssClasses="topnav-navbar topnav-navbar-dark"
             topbarDark={true}
           />
-        </Suspense>
-        <Suspense fallback={loading()}>
-          <LeftSidebar isCondensed={isCondensed} />
         </Suspense>
 
         <div className="content-page">
