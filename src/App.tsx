@@ -2,11 +2,8 @@ import React from "react";
 
 import AllRoutes from "./routes/Routes";
 
-import { configureFakeBackend } from "./helpers";
-
-
 // For Default import Default.scss
-import './assets/scss/Default.scss';
+import "./assets/scss/Default.scss";
 
 // For Saas import Saas.scss
 // import './assets/scss/Saas.scss';
@@ -23,13 +20,9 @@ import './assets/scss/Default.scss';
 // For Material demo import Material.scss
 // import './assets/scss/Material.scss';
 
-
 // Other
-import './assets/scss/Landing.scss';
+import "./assets/scss/Landing.scss";
 import "./assets/scss/Icons.scss";
-
-// configure fake backend
-configureFakeBackend();
 
 const App = () => {
   return (
