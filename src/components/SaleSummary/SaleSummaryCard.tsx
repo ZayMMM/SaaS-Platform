@@ -18,19 +18,19 @@ const SaleSummary = ({
       <Card className="sale-summary-card">
         <Card.Body className="py-1">
           <Row>
-            <Col md={3}>
+            <Col md={3} lg={6}>
               <h5 className="title">Number of Sales</h5>
               <p className="subTitle fs-32">{numberOfSale}</p>
             </Col>
-            <Col md={3}>
+            <Col md={3} lg={6}>
               <h5 className="title">Period</h5>
               <p className="subTitle">{period}</p>
             </Col>
-            <Col md={3}>
+            <Col md={3} lg={6}>
               <h5 className="title">Channel</h5>
               <p className="subTitle">{channel}</p>
             </Col>
-            <Col md={3}>
+            <Col md={3} lg={6}>
               <h5 className="title">Outlet</h5>
               <p className="subTitle">{outlet}</p>
             </Col>

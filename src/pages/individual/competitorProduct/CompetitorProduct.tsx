@@ -13,22 +13,22 @@ const CompetitorProduct = () => {
         <Col sm={12} className="mb-3">
           <h3>Competitor Product</h3>
         </Col>
-        <Col md={6} className="mb-3">
+        <Col md={6} lg={4} className="mb-3">
           <CompetitorProductListTable />
         </Col>
-        <Col md={6} className="mb-3">
+        <Col md={6} lg={4} className="mb-3">
           <CompetitorPriceTrendLineChart />
         </Col>
-        <Col md={6} className="mb-3">
+        <Col md={6} lg={4} className="mb-3">
           <CompetitorProductSaleTrendLineChart />
         </Col>
-        <Col md={6} className="mb-3">
+        <Col md={6} lg={4} className="mb-3">
           <CompetitorStockAvailability />
         </Col>
-        <Col md={6} className="mb-3">
+        <Col md={6} lg={4} className="mb-3">
           <CompetitorBrandMentionLineChart />
         </Col>
-        <Col md={6} className="mb-3">
+        <Col md={6} lg={4} className="mb-3">
           <VerticalSocialMedia />
         </Col>
       </Row>

@@ -97,20 +97,20 @@ const Product: React.FC<CategoryProps> = ({
           <h3>My Product</h3>
         </Col>
 
-        <Col md={6} className="mb-3">
+        <Col md={6} lg={4} className="mb-3">
           <MyProductListTable />
         </Col>
 
-        <Col md={6} className="mb-3">
+        <Col md={6} lg={4} className="mb-3">
           <MyProductPriceTrendLineChart />
         </Col>
 
-        <Col md={6} className="mb-3">
+        <Col md={6} lg={4} className="mb-3">
           <MyProductSaleTrendLineChart />
         </Col>
 
         {myStockAvailabilityData && (
-          <Col md={6} className="mb-3">
+          <Col md={6} lg={4} className="mb-3">
             <DonutChart
               {...myStockAvailabilityData}
               showLegend={true}
@@ -119,11 +119,11 @@ const Product: React.FC<CategoryProps> = ({
           </Col>
         )}
 
-        <Col md={6} className="mb-3">
+        <Col md={6} lg={4} className="mb-3">
           <MyProductBrandMentionLineChart />
         </Col>
 
-        <Col md={6} className="mb-3">
+        <Col md={6} lg={4} className="mb-3">
           <VerticalSocialMedia />
         </Col>
       </Row>

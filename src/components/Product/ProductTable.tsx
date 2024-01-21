@@ -39,7 +39,7 @@ const ProductTable = ({
 }: ProductTableProps) => {
   return (
     <>
-      <Card className="dashboard-card h-100">
+      <Card className="dashboard-card">
         <Card.Body className="pb-1">
           <div className="d-flex align-items-center justify-content-between w-100 flex-wrap gap-2">
             <p className="chartTitle mb-0">{title}</p>
