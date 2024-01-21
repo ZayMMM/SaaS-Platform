@@ -1,8 +1,6 @@
 import React from "react";
 import { Route, RouteProps } from "react-router-dom";
 
-import PrivateRoute from "./PrivateRoute";
-
 const Login = React.lazy(() => import("../pages/auth/Login"));
 
 const Home = React.lazy(() => import("../pages/home/Home"));
@@ -34,19 +32,16 @@ const privateRoutes: RoutesProps = {
       path: "/home",
       name: "Home",
       element: <Home />,
-      route: PrivateRoute,
     },
     {
       path: "/individual",
       name: "Individual",
       element: <IndividualData />,
-      route: PrivateRoute,
     },
     {
       path: "/support",
       name: "Support",
       element: <Support />,
-      route: PrivateRoute,
     },
   ],
 };
