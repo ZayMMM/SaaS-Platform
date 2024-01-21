@@ -20,7 +20,7 @@ const SaleSummary = ({
           <Row>
             <Col md={3}>
               <h5 className="title">Number of Sales</h5>
-              <p className="subTitle fs-26">{numberOfSale}</p>
+              <p className="subTitle fs-24">{numberOfSale}</p>
             </Col>
             <Col md={3}>
               <h5 className="title">Period</h5>
