@@ -212,11 +212,19 @@ html[data-topbar-color="light"] {
 
 // Dark Topbar
 html[data-topbar-color="dark"],
-html[data-bs-theme="dark"][data-topbar-color="light"] {
+html[data-bs-theme="dark"] {
   --#{$prefix}topbar-bg: #38414a;
   --#{$prefix}topbar-item-color: rgba(255, 255, 255, 0.6);
   --#{$prefix}topbar-item-hover-color: #bccee4;
   --#{$prefix}topbar-search-bg: #464f5b;
+}
+
+html[data-topbar-color="light"],
+html[data-bs-theme="light"] {
+  --#{$prefix}topbar-bg: #fff;
+  --#{$prefix}topbar-item-color: #{$gray-700};
+  --#{$prefix}topbar-item-hover-color: #{$primary};
+  --#{$prefix}topbar-search-bg: #{tint-color($gray-200, 10%)};
 }
 
 // Brand Topbar

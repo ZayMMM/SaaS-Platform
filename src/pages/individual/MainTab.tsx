@@ -3,15 +3,7 @@ import Category from "./Category";
 import Brand from "./Brand";
 import Product from "./Product";
 import { useState } from "react";
-import {
-  myBrandMentionData,
-  myProductList,
-  myProductPriceTrendData,
-  mySaleTrendData,
-  myStockAvailabilityData,
-  topSaleProductList,
-} from "./data";
-import EmptyData from "../../components/EmptyData/EmptyData";
+import { myStockAvailabilityData } from "./data";
 
 interface TabContentType {
   id: number;
@@ -19,35 +11,6 @@ interface TabContentType {
 }
 
 const MainTab = () => {
-  const [marketShareFilterDate, setMarketShareFilterDate] = useState(
-    new Date()
-  );
-
-  const [numberOfSkuByBrandDate, setNumberOfSkuByBrandDate] = useState(
-    new Date()
-  );
-  const [totalSaleByEachBrandDate, setTotalSaleByEachBrandDate] = useState(
-    new Date()
-  );
-
-  const marketShareDateChange = (date: Date) => {
-    if (date) {
-      setMarketShareFilterDate(date);
-    }
-  };
-
-  const numberOfSkuByBrandDateChange = (date: Date) => {
-    if (date) {
-      setNumberOfSkuByBrandDate(date);
-    }
-  };
-
-  const totalSaleByEachBrandDateChange = (date: Date) => {
-    if (date) {
-      setTotalSaleByEachBrandDate(date);
-    }
-  };
-
   const tabContents: TabContentType[] = [
     {
       id: 1,
