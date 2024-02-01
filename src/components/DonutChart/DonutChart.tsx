@@ -29,19 +29,14 @@ const DonutChart: React.FC<DonutChartProps> = ({
   const donutChartOpts = {
     maintainAspectRatio: false,
     cutoutPercentage: 60,
-    title: {
-      display: true,
-      text: chartTitle,
-      fontSize: 16,
-    },
-
     plugins: {
       legend: {
-        display: showLegend,
+        display: true,
         position: "bottom" as const,
       },
+      tooltip: {},
       datalabels: {
-        display: true,
+        display: false,
         anchor: "start" as const,
         color: "#000000",
         formatter: (value: any, context: any) => {

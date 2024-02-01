@@ -26,14 +26,6 @@ const Brand: React.FC<CategoryProps> = ({
 
   stockAvailabilityData,
 }) => {
-  const [socialMediaFilterDate, setSocialMediaFilterDate] = useState(
-    new Date()
-  );
-
-  const socialMediaDateChange = (date: Date) => {
-    setSocialMediaFilterDate(date);
-  };
-
   return (
     <>
       <Row>
