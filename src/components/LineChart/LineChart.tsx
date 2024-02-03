@@ -6,6 +6,7 @@ import CustomSwitch from "../Swtich/CustomSwitch";
 import ChartFilterDropDown from "../ChartFilterDropdown/ChartFilterDropDown";
 import SaleSummary from "../SaleSummary/SaleSummaryCard";
 import ProductPriceCard from "../ProductPriceCard/ProductPriceCard";
+import { ChartArea } from "chart.js";
 
 interface LineChartProps {
   chartTitle?: string;
@@ -37,6 +38,7 @@ interface LineChartProps {
   outlet?: string;
   numberOfProductInEcommerce?: string;
   hideFilterLabel?: boolean;
+  showGradient?: boolean;
 }
 
 const LineChart: React.FC<LineChartProps> = ({
@@ -68,6 +70,7 @@ const LineChart: React.FC<LineChartProps> = ({
   outlet,
   numberOfProductInEcommerce,
   hideFilterLabel = true,
+  showGradient = false,
 }) => {
   // chart options
   const lineChartOpts = {
@@ -113,10 +116,37 @@ const LineChart: React.FC<LineChartProps> = ({
     },
   };
 
-  const lineChartData = {
-    labels: labels,
-    datasets: datasets,
-  };
+  let lineChartData;
+
+  if (showGradient) {
+    lineChartData = (canvas: any) => {
+      const ctx = canvas.getContext("2d");
+
+      var gradientStroke = ctx.createLinearGradient(0, 500, 0, 150);
+      gradientStroke.addColorStop(0, "#833ab4");
+      gradientStroke.addColorStop(0.5, "#1fa083");
+      gradientStroke.addColorStop(1, "#3677e3");
+
+      const aboveGradient = ctx.createLinearGradient(0, 500, 0, 150);
+      aboveGradient.addColorStop(0, "rgba(31, 160, 131, 0)");
+      aboveGradient.addColorStop(1, "rgba(31, 160, 131, 0.3)");
+
+      return {
+        labels: labels,
+        datasets: datasets.map((dataset: any) => ({
+          ...dataset,
+          backgroundColor: gradientStroke,
+          borderColor: gradientStroke,
+          fill: {
+            target: "origin",
+            above: aboveGradient,
+          },
+        })),
+      };
+    };
+  } else {
+    lineChartData = { labels, datasets };
+  }
 
   return (
     <Card className="dashboard-card">

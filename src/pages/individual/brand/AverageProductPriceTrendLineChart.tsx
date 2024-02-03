@@ -19,13 +19,7 @@ const AverageProductPriceTrendLineChart = () => {
     datasets: [
       {
         label: "Average Product Price Trend",
-        backgroundColor: "#1fa083",
-        borderColor: "#1fa083",
         data: [400, 600, 500, 100, 500, 400, 700, 600],
-        fill: {
-          target: "origin",
-          above: "rgba(31, 160, 131, 0.3)",
-        },
       },
     ],
   };
@@ -39,6 +33,7 @@ const AverageProductPriceTrendLineChart = () => {
         showLegend={false}
         showFilter={true}
         hideFilterLabel={false}
+        showGradient={true}
       />
     </>
   );

@@ -30,8 +30,11 @@ interface BarChartProps {
   selectedMonth?: number;
   handleMonthChange?: any;
   topSalePercent?: string;
+  upTopSalePercent?: boolean;
   yourBrandSalePercent?: string;
+  upYourBrandSalePercent?: boolean;
   topBrandSalePercent?: string;
+  upTopBrandSalePercent?: boolean;
   showSwitch?: boolean;
   switchLeftLabel?: string;
   switchRightLabel?: string;
@@ -56,8 +59,11 @@ const BarChart: React.FC<BarChartProps> = ({
   selectedMonth,
   handleMonthChange,
   topSalePercent,
+  upTopSalePercent = true,
   topBrandSalePercent,
+  upTopBrandSalePercent = true,
   yourBrandSalePercent,
+  upYourBrandSalePercent = true,
   showSwitch,
   switchLeftLabel = "",
   switchRightLabel = "",
@@ -164,7 +170,7 @@ const BarChart: React.FC<BarChartProps> = ({
                 <TopSaleCard
                   title="Top Sales"
                   percent="10%"
-                  isUp={true}
+                  isUp={upTopSalePercent}
                   subTitle="last mth"
                 />
               </Col>
@@ -174,7 +180,7 @@ const BarChart: React.FC<BarChartProps> = ({
                 <TopSaleCard
                   title="Top Brand Sales"
                   percent="10%"
-                  isUp={false}
+                  isUp={upTopBrandSalePercent}
                   subTitle="last mth"
                 />
               </Col>
@@ -184,7 +190,7 @@ const BarChart: React.FC<BarChartProps> = ({
                 <TopSaleCard
                   title="Your Brand Sale"
                   percent="10%"
-                  isUp={false}
+                  isUp={upYourBrandSalePercent}
                   subTitle="last mth"
                 />
               </Col>
