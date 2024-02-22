@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Collapse } from "react-bootstrap";
 import classNames from "classnames";
-import FeatherIcon from "feather-icons-react";
 
 //helpers
 import { findAllParent, findMenuItem } from "../helpers/menu";
