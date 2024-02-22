@@ -71,7 +71,7 @@ const MyProductTable = ({
             </div>
           </div>
           <div className="table-responsive mt-4 table-vertical-scroll">
-            <table className="table table-borderless table-hover table-nowrap table-centered m-0 ">
+            <table className="table table-borderless table-hover table-centered m-0 ">
               <thead className="table-light">
                 <tr>
                   <th>Product</th>
@@ -84,16 +84,20 @@ const MyProductTable = ({
                 {(productList || []).map((item: any, i: number) => {
                   return (
                     <tr key={item.id}>
-                      <td>{item.product}</td>
+                      <td className="td-column-200">{item.product}</td>
                       <td>{item.brand}</td>
                       <td>
                         <span className="badge bg-soft-success text-success">
-                          {item.brand}
+                          {item.category}
                         </span>
                       </td>
                       <td>
                         {item.image ? (
-                          <Image src={item.image} className="rounded" />
+                          <Image
+                            src={item.image}
+                            className="rounded"
+                            height={"40px"}
+                          />
                         ) : null}
                       </td>
                     </tr>
