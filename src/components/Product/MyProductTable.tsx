@@ -108,12 +108,12 @@ const MyProductTable = ({
           </div>
           <Row className="mt-3">
             {currentPrice && (
-              <Col sm={6} lg={4}>
+              <Col sm={6} lg={6}>
                 <ProductSummary title="Current Price" value={currentPrice} />
               </Col>
             )}
             {currentAvailability && (
-              <Col sm={6} lg={4}>
+              <Col sm={6} lg={6}>
                 <ProductSummary
                   title="Current Availability"
                   value={currentAvailability}
@@ -121,7 +121,7 @@ const MyProductTable = ({
               </Col>
             )}
             {totalSaleValue && (
-              <Col sm={6} lg={4}>
+              <Col sm={6} lg={6}>
                 <ProductSummary
                   title="Total Sales"
                   value={totalSaleValue}
