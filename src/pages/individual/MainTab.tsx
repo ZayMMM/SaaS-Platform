@@ -1,8 +1,7 @@
-import { Nav, Row, Tab } from "react-bootstrap";
+import { Nav, Tab } from "react-bootstrap";
 import Category from "./Category";
 import Brand from "./Brand";
 import Product from "./Product";
-import { useState } from "react";
 import { myStockAvailabilityData } from "./data";
 
 interface TabContentType {

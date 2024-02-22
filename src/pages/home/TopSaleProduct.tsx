@@ -1,28 +1,8 @@
-import { Card, Image } from "react-bootstrap";
-import CustomDatePicker from "../../components/Date/CustomDatePicker";
-import ExportButton from "../../components/Button/ExportButton";
-import DateFilterDropDown from "../../components/DateFilterDropdown/DateFilterDropDown";
 import { topSaleProductList } from "./data";
 import { useState } from "react";
 import ProductTable from "../../components/Product/ProductTable";
 
-interface TopSaleProductProps {
-  topSaleProductList: {
-    id: number;
-    product: string;
-    brand: string;
-    ecommerceSite: string;
-    image?: string;
-    saleUsd?: string;
-    priceUsd?: string;
-  }[];
-  showYearPicker?: boolean;
-  showExport?: boolean;
-  selectedDate?: Date;
-  onDateChange?: (date: any) => void;
-}
-
-const TopSaleProduct = ({}) => {
+const TopSaleProduct = () => {
   const [selectedFilterType, setSelectedFilterType] = useState(1);
   const [selectedFilterYear, setSelectedFilterYear] = useState<Date>(
     new Date()

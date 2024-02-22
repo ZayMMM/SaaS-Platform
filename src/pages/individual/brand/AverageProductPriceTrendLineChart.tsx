@@ -1,4 +1,3 @@
-import { useState } from "react";
 import LineChart from "../../../components/LineChart/LineChart";
 
 const AverageProductPriceTrendLineChart = () => {

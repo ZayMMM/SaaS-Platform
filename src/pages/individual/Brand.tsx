@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import Select from "react-select";
 import DonutChart from "../../components/DonutChart/DonutChart";

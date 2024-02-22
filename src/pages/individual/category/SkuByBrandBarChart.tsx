@@ -1,5 +1,4 @@
 import { useState } from "react";
-import LineChart from "../../../components/LineChart/LineChart";
 import BarChart from "../../../components/BarChart/BarChart";
 
 const SkuByBrandBarChart = () => {
