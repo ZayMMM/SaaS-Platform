@@ -40,7 +40,7 @@ const ProductTable = ({
   return (
     <>
       <Card className="dashboard-card">
-        <Card.Body className="pb-1">
+        <Card.Body>
           <div className="d-flex align-items-center justify-content-between w-100 flex-wrap gap-2">
             <p className="chartTitle mb-0">{title}</p>
             <div className="d-flex gap-2 align-items-center">
@@ -62,7 +62,7 @@ const ProductTable = ({
             </div>
           </div>
           <div className="table-responsive mt-4 table-vertical-scroll">
-            <table className="table table-borderless table-hover table-nowrap table-centered m-0 ">
+            <table className="table table-borderless  table-hover  table-centered m-0 ">
               <thead className="table-light">
                 <tr>
                   <th>Product</th>
@@ -77,7 +77,7 @@ const ProductTable = ({
                 {(productList || []).map((item: any, i: number) => {
                   return (
                     <tr key={item.id}>
-                      <td>{item.product}</td>
+                      <td className="td-column-200">{item.product}</td>
                       <td>
                         {item.brand}
                         <br />
@@ -85,14 +85,18 @@ const ProductTable = ({
                           Customer
                         </span>
                       </td>
-                      <td>{item.brand}</td>
+                      <td>{item.ecommerceSite}</td>
                       <td>
                         {item.image ? (
-                          <Image src={item.image} className="rounded" />
+                          <Image
+                            src={item.image}
+                            className="rounded"
+                            height={"40px"}
+                          />
                         ) : null}
                       </td>
-                      <td>{item.brand}</td>
-                      <td>{item.brand}</td>
+                      <td>{item.saleUsd}</td>
+                      <td>{item.priceUsd}</td>
                     </tr>
                   );
                 })}

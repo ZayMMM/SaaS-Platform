@@ -9,7 +9,6 @@ import MyProductListTable from "./product/MyProductListTable";
 import MyProductPriceTrendLineChart from "./product/MyProductPriceTrendLineChart";
 import MyProductSaleTrendLineChart from "./product/MyProductSaleTrendLineChart";
 import MyProductBrandMentionLineChart from "./product/MyProductBrandMentionLineChart";
-import SocialMediaCard from "./HorizontalSocialMedia";
 import VerticalSocialMedia from "./product/VerticalSocialMedia";
 import CompetitorProduct from "./competitorProduct/CompetitorProduct";
 

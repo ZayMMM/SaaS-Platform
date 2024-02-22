@@ -61,6 +61,7 @@ const HORIZONTAL_MENU_ITEMS: MenuItemTypes[] = [
     label: "",
     isTitle: true,
     logo: `${Logo}`,
+    url: "/home",
   },
   {
     key: "home",

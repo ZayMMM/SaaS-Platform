@@ -134,7 +134,7 @@ const Topbar = ({
           <div className="topbar-menu w-100 d-flex align-items-center gap-1">
             {!hideLogo && (
               <div className="logo-box">
-                <Link to="/" className="logo logo-dark text-center">
+                <Link to="/home" className="logo logo-dark text-center">
                   <span className="logo-sm">
                     <img src={TradeLogo} alt="" height="40" />
                   </span>
@@ -142,7 +142,7 @@ const Topbar = ({
                     <img src={TradeLogo} alt="" height="40" />
                   </span>
                 </Link>
-                <Link to="/" className="logo logo-light text-center">
+                <Link to="/home" className="logo logo-light text-center">
                   <span className="logo-sm">
                     <img src={TradeLogo} alt="" height="22" />
                   </span>

@@ -49,7 +49,7 @@ const MyProductTable = ({
   return (
     <>
       <Card className="dashboard-card">
-        <Card.Body className="pb-1">
+        <Card.Body>
           <div className="d-flex align-items-center justify-content-between w-100 flex-wrap gap-2">
             <p className="chartTitle mb-0">{title}</p>
             <div className="d-flex gap-2 align-items-center">
@@ -71,7 +71,7 @@ const MyProductTable = ({
             </div>
           </div>
           <div className="table-responsive mt-4 table-vertical-scroll">
-            <table className="table table-borderless table-hover table-nowrap table-centered m-0 ">
+            <table className="table table-borderless table-hover table-centered m-0 ">
               <thead className="table-light">
                 <tr>
                   <th>Product</th>
@@ -84,16 +84,20 @@ const MyProductTable = ({
                 {(productList || []).map((item: any, i: number) => {
                   return (
                     <tr key={item.id}>
-                      <td>{item.product}</td>
+                      <td className="td-column-200">{item.product}</td>
                       <td>{item.brand}</td>
                       <td>
                         <span className="badge bg-soft-success text-success">
-                          {item.brand}
+                          {item.category}
                         </span>
                       </td>
                       <td>
                         {item.image ? (
-                          <Image src={item.image} className="rounded" />
+                          <Image
+                            src={item.image}
+                            className="rounded"
+                            height={"40px"}
+                          />
                         ) : null}
                       </td>
                     </tr>
@@ -104,12 +108,12 @@ const MyProductTable = ({
           </div>
           <Row className="mt-3">
             {currentPrice && (
-              <Col sm={6} lg={4}>
+              <Col sm={6} lg={6}>
                 <ProductSummary title="Current Price" value={currentPrice} />
               </Col>
             )}
             {currentAvailability && (
-              <Col sm={6} lg={4}>
+              <Col sm={6} lg={6}>
                 <ProductSummary
                   title="Current Availability"
                   value={currentAvailability}
@@ -117,7 +121,7 @@ const MyProductTable = ({
               </Col>
             )}
             {totalSaleValue && (
-              <Col sm={6} lg={4}>
+              <Col sm={6} lg={6}>
                 <ProductSummary
                   title="Total Sales"
                   value={totalSaleValue}
