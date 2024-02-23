@@ -50,6 +50,8 @@ html[data-layout="horizontal"] {
     top: $topbar-height;
     padding: 0;
     border-radius: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
     //border-top: 1px solid $topbar-search-bg;
 
     .user-box,
@@ -279,13 +281,39 @@ html[data-layout="horizontal"] {
   // display: none !important;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
+  .menu-search {
+    width: 350px !important;
+  }
+}
+
+@media (max-width: 1150px) {
+  .menu-search {
+    width: 250px !important;
+  }
+
+  html[data-layout="horizontal"] .app-menu .menu {
+    margin: 0 3% !important;
+  }
+}
+
+@media (max-width: 1030px) {
   .menu-search {
     width: 200px !important;
   }
 }
 
-@media (max-width: 820px) {
+@media (max-width: 1000px) {
+  .menu-search {
+    width: 160px !important;
+  }
+  html[data-layout="horizontal"] .app-menu .menu .menu-item {
+    position: relative;
+    padding: 0 0px;
+  }
+}
+
+@media (max-width: 850px) {
   .menu-search {
     width: 120px !important;
   }
