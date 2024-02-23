@@ -14,7 +14,10 @@ const SocialMediaItem: React.FC<SocialMediaItemProps> = ({
   count,
 }) => {
   return (
-    <div className="d-flex flex-column gap-1 align-items-center">
+    <div
+      className="d-flex flex-column gap-1 align-items-center"
+      style={{ minWidth: "40px" }}
+    >
       <img src={image} alt={altText} height={32} />
       <p className="mb-0 social-media-label">{label}</p>
       <p className="mb-0 social-media-count">{count}</p>

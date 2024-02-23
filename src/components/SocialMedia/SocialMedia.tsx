@@ -84,9 +84,16 @@ const SocialMedia = ({
             </div>
           </div>
 
-          <ListGroup horizontal className="social-media-list mt-4 ">
+          <ListGroup
+            horizontal
+            className={`social-media-list mt-4 ${
+              isVertical ? "" : " flex-wrap "
+            } `}
+          >
             <ListGroup.Item
-              className={`w-100 p-1 ${activeKey === "all" ? " active" : ""}`}
+              className={` p-1 ${activeKey === "all" ? " active" : ""} ${
+                isVertical ? "w-100" : ""
+              }`}
               onClick={() => activeKeyChange("all")}
             >
               <SocialMediaItem
@@ -97,8 +104,8 @@ const SocialMedia = ({
               />
             </ListGroup.Item>
             <ListGroup.Item
-              className={`w-100 p-1 ${
-                activeKey === "facebook" ? " active" : ""
+              className={` p-1 ${activeKey === "facebook" ? " active" : ""} ${
+                isVertical ? "w-100" : ""
               }`}
               onClick={() => activeKeyChange("facebook")}
             >
@@ -113,8 +120,8 @@ const SocialMedia = ({
             </ListGroup.Item>
 
             <ListGroup.Item
-              className={`w-100 p-1 ${
-                activeKey === "twitter" ? " active" : ""
+              className={`p-1 ${activeKey === "twitter" ? " active" : ""} ${
+                isVertical ? "w-100" : ""
               }`}
               onClick={() => activeKeyChange("twitter")}
             >
@@ -128,7 +135,9 @@ const SocialMedia = ({
               />
             </ListGroup.Item>
             <ListGroup.Item
-              className={`w-100 p-1 ${activeKey === "blog" ? " active" : ""}`}
+              className={`p-1 ${activeKey === "blog" ? " active" : ""} ${
+                isVertical ? "w-100" : ""
+              }`}
               onClick={() => activeKeyChange("blog")}
             >
               <SocialMediaItem
@@ -141,9 +150,7 @@ const SocialMedia = ({
             {!isVertical && (
               <>
                 <ListGroup.Item
-                  className={`w-100 p-1 ${
-                    activeKey === "forum" ? " active" : ""
-                  }`}
+                  className={` p-1 ${activeKey === "forum" ? " active" : ""}`}
                   onClick={() => activeKeyChange("forum")}
                 >
                   <SocialMediaItem
@@ -154,9 +161,7 @@ const SocialMedia = ({
                   />
                 </ListGroup.Item>
                 <ListGroup.Item
-                  className={`w-100 p-1 ${
-                    activeKey === "news" ? " active" : ""
-                  }`}
+                  className={` p-1 ${activeKey === "news" ? " active" : ""}`}
                   onClick={() => activeKeyChange("news")}
                 >
                   <SocialMediaItem
@@ -167,9 +172,7 @@ const SocialMedia = ({
                   />
                 </ListGroup.Item>
                 <ListGroup.Item
-                  className={`w-100 p-1 ${
-                    activeKey === "video" ? " active" : ""
-                  }`}
+                  className={` p-1 ${activeKey === "video" ? " active" : ""}`}
                   onClick={() => activeKeyChange("video")}
                 >
                   <SocialMediaItem
@@ -180,9 +183,7 @@ const SocialMedia = ({
                   />
                 </ListGroup.Item>
                 <ListGroup.Item
-                  className={`w-100 p-1 ${
-                    activeKey === "photo" ? " active" : ""
-                  }`}
+                  className={`p-1 ${activeKey === "photo" ? " active" : ""}`}
                   onClick={() => activeKeyChange("photo")}
                 >
                   <SocialMediaItem
